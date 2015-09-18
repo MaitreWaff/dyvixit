@@ -1,0 +1,36 @@
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse
+from django.template import RequestContext
+
+# Create your views here.
+def index(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/index.html', {}, context)
+
+def about(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/index.html', {}, context)
+
+def services(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/index.html', {}, context)
+
+def produits(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/index.html', {}, context)
+
+def references(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/index.html', {}, context)
+
+def contacts(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/index.html', {}, context)
+
+def move(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/move.html', {}, context)
+
+def test(request):
+    context = RequestContext(request)
+    return render_to_response('dyvixitsolutions/mycomputing.html', {}, context)
