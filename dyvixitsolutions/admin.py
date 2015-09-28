@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Consultant, Fournisseur, Client, CategoryProduit, CategoryService, Produit, Service, Commande, Facture
+from models import Consultant, Fournisseur, Client, CategoryProduit, CategoryService, Article, Info, Produit, Service, Commande, Facture
 
 # Register your models here.
 
@@ -13,37 +13,38 @@ class ClientAdmin(admin.ModelAdmin):
     list_display = ('societe', 'phone', 'email', 'address')
 
 class CategoryProduitAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('photo', 'titre', 'desc')
 
 class CategoryServiceAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('photo', 'titre', 'desc')
+
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'likes', 'link', 'desc')
+
+class InfoAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'likes', 'link', 'desc')
 
 class ProduitAdmin(admin.ModelAdmin):
-    list_display = ('libelle', 'prix_unitaire', 'quantite', 'fournisseur')
+    list_display = ('photo', 'libelle', 'prix_unitaire', 'quantite', 'fournisseur')
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'type', 'prix')
+    list_display = ('photo', 'nom', 'type', 'prix')
 
 class CommandeAdmin(admin.ModelAdmin):
     list_display = ('client',)
 
 class FactureAdmin(admin.ModelAdmin):
-    list_display = ('commande', 'date_validation')
-
-#class LigneProduitAdmin(admin.ModelAdmin):
-#    list_display = ('quantite',)
-
-#class LigneServiceAdmin(admin.ModelAdmin):
-#    list_display = ('quantite',)
+    list_display = ('commande',)
 
 admin.site.register(Consultant, ConsultantAdmin)
 admin.site.register(Fournisseur, FournisseurAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(CategoryProduit, CategoryProduitAdmin)
 admin.site.register(CategoryService, CategoryServiceAdmin)
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(Info, InfoAdmin)
 admin.site.register(Produit, ProduitAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Commande, CommandeAdmin)
 admin.site.register(Facture, FactureAdmin)
-#admin.site.register(LigneProduit, LigneProduitAdmin)
-#admin.site.register(LigneService, LigneServiceAdmin)
+

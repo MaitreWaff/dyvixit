@@ -1,4 +1,11 @@
 from django.db import models
+from time import time
+from django.utils import timezone
+
+
+# Retourne le Nom De l'Image telechargee.
+def get_upload_file_name(instance, filename):
+    return "uploaded_files/%s_%s" % (str(time()).replace('.', '_'), filename)
 
 # Create your models here.
 class Consultant(models.Model):
@@ -41,13 +48,18 @@ class Client(models.Model):
         return self.societe
 
 class Category(models.Model):
-    title = models.CharField(max_length=48, unique=True)
+    titre = models.CharField(max_length=48, unique=True)
+    desc  = models.TextField()
+    date  = models.DateTimeField('Date Creation', default=timezone.now)
+    photo = models.FileField(upload_to=get_upload_file_name, blank=True)
+
 
     class Meta:
         abstract = True
+        ordering = ['titre']
 
     def __unicode__(self):
-        return self.title
+        return self.titre
 
 class CategoryProduit(Category):
     pass
@@ -55,12 +67,32 @@ class CategoryProduit(Category):
 class CategoryService(Category):
     pass
 
+
+class Article(Category):
+    link = models.URLField()
+    likes = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return "Article - %s ( %d Likes!)" % (self.titre, self.likes)
+
+class Info(Category):
+    link = models.URLField()
+    likes = models.IntegerField(default=0)
+
+
+    def __unicode__(self):
+        return "Information - %s ( %d Likes!)" % (self.titre, self.likes)
+
+
 class Produit(models.Model):
     libelle       = models.CharField(max_length=128, unique=True)
+    desc          = models.TextField()
     category      = models.ForeignKey(CategoryProduit)
     prix_unitaire = models.IntegerField()
     quantite      = models.IntegerField(default=100)
     fournisseur   = models.ForeignKey(Fournisseur)
+    photo         = models.FileField(upload_to=get_upload_file_name, blank=True)
+    date     = models.DateTimeField('Date De Creation du Produit', default=timezone.now)
 
     class Meta:
         ordering = ['libelle']
@@ -71,9 +103,13 @@ class Produit(models.Model):
 
 class Service(models.Model):
     nom        = models.CharField(max_length=128, unique=True)
+    desc       = models.TextField()
     type       = models.ForeignKey(CategoryService)
     prix       = models.IntegerField()
     consultant = models.ForeignKey(Consultant) #ManyToManyField(Consultant)
+    photo      = models.FileField(upload_to=get_upload_file_name, blank=True)
+    date       = models.DateTimeField('Date Creation du Service', default=timezone.now)
+
 
     class Meta:
         ordering = ['nom']
@@ -88,21 +124,21 @@ class Commande(models.Model):
     quantite         = models.IntegerField(default=1)
     produit          = models.ForeignKey(Produit)
     service          = models.ForeignKey(Service)
-    date_command     = models.DateTimeField('Date De Commande')
+    date     = models.DateTimeField('Date De Commande', default=timezone.now)
 
     class Meta:
-        ordering = ['date_command']
+        ordering = ['date']
 
     #def __unicode__(self):
         #return self.numero_reference
 
 class Facture(models.Model):
     commande        = models.OneToOneField(Commande)
-    date_validation = models.DateTimeField('Date De Validation De La Commande')
+    date = models.DateTimeField('Date De Validation De La Commande', default=timezone.now)
     #total           = models.IntegerField()
 
     class Meta:
-        ordering = ['date_validation']
+        ordering = ['date']
 
     def __unicode__(self):
         return self.commande
