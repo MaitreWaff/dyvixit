@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" />
+	<!--[if lt IE 9]>
+	    <script src="http://github.com/aFarkas/html5shiv/blob/master/dist/html5shiv.js"></script>
+	<![endif]-->
+        <link href="{% static 'css/test.css' %}", rel="stylesheet" >
+        <title>DyvixITSolutions</title>
+    </head>
+    
+    <body>
+        <header>
+	    <h1>DYVIXIT<h1>
+	</header>
+
+
+	<nav>
+	    <ul>
+	        <li><a href="">Acceuil</a></li>
+	        <li><a href="">Forum</a></li>
+	        <li><a href="">Contact</a></li>
+	        <li><a href="">Questions</a></li>
+	    </ul>
+	</nav>
+
+	<div id="container">
+	<section>
+	    <h1>Ma Section I</h1>
+	    <p>Blah bla bla</p>
+	    <article>
+	        <h1>Article I</h1>
+	    </article>
+	    <aside>
+	    </aside>
+	    <aside>
+	    </aside>
+	</section>
+
+	<section>
+	    <h1>Ma Section II</h1>
+	    <p>Blah bla bla</p>
+	    <article>
+	        <h1>Article I</h1>
+	    </article>
+	    </article>
+	    <aside>
+	    </aside>
+	    <aside>
+	    </aside>
+	</section>
+
+	<section>
+	    <h1>Ma Section III</h1>
+	    <p>Blah bla bla</p>
+	    <article>
+	        <h1>Article I</h1>
+	    </article>
+	    </article>
+	    <aside>
+	    </aside>
+	    <aside>
+	    </aside>
+	</section>
+
+	<section>
+	    <h1>Ma Section IV</h1>
+	    <p>Blah bla bla</p>
+	    <article>
+	        <h1>Article I</h1>
+	    </article>
+	    </article>
+	    <aside>
+	    </aside>
+	    <aside>
+	    </aside>
+	</section>
+
+	</div><!-- Container -->
+
+	<footer>
+	    <p>Copyrigth 2015 - <em>DYvixIT</em>Solutions</p>
+	</footer>
+    </body>
+</html>

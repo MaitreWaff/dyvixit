@@ -3,5 +3,4 @@ dont/
 dyvixvirtenv/
 media/
 static/
-templates/
 db.dyvixit.sqlite3

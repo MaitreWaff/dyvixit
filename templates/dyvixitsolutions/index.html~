@@ -1,0 +1,14 @@
+{% extends 'dyvixitsolutions/base.html' %}
+{% block contenu %}
+    <section>
+        <h1>Section Index</h1>
+	<article>
+	    <h1>Article Index</h1>
+	    <p> Ici c'est l'index!!</p>
+	</article>
+	<aside>
+	    <span>Picture Index</span>
+	</aside>
+    </section>
+
+{% endblock %}

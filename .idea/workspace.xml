@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b060b38-5766-428b-9826-8aaaba641da1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dyvix_db_backup.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dyvixitsolutions/admin.py" afterPath="$PROJECT_DIR$/dyvixitsolutions/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dyvixitsolutions/models.py" afterPath="$PROJECT_DIR$/dyvixitsolutions/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="7b060b38-5766-428b-9826-8aaaba641da1" name="Default" comment="" />
     <ignored path="dyvixit.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -1,0 +1,151 @@
+{% extends 'dyvixitsolutions/base.html' %}
+{% load static %}
+
+
+{% block page-title %} Home {% endblock %}
+
+
+
+{% block navigation %}
+    <ul class="nav nav-pills nav-justified">
+        <li role="presentation"><a href="/dyvixitsolutions/"><p><span class="glyphicon glyphicon-home"></span>Acceuil</p></a></li>
+        <li role="presentation"><a href="/dyvixitsolutions/about/"><p><span class="glyphicon glyphicon-info-sign"></span>Qui sommes nous?</p></a></li>
+        <li role="presentation"><a href="/dyvixitsolutions/services/"><p><span class="glyphicon glyphicon-flag"></span>Services</p></a></li>
+        <li role="presentation"><a href="/dyvixitsolutions/produits/"><p><span class="glyphicon glyphicon-barcode"></span>Produits</p></a></li>
+        <li role="presentation" class="active"><a href="/dyvixitsolutions/references/"><p><span class="glyphicon glyphicon-globe"></span>References</p></a></li>
+        <li role="presentation"><a href="/dyvixitsolutions/contact/"><p><span class="glyphicon glyphicon-phone-alt"></span>Nous contacter</p></a></li>
+    </ul>
+{% endblock %}
+
+
+
+
+{% block slider-text %}
+    <h4>References</h4>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae explicabo autem eius excepturi saepe, velit aliquid rem earum accusamus aut sapiente, rerum harum, accusantium praesentium et quod reprehenderit consectetur vel.</p>
+{% endblock %}
+
+
+{% block header-img1 %}
+    Image 1
+{% endblock %}
+{% block header-img2 %}
+    Image 2
+{% endblock %}
+{% block header-img3 %}
+    Image 3
+{% endblock %}
+
+
+{% block caption-img1 %}
+    <p>Caption for Image 1</p>
+{% endblock %}
+{% block caption-img2 %}
+    <p>Caption for Image 2</p>
+{% endblock %}
+{% block caption-img3 %}
+    <p>Caption for Image 3</p>
+{% endblock %}
+
+
+
+{% block sidebar %}
+    <div class="panel panel-default">
+        <div class="panel-heading">Infos</div>
+        {% if info %}
+            {% for inf in info %}
+                <div class="panel-body"><h1><a href="{{ inf.link }}">{{ inf.titre }}</a></h1>
+                    {% if inf.photo %}
+                        <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
+                    {% endif %}
+                    <p>{{ inf.desc }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="panel-body">Pas D'Info</h1>
+                <p>Aucune Information n'est actuellement disponible dans la bd!</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Astuces</div>
+        {% if article %}
+            {% for art in article %}
+                <div class="panel-body"><h1><a href="{{ art.link }}">{{ art.titre }}</a></h1>
+                    {% if art.photo %}
+                        <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" alt="Photo Du Dernier Article" width="225" height="225"></a>
+                    {% endif %}
+                    <p>{{ art.desc }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="panel-body"><h1>Pas D'Article</h1>
+                <p>Aucun Article n'est actuellement disponible dans la BD!</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %} <!-- Block Sidebar -->
+
+{% block contenu %}
+    <div class="alert alert-info" role="alert">
+      <a href="#" class="#"><h1>D'Yvix I.T. Solutions References</h1></a>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Nos References</h3>
+      </div>
+        <div class="panel-body">
+            <!-- Ne sert strictement a rien -->
+            {% for cat_serv in services_cat %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="media">
+                      <div class="media-left media-middle">
+                        <a href="#">
+                          <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading"><a href="#">{{ cat_serv.title }}</a></h4>
+                        <p>{{ cat_serv.desc }}</p>
+                      </div>
+                    </div>
+                {% else %}
+                    <div class="media">
+                      <div class="media-body">
+                        <h4 class="media-heading"><a href="#">{{ cat_serv.title }}</a></h4>
+                        <p>{{ cat_serv.desc }}</p>
+                      </div>
+                      <div class="media-right media-middle">
+                        <a href="#">
+                          <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!">
+                        </a>
+                      </div>
+                    </div>
+                {% endif %}
+                <br />
+
+            {% endfor %}
+            <!-- Ne sert strictement a rien -->
+
+            </div>
+        </div>
+
+{% endblock %}
+
+
+{% block breadcrumb %}
+<div class="row"><!-- row -->
+    <div class="col-lg-4"></div>
+    <div class="col-lg-8">
+        <ol class="breadcrumb">
+            <li ><a href="/dyvixitsolutions/"><span class="glyphicon glyphicon-home"></span>Acceuil</a></li>
+            <li ><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span>Qui sommes nous?</a></li>
+            <li ><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span>Services</a></li>
+            <li ><a href="/dyvixitsolutions/produits/"><span class="glyphicon glyphicon-barcode"></span>Produits</a></li>
+            <li class="active"><span class="glyphicon glyphicon-globe"></span>References</li>
+            <li ><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span>Nous contacter</a></li>
+        </ol>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'dyvixitsolutions/base.html' %}
+{% block contenu %}
+    <section>
+        <h1>Section Index</h1>
+	<article>
+	    <h1>Article Index</h1>
+	    <p> Ici c'est l'index!!</p>
+	</article>
+	<aside>
+	    <span>Picture 1</span>
+	</aside>
+    </section>
+
+{% endblock %}
+
+
+{% block breadcrumb %}
+<div class="row"><!-- row -->
+    <div class="col-lg-4"></div>
+    <div class="col-lg-8">
+        <ol class="breadcrumb">
+            <li ><a href="/dyvixitsolutions/"><span class="glyphicon glyphicon-home"></span>Acceuil</a></li>
+            <li ><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span>Qui sommes nous?</a></li>
+            <li ><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span>Services</a></li>
+            <li class="active"><span class="glyphicon glyphicon-barcode"></span>Produits</li>
+            <li ><a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span>References</a></li>
+            <li ><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span>Nous contacter</a></li>
+        </ol>
+    </div>
+</div>
+
+{% endblock %}
