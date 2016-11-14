@@ -2,6 +2,5 @@ assets/
 dont/
 dyvixvirtenv/
 media/
-static/
 db.dyvixit.sqlite3
 *.xml
