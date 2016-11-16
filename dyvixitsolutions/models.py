@@ -148,3 +148,19 @@ class Like(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+class LikeArticle(Like):
+    ref_like = models.ForeignKey(Article) # Article du Like
+
+
+class LikeInfo(Like):
+    ref_like = models.ForeignKey(Info) # Info du Like
+
+
+class LikeProduit(Like):
+    ref_like = models.ForeignKey(Produit) # Produit du Like
+
+
+class LikeService(Like):
+    ref_like = models.ForeignKey(Service) # Service du Like
+

@@ -42,12 +42,25 @@ def populate():
 
 
 
-    add_article('Article Premier', 'http://www.premier.com', 'ARTICLE PREMIER -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    add_article('Article Deuxieme', 'http://www.deuxieme.com', 'ARTICLE DEUXIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    add_article('Article Troisieme', 'http://www.troisieme.com', 'ARTICLE TROISIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    add_info('Info Un', 'http://www.un.com', 'INFORMATION UN -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    add_info('Info Deux', 'http://www.deux.com', 'INFORMATION DEUX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    add_info('Info Trois', 'http://www.trois.com', 'INFORMATION TROIS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    art_un    = add_article('Article Premier', 'http://www.premier.com', 'ARTICLE PREMIER -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    art_deux  = add_article('Article Deuxieme', 'http://www.deuxieme.com', 'ARTICLE DEUXIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    art_trois = add_article('Article Troisieme', 'http://www.troisieme.com', 'ARTICLE TROISIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+
+    add_like_article('https://www.facebook.com/maitre.waff', art_un)
+    add_like_article('https://www.facebook.com/maitre.waff', art_deux)
+
+    inf_un    = add_info('Info Un', 'http://www.un.com', 'INFORMATION UN -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    inf_deux  = add_info('Info Deux', 'http://www.deux.com', 'INFORMATION DEUX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    inf_trois = add_info('Info Trois', 'http://www.trois.com', 'INFORMATION TROIS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+
+    add_like_info('https://www.facebook.com/maitre.waff', inf_deux)
+    add_like_info('https://www.facebook.com/maitre.waff', inf_trois)
+
+
+
+
+
+
 
     Hp_four      = add_fournisseur(compagnie="HP", 
     phone="97164538463", 
@@ -74,49 +87,60 @@ def populate():
     email="cisco@cisco.com", 
     address="Cisco Us, Atlanta DC")
 
+
+
     ec_hp_prod = add_produit(lib="Ecran HP",
-    cat=ecran_cat, 
+    cat=ecran_cat,
+    desc= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="15000", 
     qte="110", 
     four=Hp_four)
     ec_dell_prod = add_produit(lib="Ecran Del",
-    cat=ecran_cat, 
+    cat=ecran_cat,
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="17000", 
     qte="130", 
     four=Dell_four)
     uc_toshiba_prod = add_produit(lib="UC Toshiba",
-    cat=uc_cat, 
+    cat=uc_cat,
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="45000", 
     qte="40", 
     four=Toshiba_four)
     uc_azus_prod = add_produit(lib="UC Azus",
-    cat=uc_cat, 
+    cat=uc_cat,
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="45000", 
     qte="200", 
     four=Azus_four)
     cl_hp_prod = add_produit(lib="Clavier HP",
-    cat=clavier_cat, 
-    prix_u="5000", 
+    cat=clavier_cat,
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix_u="5000",
     qte="20", 
     four=Hp_four)
     cl_dell_prod = add_produit(lib="Clavier Dell",
-    cat=clavier_cat, 
-    prix_u="5000", 
+    cat=clavier_cat,
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix_u="5000",
     qte="20", 
     four=Dell_four)
     sr_mac_prod = add_produit(lib="Souris Mac",
     cat=souris_cat, 
-    prix_u="2500", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix_u="2500",
     qte="299", 
     four=Mac_four)
     sr_dell_prod = add_produit(lib="Souris Dell",
     cat=souris_cat, 
-    prix_u="2500", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix_u="2500",
     qte="299", 
     four=Dell_four)
     sw_cisco_prod = add_produit(lib="Switch Cisco",
     cat=switch_cat, 
-    prix_u="210000", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix_u="210000",
     qte="347", 
     four=Cisco_four)
 
@@ -143,27 +167,33 @@ def populate():
 
     progra_c_svc = add_service(nom="Programmation C", 
     type=progra_cat, 
-    prix="50000", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix="50000",
     cons=waffo_cons)
     progra_python_svc = add_service(nom="Programmation Python", 
     type=progra_cat, 
-    prix="150000", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix="150000",
     cons=waffo_cons)
     progra_django_svc = add_service(nom="Programmation Web Avec Django", 
     type=progra_cat, 
-    prix="250000", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix="250000",
     cons=waffo_cons)
     progra_php_svc = add_service(nom="Programmation PHP", 
     type=progra_cat, 
-    prix="750000", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix="750000",
     cons=wouleu_cons)
     reseau_install_svc = add_service(nom="Installation Reseau", 
     type=reseau_cat, 
-    prix="250000", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix="250000",
     cons=fotso_cons)
     reseau_depann_svc = add_service(nom="Depannage Reseau", 
     type=reseau_cat, 
-    prix="20000", 
+    desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
+    prix="20000",
     cons=fotso_cons)
 
     alan_and_steve  = add_client(societe="Ets Alan And Steve", 
@@ -195,6 +225,9 @@ def populate():
 
     nziko_facture = add_facture(com=nziko_cmd)
     fokou_facture = add_facture(com=fokou_cmd)
+
+
+
 
     print "Liste Des Donnes Dans la BD:"
     print "Liste Des Clients:"
@@ -247,12 +280,12 @@ def add_consultant(nom, prenom, phone, email):
     c = Consultant.objects.get_or_create(nom=nom, prenom=prenom, phone=phone, email=email)[0]
     return c
 
-def add_produit(lib, cat, prix_u, qte, four):
-    p = Produit.objects.get_or_create(libelle=lib, category=cat, prix_unitaire=prix_u, quantite=qte, fournisseur=four)[0]
+def add_produit(lib, cat, desc, prix_u, qte, four):
+    p = Produit.objects.get_or_create(libelle=lib, category=cat, desc=desc, prix_unitaire=prix_u, quantite=qte, fournisseur=four)[0]
     return p
 
-def add_service(nom, type, prix, cons):
-    s = Service.objects.get_or_create(nom=nom, type=type, prix=prix, consultant=cons)[0]
+def add_service(nom, type, desc, prix, cons):
+    s = Service.objects.get_or_create(nom=nom, type=type, desc=desc, prix=prix, consultant=cons)[0]
     return s
 
 def add_command(cli, qte, prod, serv):
@@ -263,8 +296,29 @@ def add_facture(com):
     f = Facture.objects.get_or_create(commande=com)[0]
     return f
 
+def add_like_article(liker, ref_like):
+    l = LikeArticle.objects.get_or_create(liker=liker, ref_like=ref_like)
+    return l
+
+
+def add_like_info(liker, ref_like):
+    l = LikeInfo.objects.get_or_create(liker=liker, ref_like=ref_like)
+    return l
+
+
+def add_like_produit(liker, ref_like):
+    l = LikeProduit.objects.get_or_create(liker=liker, ref_like=ref_like)
+    return l
+
+
+def add_like_service(liker, ref_like):
+    l = LikeService.objects.get_or_create(liker=liker, ref_like=ref_like)
+    return l
+
 if __name__ == '__main__':
-    print "Starting DyvixIT Population Script..."
+    print "[*] Starting DyvixIT Population Script..."
     os.environ.setdefault('DJANGO_SETTINGS_MODULE','dyvixproject.settings')
-    from dyvixitsolutions.models import Fournisseur, Client, Consultant, CategoryProduit, CategoryService, Article, Info, Produit, Service, Commande, Facture
+    from dyvixitsolutions.models import Fournisseur, Client, Consultant, CategoryProduit, CategoryService, Article, \
+        Info, Produit, Service, Commande, Facture, LikeArticle, LikeInfo, LikeProduit, LikeService
     populate()
+    print "[+] DyvixIT DataBase Populated Successfully!!!"
