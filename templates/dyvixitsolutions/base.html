@@ -8,6 +8,7 @@
 	<![endif]-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
         <!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
 
@@ -17,6 +18,7 @@
 		<link rel="stylesheet" href="{% static 'assets/css/base_custom.css' %}">
 		
         <title>D'Yvix I.T. Solutions - {% block page-title %}{% endblock %}</title>
+
     </head>
     
     <body>
@@ -159,5 +161,7 @@
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
 		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+		<script type="text/javascript" language="JavaScript" src="{% static 'assets/js/jquery-3.1.1.js' %}"></script>
+		{% block javascript %}{% endblock %}
     </body>
 </html>
