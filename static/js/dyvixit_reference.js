@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    alert("Refence Page!");
+    //alert("Refence Page!");
 });

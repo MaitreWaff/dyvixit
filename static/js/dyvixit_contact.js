@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    alert("Contact Page!");
+    //alert("Contact Page!");
 });

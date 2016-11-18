@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    alert("About Page!");
+    //alert("About Page!");
 });

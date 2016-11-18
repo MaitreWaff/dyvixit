@@ -1,3 +1,7 @@
+function test(){
+	alert("Test OK!");
+}
 $(document).ready(function(){
-    alert("Home Page!");
+    //alert("Home Page!");
+	test();
 });

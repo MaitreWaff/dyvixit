@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    alert("Service Page!");
+    //alert("Service Page!");
 });
