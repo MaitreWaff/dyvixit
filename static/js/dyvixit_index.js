@@ -3,5 +3,5 @@ function test(){
 }
 $(document).ready(function(){
     //alert("Home Page!");
-	test();
+	//test();
 });

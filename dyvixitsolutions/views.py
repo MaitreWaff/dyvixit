@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 # from django.core.context_processors import csrf
 from dyvixitsolutions.models import *
+from dyvixitsolutions.form import PersonForm
 
 # Create your views here.
 def index(request):
@@ -79,3 +80,23 @@ def get_prod_in_cat(request, produit_title):
 def test(request):
     context = RequestContext(request)
     return render_to_response('dyvixitsolutions/mycomputing.html', {}, context)
+
+
+# Form processing
+def process_form(request):
+
+    if request.POST:
+        context = RequestContext(request)
+        form = PersonForm(request.POST.copy())
+        newperson = form.save(commit=False)
+    else:
+        context = {}
+        form = PersonForm()
+
+    return render_to_response('dyvixitsolutions/assistant.html', {'form', form}, context)
+
+
+
+
+
+
