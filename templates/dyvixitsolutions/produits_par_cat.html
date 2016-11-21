@@ -51,8 +51,8 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">Infos</div>
-        {% if info %}
-            {% for inf in info %}
+        {% if list_info %}
+            {% for inf in list_info %}
                 <div class="panel-body"><h1><a href="{{ inf.link }}">{{ inf.titre }}</a></h1>
                     {% if inf.photo %}
                         <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}/" alt="Photo De la Derniere Info" width="225" height="225"></a>
@@ -61,15 +61,15 @@
                 </div>
             {% endfor %}
         {% else %}
-            <div class="panel-body">Pas D'Info</h1>
+            <div class="panel-body"><h1>Pas D'Info</h1>
                 <p>Aucune Information n'est actuellement disponible dans la bd!</p>
             </div>
         {% endif %}
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Astuces</div>
-        {% if article %}
-            {% for art in article %}
+        {% if list_astuce %}
+            {% for art in list_astuce %}
                 <div class="panel-body"><h1><a href="{{ art.link }}">{{ art.titre }}</a></h1>
                     {% if art.photo %}
                         <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}/" alt="Photo Du Dernier Article" width="225" height="225"></a>
@@ -93,13 +93,13 @@
     </div>
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">Produits: {{ produit_cat }}</h3>
+        <h3 class="panel-title">Produits: {{ nom_cat_materiel }}</h3>
       </div>
         
         <div class="panel-body">
             <div class="row">
-                {% if produits %}
-                    {% for prod in produits %}
+                {% if list_materiels_dans_cat %}
+                    {% for prod in list_materiels_dans_cat %}
 
                           <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
@@ -110,7 +110,7 @@
                                 {% endif %}
                               <div class="caption">
                                 <h3>{{ prod.libelle }}</h3>
-                                <p><b>Prix: </b>{{ prod.prix_unitaire }}</p>
+                                <p><b>Prix: </b>{{ prod.prix }}</p>
                                   <p>{{ prod.desc }}</p>
                                 <p><a href="#" class="btn btn-primary" role="button">Ok</a> <a href="#" class="btn btn-default" role="button">Cancel</a></p>
                               </div>

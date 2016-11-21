@@ -8,26 +8,18 @@ def populate():
     #from django.utils import timezone
 
 
-    ecran_cat      = add_cat_produit('Ecrans', 'ECRANS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    clavier_cat    = add_cat_produit('Claviers', 'CLAVIERS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    souris_cat     = add_cat_produit('Souris', 'SOURIS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    uc_cat         = add_cat_produit('Unites Centrales', 'UNITES CENTRALES -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    imprimante_cat = add_cat_produit('Imprimantes', 'IMPRIMANTE -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    switch_cat     = add_cat_produit('Switches', 'SWITCHES  -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    routeur_cat    = add_cat_produit('Routeurs', 'ROUTEURS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    tablette_cat   = add_cat_produit('Tablettes', 'TABLETTES -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    telephone_cat  = add_cat_produit('Telephones', 'TELEPHONES -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+
+    reseau_cat    = add_cat_materiel('Equipement Reseau', ' -- Equipement reseau passif (cables, prises, panneaux de brassage, armoire reseau, ...) et actif (switch, routeur, firewall, ...)')
+    electrique_cat       = add_cat_materiel('Equipement electrique (PDU, onduleur, ...)', 'UNIX Equipement electrique (PDU, onduleur, ...)')
+    monitoring_cat      = add_cat_materiel('Monitoring (sonde, capteur, ...)', 'LINUX  Monitoring (sonde, capteur, ...)')
+    imprimente_cat        = add_cat_materiel('Imprimante, copieur, fax', 'OSX  Imprimante, copieur, fax -- ')
+    pcfixe_cat        = add_cat_materiel('PC fixe', ' PC fixe -- ')
+    pcportable_cat        = add_cat_materiel('PC portable', 'PC portable -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    serveur_cat        = add_cat_materiel('Serveur', 'Serveur -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    sauvegarde_cat        = add_cat_materiel('Materiel de sauvegarde (NAS, SAN, DAT, ...)', 'Materiel de sauvegarde (NAS, SAN, DAT, ...) --')
 
 
 
-    windows_cat    = add_cat_produit('Windows', 'WINDOWS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    unix_cat       = add_cat_produit('Unix', 'UNIX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    linux_cat      = add_cat_produit('Linux', 'LINUX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    osx_cat        = add_cat_produit('OS X', 'OSX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-
-
-
-    reseau_cat          = add_cat_service('Reseaux', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
     progra_cat          = add_cat_service('Programmation', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
     database_cat        = add_cat_service('DataBase', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
     securite_cat        = add_cat_service('Securite', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
@@ -42,12 +34,12 @@ def populate():
 
 
 
-    art_un    = add_article('Article Premier', 'http://www.premier.com', 'ARTICLE PREMIER -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    art_deux  = add_article('Article Deuxieme', 'http://www.deuxieme.com', 'ARTICLE DEUXIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    art_trois = add_article('Article Troisieme', 'http://www.troisieme.com', 'ARTICLE TROISIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    art_un    = add_astuce('Article Premier', 'http://www.premier.com', 'ARTICLE PREMIER -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    art_deux  = add_astuce('Article Deuxieme', 'http://www.deuxieme.com', 'ARTICLE DEUXIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    art_trois = add_astuce('Article Troisieme', 'http://www.troisieme.com', 'ARTICLE TROISIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
 
-    add_like_article('https://www.facebook.com/maitre.waff', art_un)
-    add_like_article('https://www.facebook.com/maitre.waff', art_deux)
+    add_like_astuce('https://www.facebook.com/maitre.waff', art_un)
+    add_like_astuce('https://www.facebook.com/maitre.waff', art_deux)
 
     inf_un    = add_info('Info Un', 'http://www.un.com', 'INFORMATION UN -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
     inf_deux  = add_info('Info Deux', 'http://www.deux.com', 'INFORMATION DEUX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
@@ -89,56 +81,56 @@ def populate():
 
 
 
-    ec_hp_prod = add_produit(lib="Ecran HP",
-    cat=ecran_cat,
+    ec_hp_prod = add_materiel(lib="Ecran HP",
+    cat=pcfixe_cat,
     desc= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="15000", 
     qte="110", 
     four=Hp_four)
-    ec_dell_prod = add_produit(lib="Ecran Del",
-    cat=ecran_cat,
+    ec_dell_prod = add_materiel(lib="Ecran Del",
+    cat=pcfixe_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="17000", 
     qte="130", 
     four=Dell_four)
-    uc_toshiba_prod = add_produit(lib="UC Toshiba",
-    cat=uc_cat,
+    uc_toshiba_prod = add_materiel(lib="UC Toshiba",
+    cat=pcportable_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="45000", 
     qte="40", 
     four=Toshiba_four)
-    uc_azus_prod = add_produit(lib="UC Azus",
-    cat=uc_cat,
+    uc_azus_prod = add_materiel(lib="UC Azus",
+    cat=reseau_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="45000", 
     qte="200", 
     four=Azus_four)
-    cl_hp_prod = add_produit(lib="Clavier HP",
-    cat=clavier_cat,
+    cl_hp_prod = add_materiel(lib="Serveurs HP Pavillon",
+    cat=serveur_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
-    prix_u="5000",
+    prix_u="250000",
     qte="20", 
     four=Hp_four)
-    cl_dell_prod = add_produit(lib="Clavier Dell",
-    cat=clavier_cat,
+    cl_dell_prod = add_materiel(lib="Clavier Dell",
+    cat=imprimente_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="5000",
     qte="20", 
     four=Dell_four)
-    sr_mac_prod = add_produit(lib="Souris Mac",
-    cat=souris_cat, 
+    sr_mac_prod = add_materiel(lib="Souris Mac",
+    cat=reseau_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="2500",
     qte="299", 
     four=Mac_four)
-    sr_dell_prod = add_produit(lib="Souris Dell",
-    cat=souris_cat, 
+    sr_dell_prod = add_materiel(lib="Souris Dell",
+    cat=imprimente_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="2500",
     qte="299", 
     four=Dell_four)
-    sw_cisco_prod = add_produit(lib="Switch Cisco",
-    cat=switch_cat, 
+    sw_cisco_prod = add_materiel(lib="Switch Cisco",
+    cat=reseau_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="210000",
     qte="347", 
@@ -186,12 +178,12 @@ def populate():
     prix="750000",
     cons=wouleu_cons)
     reseau_install_svc = add_service(nom="Installation Reseau", 
-    type=reseau_cat, 
+    type=cluster_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="250000",
     cons=fotso_cons)
     reseau_depann_svc = add_service(nom="Depannage Reseau", 
-    type=reseau_cat, 
+    type=cloud_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="20000",
     cons=fotso_cons)
@@ -213,18 +205,19 @@ def populate():
     email="nziko@yahoo.fr", 
     address="Bertoua")
 
-    nziko_cmd = add_command(cli=nziko, 
-    qte="12", 
-    prod=ec_hp_prod, 
-    serv=progra_c_svc,)
-    fokou_cmd = add_command(cli=fokou, 
-    qte="15", 
-    prod=ec_dell_prod, 
-    serv=progra_c_svc,)
 
+    nziko_facture = add_facture(nziko)
 
-    nziko_facture = add_facture(com=nziko_cmd)
-    fokou_facture = add_facture(com=fokou_cmd)
+    add_ligne_command_materiel(cli=nziko, qte="3", prod=uc_toshiba_prod, fact=nziko_facture)
+    add_ligne_command_materiel(cli=nziko, qte="8", prod=sr_dell_prod, fact=nziko_facture)
+    add_ligne_command_materiel(cli=nziko, qte="17", prod=uc_toshiba_prod, fact=nziko_facture)
+    add_ligne_command_materiel(cli=nziko, qte="9", prod=sw_cisco_prod, fact=nziko_facture)
+
+    fokou_facture = add_facture(fokou)
+    add_ligne_command_materiel(cli=fokou, qte="3", prod=sr_dell_prod, fact=fokou_facture)
+    add_ligne_command_service(cli=fokou, qte="8", cat=progra_python_svc, fact=fokou_facture)
+    add_ligne_command_materiel(cli=fokou, qte="17", prod=uc_toshiba_prod, fact=fokou_facture)
+    add_ligne_command_service(cli=fokou, qte="9", cat=progra_c_svc, fact=fokou_facture)
 
 
 
@@ -241,27 +234,27 @@ def populate():
         print c
 
     print "Liste Des Produits Par Categories"
-    for c in CategoryProduit.objects.all():
-        for p in Produit.objects.filter(category=c):
-	    print "[+] Produit: {0} ( Category: {1} ) --".format(str(p), str(c))
+    for c in CategoryMateriel.objects.all():
+        for p in Materiel.objects.filter(category=c):
+	        print "[+] Produit: {0} ( Category: {1} ) --".format(str(p), str(c))
 
     print "Liste Des Services Par Categories"
     for c in CategoryService.objects.all():
-        for s in Service.objects.filter(type=c):
-	    print "[+] Service: {0} ( Type: {1} ) --".format(str(s), str(c))
+        for s in Service.objects.filter(category=c):
+	        print "[+] Service: {0} ( Type: {1} ) --".format(str(s), str(c))
 
     #print "Liste Des "
 
-def add_cat_produit(titre, desc):
-    c_p = CategoryProduit.objects.get_or_create(titre=titre, desc=desc)[0]
+def add_cat_materiel(titre, desc):
+    c_p = CategoryMateriel.objects.get_or_create(titre=titre, desc=desc)[0]
     return c_p
 
 def add_cat_service(titre, desc):
     c_s = CategoryService.objects.get_or_create(titre=titre, desc=desc)[0]
     return c_s
 
-def add_article(titre, link, desc):
-    c_s = Article.objects.get_or_create(titre=titre, link=link, desc=desc)[0]
+def add_astuce(titre, link, desc):
+    c_s = Astuce.objects.get_or_create(titre=titre, link=link, desc=desc)[0]
     return c_s
 
 def add_info(titre, link, desc):
@@ -280,24 +273,29 @@ def add_consultant(nom, prenom, phone, email):
     c = Consultant.objects.get_or_create(nom=nom, prenom=prenom, phone=phone, email=email)[0]
     return c
 
-def add_produit(lib, cat, desc, prix_u, qte, four):
-    p = Produit.objects.get_or_create(libelle=lib, category=cat, desc=desc, prix_unitaire=prix_u, quantite=qte, fournisseur=four)[0]
+def add_materiel(lib, cat, desc, prix_u, qte, four):
+    p = Materiel.objects.get_or_create(libelle=lib, category=cat, desc=desc, prix=prix_u, quantite=qte, fournisseur=four)[0]
     return p
 
 def add_service(nom, type, desc, prix, cons):
-    s = Service.objects.get_or_create(nom=nom, type=type, desc=desc, prix=prix, consultant=cons)[0]
+    s = Service.objects.get_or_create(libelle=nom, category=type, desc=desc, prix=prix, consultant=cons)[0]
     return s
 
-def add_command(cli, qte, prod, serv):
-    c = Commande.objects.get_or_create(client=cli, quantite=qte, produit=prod, service=serv)[0]
-    return c
+def add_ligne_command_materiel(cli, qte, prod, fact):
+    com_prod = LigneCommandeMateriel.objects.get_or_create(client=cli, quantite=qte, article=prod, facture=fact)[0]
+    return com_prod
 
-def add_facture(com):
-    f = Facture.objects.get_or_create(commande=com)[0]
+
+def add_ligne_command_service(cli, qte, cat, fact):
+    com_serv = LigneCommandeService.objects.get_or_create(client=cli, quantite=qte, article=cat, facture=fact)[0]
+    return com_serv
+
+def add_facture(cli,): #
+    f = Facture.objects.get_or_create(client=cli, cloturee=False)[0]
     return f
 
-def add_like_article(liker, ref_like):
-    l = LikeArticle.objects.get_or_create(liker=liker, ref_like=ref_like)
+def add_like_astuce(liker, ref_like):
+    l = LikeAstuce.objects.get_or_create(liker=liker, ref_like=ref_like)
     return l
 
 
@@ -306,8 +304,8 @@ def add_like_info(liker, ref_like):
     return l
 
 
-def add_like_produit(liker, ref_like):
-    l = LikeProduit.objects.get_or_create(liker=liker, ref_like=ref_like)
+def add_like_materiel(liker, ref_like):
+    l = LikeMateriel.objects.get_or_create(liker=liker, ref_like=ref_like)
     return l
 
 
@@ -318,7 +316,8 @@ def add_like_service(liker, ref_like):
 if __name__ == '__main__':
     print "[*] Starting DyvixIT Population Script..."
     os.environ.setdefault('DJANGO_SETTINGS_MODULE','dyvixproject.settings')
-    from dyvixitsolutions.models import Fournisseur, Client, Consultant, CategoryProduit, CategoryService, Article, \
-        Info, Produit, Service, Commande, Facture, LikeArticle, LikeInfo, LikeProduit, LikeService
+    from dyvixitsolutions.models import Fournisseur, Client, Consultant, CategoryMateriel, CategoryService, Astuce, \
+        Info, Materiel, Service, LigneCommandeMateriel, LigneCommandeService, Facture, LikeAstuce, LikeInfo, \
+        LikeMateriel, LikeService
     populate()
     print "[+] DyvixIT DataBase Populated Successfully!!!"

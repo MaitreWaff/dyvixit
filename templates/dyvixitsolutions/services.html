@@ -52,8 +52,8 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">Infos</div>
-        {% if info %}
-            {% for inf in info %}
+        {% if list_info %}
+            {% for inf in list_info %}
                 <div class="panel-body"><h1><a href="{{ inf.link }}">{{ inf.titre }}</a></h1>
                     {% if inf.photo %}
                         <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
@@ -62,15 +62,15 @@
                 </div>
             {% endfor %}
         {% else %}
-            <div class="panel-body">Pas D'Info</h1>
+            <div class="panel-body"><h1>Pas D'Info</h1>
                 <p>Aucune Information n'est actuellement disponible dans la bd!</p>
             </div>
         {% endif %}
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Astuces</div>
-        {% if article %}
-            {% for art in article %}
+        {% if list_astuce %}
+            {% for art in list_astuce %}
                 <div class="panel-body"><h1><a href="{{ art.link }}">{{ art.titre }}</a></h1>
                     {% if art.photo %}
                         <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" alt="Photo Du Dernier Article" width="225" height="225"></a>
@@ -96,8 +96,8 @@
         <h3 class="panel-title">Nos Services par Categories</h3>
       </div>
         <div class="panel-body">
-            {% if services_cat %}
-              {% for cat_serv in services_cat %}
+            {% if list_cat_service %}
+              {% for cat_serv in list_cat_service %}
                 {% if forloop.counter|divisibleby:2 %}
                     <div class="media">
                       <div class="media-left media-middle">
@@ -122,7 +122,7 @@
                       </div>
                       <div class="media-right media-middle">
                         <a href="/dyvixitsolutions/services/category/{{ cat_serv.titre }}/">
-                          {% if cat_serv.photo %}
+                            {% if cat_serv.photo %}
                                 <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
                             {% else %}
                                 <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Service" width="200" height="200">

@@ -7,91 +7,152 @@ from dyvixitsolutions.form import PersonForm
 
 # Create your views here.
 def index(request):
+    """
+    Page d Acceuil.
+    :param request:
+    :return:
+    """
     context = RequestContext(request)
-
-    service_list = CategoryService.objects.all()
-    article      = Article.objects.order_by('-date')[:1]
-    info         = Info.objects.order_by('-date')[:1]
     context_dict = {}
-    context_dict['services_cat'] = service_list
-    context_dict['article'] = article
-    context_dict['info'] = info
+
+    cat_service_list = CategoryService.objects.all()
+    astuce_list      = Astuce.objects.order_by('-date')[:1]
+    info             = Info.objects.order_by('-date')[:1]
+    context_dict['list_cat_service'] = cat_service_list
+    context_dict['list_astuce']      = astuce_list
+    context_dict['list_info']        = info
 
     return render_to_response('dyvixitsolutions/index.html', context_dict, context)
 
 def about(request):
+    """
+    Page A Propos.
+    :param request:
+    :return:
+    """
     context = RequestContext(request)
     return render_to_response('dyvixitsolutions/about.html', {}, context)
 
 def services(request):
+    """
+    Page Categorie de Services.
+    :param request:
+    :return:
+    """
     context = RequestContext(request)
     context_dict = {}
-    article      = Article.objects.order_by('-date')[:1]
-    info         = Info.objects.order_by('-date')[:1]
-    context_dict['article'] = article
-    context_dict['info'] = info
-    cat_services = CategoryService.objects.all()
-    context_dict['services_cat'] = cat_services
+
+    astuce_list      = Astuce.objects.order_by('-date')[:1]
+    info             = Info.objects.order_by('-date')[:1]
+    cat_service_list = CategoryService.objects.all()
+    context_dict['list_astuce']      = astuce_list
+    context_dict['list_info']        = info
+    context_dict['list_cat_service'] = cat_service_list
     return render_to_response('dyvixitsolutions/services.html', context_dict, context)
 
 def produits(request):
+    """
+    Page Categories de Materiel.
+    :param request:
+    :return:
+    """
     context = RequestContext(request)
     context_dict = {}
-    article      = Article.objects.order_by('-date')[:1]
-    info         = Info.objects.order_by('-date')[:1]
-    context_dict['article'] = article
-    context_dict['info'] = info
-    cat_produits = CategoryProduit.objects.all()
-    context_dict['produits_cat'] = cat_produits
+
+    astuce_list           = Astuce.objects.order_by('-date')[:1]
+    info                  = Info.objects.order_by('-date')[:1]
+    cat_materiel_list     = CategoryMateriel.objects.all()
+    context_dict['list_astuce']       = astuce_list
+    context_dict['list_info']         = info
+    context_dict['list_cat_materiel'] = cat_materiel_list
     return render_to_response('dyvixitsolutions/produits.html', context_dict, context)
 
 def references(request):
+    """
+    Page References des Realisations Similaires.
+    :param request:
+    :return:
+    """
     context = RequestContext(request)
+
     return render_to_response('dyvixitsolutions/references.html', {}, context)
 
 def contact(request):
+    """
+    Page Contacts.
+    :param request:
+    :return:
+    """
     context = RequestContext(request)
+
     return render_to_response('dyvixitsolutions/contacts.html', {}, context)
 
-def get_serv_in_cat(request, service_title):
+def get_service_in_cat(request, service_title):
+    """
+    Page de Services par Categories.
+    :param request:
+    :param service_title: Nom de la Categorie de Service.
+    :return:
+    """
     context = RequestContext(request)
     context_dict = {}
-    article      = Article.objects.order_by('-date')[:1]
-    info         = Info.objects.order_by('-date')[:1]
-    context_dict['article'] = article
-    context_dict['info'] = info
+
+    astuce_list      = Astuce.objects.order_by('-date')[:1]
+    info             = Info.objects.order_by('-date')[:1]
     cat = CategoryService.objects.get(titre=service_title)
-    context_dict['services'] = cat.service_set.all()
-    context_dict['service_cat'] = service_title
+    context_dict['list_astuce']            = astuce_list
+    context_dict['list_info']              = info
+    context_dict['list_services_dans_cat'] = cat.service_set.all()
+    context_dict['nom_cat_service']        = service_title
     return render_to_response('dyvixitsolutions/services_par_cat.html', context_dict, context)
 
-def get_prod_in_cat(request, produit_title):
+def get_materiel_in_cat(request, materiel_title):
+    """
+    Page de Materiels par Categories.
+    :param request:
+    :param materiel_title: Nom de la Categorie De Materiel.
+    :return:
+    """
     context = RequestContext(request)
     context_dict = {}
-    article      = Article.objects.order_by('-date')[:1]
-    info         = Info.objects.order_by('-date')[:1]
-    context_dict['article'] = article
-    context_dict['info'] = info
-    cat = CategoryProduit.objects.get(titre=produit_title)
-    context_dict['produits'] = cat.produit_set.all()
-    context_dict['produit_cat'] = produit_title
+
+    astuce_list      = Astuce.objects.order_by('-date')[:1]
+    info             = Info.objects.order_by('-date')[:1]
+    cat              = CategoryMateriel.objects.get(titre=materiel_title)
+    context_dict['list_astuce']             = astuce_list
+    context_dict['list_info']               = info
+    context_dict['list_materiels_dans_cat'] = cat.materiel_set.all()
+    context_dict['nom_cat_materiel']        = materiel_title
     return render_to_response('dyvixitsolutions/produits_par_cat.html', context_dict, context)
 
 def test(request):
+    """
+    Page de Test pour les URLs.
+    :param request:
+    :return:
+    """
     context = RequestContext(request)
+
     return render_to_response('dyvixitsolutions/mycomputing.html', {}, context)
 
 
 # Form processing
 def process_form(request):
+    """
+    Page d Aide a la Definition des Besoins.
+    :param request:
+    :return:
+    """
 
     if request.POST:
-        context = RequestContext(request)
-        form = PersonForm(request.POST.copy())
+        context   = RequestContext(request)
+        form      = PersonForm(request.POST.copy())
         newperson = form.save(commit=False)
+        if form.is_valid():
+            print form.cleaned_data
     else:
         context = {}
-        form = PersonForm()
+        form    = PersonForm()
 
     return render_to_response('dyvixitsolutions/assistant.html', {'form', form}, context)
 

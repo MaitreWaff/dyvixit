@@ -241,7 +241,7 @@ def populate():
         print c
 
     print "Liste Des Produits Par Categories"
-    for c in CategoryProduit.objects.all():
+    for c in CategoryMateriel.objects.all():
         for p in Produit.objects.filter(category=c):
 	    print "[+] Produit: {0} ( Category: {1} ) --".format(str(p), str(c))
 
@@ -253,7 +253,7 @@ def populate():
     #print "Liste Des "
 
 def add_cat_produit(titre, desc):
-    c_p = CategoryProduit.objects.get_or_create(titre=titre, desc=desc)[0]
+    c_p = CategoryMateriel.objects.get_or_create(titre=titre, desc=desc)[0]
     return c_p
 
 def add_cat_service(titre, desc):
@@ -297,7 +297,7 @@ def add_facture(com):
     return f
 
 def add_like_article(liker, ref_like):
-    l = LikeArticle.objects.get_or_create(liker=liker, ref_like=ref_like)
+    l = LikeAstuce.objects.get_or_create(liker=liker, ref_like=ref_like)
     return l
 
 
@@ -307,7 +307,7 @@ def add_like_info(liker, ref_like):
 
 
 def add_like_produit(liker, ref_like):
-    l = LikeProduit.objects.get_or_create(liker=liker, ref_like=ref_like)
+    l = LikeMateriel.objects.get_or_create(liker=liker, ref_like=ref_like)
     return l
 
 
@@ -318,7 +318,7 @@ def add_like_service(liker, ref_like):
 if __name__ == '__main__':
     print "[*] Starting DyvixIT Population Script..."
     os.environ.setdefault('DJANGO_SETTINGS_MODULE','dyvixproject.settings')
-    from dyvixitsolutions.models import Fournisseur, Client, Consultant, CategoryProduit, CategoryService, Article, \
-        Info, Produit, Service, Commande, Facture, LikeArticle, LikeInfo, LikeProduit, LikeService
+    from dyvixitsolutions.models import Fournisseur, Client, Consultant, CategoryMateriel, CategoryService, Article, \
+        Info, Produit, Service, Commande, Facture, LikeAstuce, LikeInfo, LikeMateriel, LikeService
     populate()
     print "[+] DyvixIT DataBase Populated Successfully!!!"
