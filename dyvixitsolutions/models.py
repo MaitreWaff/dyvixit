@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import permalink
 from time import time
 #from django.utils import timezone
 
@@ -22,7 +23,7 @@ class Consultant(models.Model):
 	unique_together = ['nom', 'prenom']
 
     def __unicode__(self):
-        return "Consultant %s %s (%s): %d" % (self.prenom, self.nom, self.email, self.phone)
+        return "M. %s %s (%s): %d" % (self.prenom, self.nom, self.email, self.phone)
 
 class Fournisseur(models.Model):
     """
@@ -38,7 +39,7 @@ class Fournisseur(models.Model):
 	unique_together = ['compagnie', 'phone', 'address']
 
     def __unicode__(self):
-        return "Fournisseur %s (%s): %d" % (self.compagnie, self.email, self.phone)
+        return "Ste %s (%s): %d" % (self.compagnie, self.email, self.phone)
 
 class Client(models.Model):
     """
@@ -65,6 +66,8 @@ class Category(models.Model):
     date         = models.DateTimeField('Date Creation', auto_now_add=True) #default=timezone.now)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
 
+    slug         = models.SlugField()
+
     class Meta:
         abstract = True
         ordering = ['titre']
@@ -72,17 +75,25 @@ class Category(models.Model):
     def __unicode__(self):
         return self.titre
 
+
+
 class CategoryMateriel(Category):
     """
     CategoryMateriel : Categorie de Produit.
     """
-    pass
+
+    @permalink
+    def get_absolute_url(self):
+        return ('liste_materiel', (), {'slug': self.slug})
 
 class CategoryService(Category):
     """
     CategoryService : Categorie de Service.
     """
-    pass
+
+    @permalink
+    def get_absolute_url(self):
+        return ('liste_service', (), {'slug': self.slug})
 
 class Article(Category):
     """
@@ -96,6 +107,8 @@ class Article(Category):
 
     def __unicode__(self):
         return "Article - %s ( %d Likes!)" % (self.titre, self.likes)
+
+
 
 class Astuce(Article):
     """
@@ -126,6 +139,8 @@ class Produit(models.Model):
     photo           = models.FileField(upload_to=get_upload_file_name, blank=True)
     date            = models.DateTimeField('Date De Creation du Produit', auto_now_add=True)
 
+    slug            = models.SlugField()
+
     class Meta:
         abstract = True
         ordering    = ['libelle']
@@ -133,6 +148,8 @@ class Produit(models.Model):
 
     def __unicode__(self):
         return self.libelle
+
+
 
 class Materiel(Produit):
     """
@@ -142,6 +159,10 @@ class Materiel(Produit):
     fournisseur = models.ForeignKey(Fournisseur)
     quantite = models.IntegerField(default=100)
 
+    @permalink
+    def get_absolute_url(self):
+        return ('details_materiel', (), {'slug': self.slug})
+
 class Service(Produit):
     """
     Service : Services Informatiques disponible sur le site.
@@ -149,17 +170,38 @@ class Service(Produit):
     category            = models.ForeignKey(CategoryService)
     consultant      = models.ForeignKey(Consultant)
 
+    @permalink
+    def get_absolute_url(self):
+        return ('details_service', (), {'slug': self.slug})
+
 
 class Facture(models.Model):
     """
     Facture : Commande validee par un client.
     """
+    EDITER    = 1
+    COMMANDER = 2
+    VALIDER   = 3
+    ANNULER   = 4
+    LIVRER    = 5
+
+    STATUS_CHOICES = (
+        (EDITER, "Editer"),
+        (COMMANDER, "Commander"),
+        (VALIDER, "Valider"),
+        (ANNULER, "Annuler"),
+        (LIVRER, "Livrer"),
+    )
+
     numero_facture = models.AutoField(primary_key=True)
     client         = models.ForeignKey(Client)
+    #
     cloturee       = models.BooleanField(default=False)
     ordonnee       = models.BooleanField(default=False)
     livree         = models.BooleanField(default=False)
     annulee        = models.BooleanField(default=False)
+    #
+    status         = models.IntegerField(choices=STATUS_CHOICES, default=1)
     date           = models.DateTimeField('Date De Validation De La Commande', auto_now_add=True) #default=timezone.now)
     montant        = models.IntegerField(default=0)
 

@@ -119,6 +119,7 @@ def get_materiel_in_cat(request, materiel_title):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat              = CategoryMateriel.objects.get(titre=materiel_title)
+    print materiel_title
     context_dict['list_astuce']             = astuce_list
     context_dict['list_info']               = info
     context_dict['list_materiels_dans_cat'] = cat.materiel_set.all()
@@ -148,8 +149,8 @@ def process_form(request):
         context   = RequestContext(request)
         form      = PersonForm(request.POST.copy())
         newperson = form.save(commit=False)
-        if form.is_valid():
-            print form.cleaned_data
+        if newperson.is_valid():
+            print newperson.cleaned_data
     else:
         context = {}
         form    = PersonForm()

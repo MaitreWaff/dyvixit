@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^contact/$', views.contact, name='contact'),
 
     # url(r'^move/$', views.move, name='move'),
+    url(r'^service/category/(?P<service_title>\w+)/$', views.get_service_in_cat, name='details_service'),
+    url(r'^produit/category/(?P<produit_title>\w+)/$', views.get_materiel_in_cat, name='details_materiel'),
 )
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
