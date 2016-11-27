@@ -3,6 +3,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from dyvixitsolutions import views
 
+from dyvixitsolutions.models import Materiel, Service
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'dyvixproject.views.home', name='home'),
@@ -20,8 +22,19 @@ urlpatterns = patterns('',
     url(r'^contact/$', views.contact, name='contact'),
 
     # url(r'^move/$', views.move, name='move'),
-    url(r'^service/category/(?P<service_title>\w+)/$', views.get_service_in_cat, name='details_service'),
-    url(r'^produit/category/(?P<produit_title>\w+)/$', views.get_materiel_in_cat, name='details_materiel'),
+    url(r'^produit/category/(?P<produit_title>\w+)/$', views.get_list_materiel_in_cat, name='details_materiel'),
+    url(r'^service/category/(?P<service_title>\w+)/$', views.get_list_service_in_cat, name='details_service'),
+
+    url(r'^test/(?P<produit_title>\w+)/$', views.get_list_service_in_cat,
+        kwargs = {
+            'queryset' : Service.objects.all(),
+        },
+        name = 'liste_service'),
+    url(r'^test/(?P<produit_title>\w+)/$', views.get_list_materiel_in_cat,
+        kwargs= {
+            'queryset' : Materiel.objects.all(),
+        },
+        name='liste_materiel'),
 )
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

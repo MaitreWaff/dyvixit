@@ -100,7 +100,7 @@
                 {% if forloop.counter|divisibleby:2 %}
                     <div class="media">
                       <div class="media-left media-middle">
-                        <a href="/dyvixitsolutions/services/category/{{ cat_serv.titre }}/">
+                        <a href="{{ cat_serv.get_absolute_url }}/">
                             {% if cat_serv.photo %}
                                     <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
                             {% else %}
@@ -109,18 +109,18 @@
                         </a>
                       </div>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="/dyvixitsolutions/services/category/{{ cat_serv.titre }}/">{{ cat_serv.titre }}</a></h4>
+                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}/">{{ cat_serv.titre }}</a></h4>
                         <p>{{ cat_serv.desc }}</p>
                       </div>
                     </div>
                 {% else %}
                     <div class="media">
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="/dyvixitsolutions/services/category/{{ cat_serv.titre }}/">{{ cat_serv.titre }}</a></h4>
+                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}/">{{ cat_serv.titre }}</a></h4>
                         <p>{{ cat_serv.desc }}</p>
                       </div>
                       <div class="media-right media-middle">
-                        <a href="/dyvixitsolutions/services/category/{{ cat_serv.titre }}/">
+                        <a href="/dyvixitsolutions/services/category/{{ cat_serv.get_absolute_url }}/">
                           {% if cat_serv.photo %}
                                 <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
                             {% else %}

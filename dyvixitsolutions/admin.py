@@ -65,18 +65,22 @@ class FactureAdmin(admin.ModelAdmin):
 
 class LikeAstuceAdmin(admin.ModelAdmin):
     list_display  = ('liker', 'ref_like')
+    list_filter = ('ref_like',)
     search_fields = ('liker',)
 
 class LikeInfoAdmin(admin.ModelAdmin):
     list_display  = ('liker', 'ref_like')
+    list_filter = ('ref_like',)
     search_fields = ('liker',)
 
 class LikeMaterielAdmin(admin.ModelAdmin):
     list_display  = ('liker', 'ref_like')
+    list_filter = ('ref_like',)
     search_fields = ('liker',)
 
 class LikeServiceAdmin(admin.ModelAdmin):
     list_display  = ('liker', 'ref_like')
+    list_filter = ('ref_like',)
     search_fields = ('liker',)
 
 

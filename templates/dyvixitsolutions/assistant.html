@@ -51,7 +51,7 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">Infos</div>
-        {% if info %}
+        {% if list_info %}
             {% for inf in info %}
                 <div class="panel-body"><h1><a href="{{ inf.link }}">{{ inf.titre }}</a></h1>
                     {% if inf.photo %}
@@ -61,14 +61,14 @@
                 </div>
             {% endfor %}
         {% else %}
-            <div class="panel-body">Pas D'Info</h1>
+            <div class="panel-body"><h1>Pas D'Info</h1>
                 <p>Aucune Information n'est actuellement disponible dans la bd!</p>
             </div>
         {% endif %}
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Astuces</div>
-        {% if article %}
+        {% if list_astuce %}
             {% for art in article %}
                 <div class="panel-body"><h1><a href="{{ art.link }}">{{ art.titre }}</a></h1>
                     {% if art.photo %}
@@ -89,24 +89,100 @@
 {% block contenu %}
     <div class="alert alert-info" role="alert">
       <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions Home</h1></a>
+        <h2>Assistant à la définition des besoins</h2>
     </div>
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">Home</h3>
+        <h3 class="panel-title">Les éléments avec un astérisque (*) sont obligatoires</h3>
 
 
 
       </div>
       <div class="panel-body">
           <!-- Here we'll display form -->
-avant form
+
+
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Collapsible Group Item #1
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Collapsible Group Item #2
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Collapsible Group Item #3
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+        <h6>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</h6>
           <form action="/dyvixitsolutions/assistant/" method="post">
               {% csrf_token %}
-              {{ form.as_p }}
-              <input type="submit" value="Soumettre">
-          </form>
-apres form
+              <!-- {{ form.as_p }} -->
+              <br />
+              <!---->
+              <!--{{ form.non_field_errors }}-->
+                <!--<div class="fieldWrapper">-->
+                    <!--{{ form_client.societe.errors }}-->
+                    <!--<label for="{{ form_client.societe.id_for_label }}">Societe:</label>-->
+                    <!--{{ form_client.societe }}-->
+                <!--</div>-->
+                <!--<div class="fieldWrapper">-->
+                    <!--{{ form_client.phone.errors }}-->
+                    <!--<label for="{{ form_client.phone.id_for_label }}">Telephone:</label>-->
+                    <!--{{ form_client.phone }}-->
+                <!--</div>-->
+                <!--<div class="fieldWrapper">-->
+                    <!--{{ form_client.email.errors }}-->
+                    <!--<label for="{{ form_client.email.id_for_label }}">Votre adresse email:</label>-->
+                    <!--{{ form_client.email }}-->
+                <!--</div>-->
+                <!--<div class="fieldWrapper">-->
+                    <!--{{ form_client.cc_myself.errors }}-->
+                    <!--<label for="{{ form_client.address.id_for_label }}">Adresse:</label>-->
+                    <!--{{ form_client.address }}-->
+                <!--</div>-->
 
+
+
+              {{ form_client.as_p }}
+              <input type="submit" value="Generer Mon Cahier De Charges Simplifie">
+          </form>
 
 
 

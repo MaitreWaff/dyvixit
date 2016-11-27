@@ -1,7 +1,9 @@
 from django.db import models
 from django.db.models import permalink
 from time import time
+from django.template.defaultfilters import slugify
 #from django.utils import timezone
+
 
 
 # Retourne le Nom De l'Image telechargee.
@@ -66,7 +68,7 @@ class Category(models.Model):
     date         = models.DateTimeField('Date Creation', auto_now_add=True) #default=timezone.now)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
 
-    slug         = models.SlugField()
+    slug         = models.SlugField(blank=True)
 
     class Meta:
         abstract = True
@@ -75,25 +77,37 @@ class Category(models.Model):
     def __unicode__(self):
         return self.titre
 
-
-
 class CategoryMateriel(Category):
     """
     CategoryMateriel : Categorie de Produit.
     """
 
-    @permalink
-    def get_absolute_url(self):
-        return ('liste_materiel', (), {'slug': self.slug})
+    # @permalink
+    # def get_absolute_url(self):
+    #     return ('liste_materiel', (), {'slug': self.slug})
+
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.titre)
+        super(CategoryMateriel, self).save(*args, **kwargs)
+
 
 class CategoryService(Category):
     """
     CategoryService : Categorie de Service.
     """
+    #
+    # @permalink
+    # def get_absolute_url(self):
+    #     return ('liste_service', (), {'slug': self.slug})
 
-    @permalink
-    def get_absolute_url(self):
-        return ('liste_service', (), {'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.titre)
+        super(CategoryService, self).save(*args, **kwargs)
+
 
 class Article(Category):
     """
@@ -114,18 +128,29 @@ class Astuce(Article):
     """
     Astuce : Astuces a consulter sur le site
     """
-    pass
 
     def __unicode__(self):
         return "Astuce - %s ( %d Likes!)" % (self.titre, self.likes)
+
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.titre)
+        super(Astuce, self).save(*args, **kwargs)
+
 
 class Info(Article):
     """
     Info : Information a consulter sur le site.
     """
-    pass
+
     def __unicode__(self):
         return "Information - %s ( %d Likes!)" % (self.titre, self.likes)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.titre)
+        super(Info, self).save(*args, **kwargs)
 
 
 
@@ -139,7 +164,7 @@ class Produit(models.Model):
     photo           = models.FileField(upload_to=get_upload_file_name, blank=True)
     date            = models.DateTimeField('Date De Creation du Produit', auto_now_add=True)
 
-    slug            = models.SlugField()
+    slug            = models.SlugField(blank=True)
 
     class Meta:
         abstract = True
@@ -163,6 +188,12 @@ class Materiel(Produit):
     def get_absolute_url(self):
         return ('details_materiel', (), {'slug': self.slug})
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.libelle)
+        super(Materiel, self).save(*args, **kwargs)
+
+
 class Service(Produit):
     """
     Service : Services Informatiques disponible sur le site.
@@ -175,15 +206,17 @@ class Service(Produit):
         return ('details_service', (), {'slug': self.slug})
 
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.libelle)
+        super(Service, self).save(*args, **kwargs)
+
+
 class Facture(models.Model):
     """
     Facture : Commande validee par un client.
     """
-    EDITER    = 1
-    COMMANDER = 2
-    VALIDER   = 3
-    ANNULER   = 4
-    LIVRER    = 5
+    EDITER, COMMANDER, VALIDER, ANNULER, LIVRER = 1, 2, 3, 4, 5
 
     STATUS_CHOICES = (
         (EDITER, "Editer"),
