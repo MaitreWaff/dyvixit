@@ -4,7 +4,7 @@ from time import time
 from django.template.defaultfilters import slugify
 #from django.utils import timezone
 
-
+from django.core.urlresolvers import reverse
 
 # Retourne le Nom De l'Image telechargee.
 def get_upload_file_name(instance, filename):
@@ -68,7 +68,7 @@ class Category(models.Model):
     date         = models.DateTimeField('Date Creation', auto_now_add=True) #default=timezone.now)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
 
-    slug         = models.SlugField(blank=True)
+    slug         = models.SlugField(blank=True) #, prepopulate_from=('titre',))
 
     class Meta:
         abstract = True
@@ -164,7 +164,7 @@ class Produit(models.Model):
     photo           = models.FileField(upload_to=get_upload_file_name, blank=True)
     date            = models.DateTimeField('Date De Creation du Produit', auto_now_add=True)
 
-    slug            = models.SlugField(blank=True)
+    slug            = models.SlugField(blank=True) # , prepopulate_from=('titre',)
 
     class Meta:
         abstract = True
@@ -186,7 +186,7 @@ class Materiel(Produit):
 
     @permalink
     def get_absolute_url(self):
-        return ('details_materiel', (), {'slug': self.slug})
+        return reverse('details_materiel', (), {'slug': self.slug}) # ('details_materiel', (), {'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -203,7 +203,7 @@ class Service(Produit):
 
     @permalink
     def get_absolute_url(self):
-        return ('details_service', (), {'slug': self.slug})
+        return reverse('details_service', (), {'slug': self.slug}) # ('details_service', (), {'slug': self.slug})
 
 
     def save(self, *args, **kwargs):

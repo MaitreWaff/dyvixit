@@ -51,8 +51,8 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">Infos</div>
-        {% if info %}
-            {% for inf in info %}
+        {% if list_info %}
+            {% for inf in list_info %}
                 <div class="panel-body"><h1><a href="{{ inf.link }}">{{ inf.titre }}</a></h1>
                     {% if inf.photo %}
                         <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
@@ -68,8 +68,8 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Astuces</div>
-        {% if article %}
-            {% for art in article %}
+        {% if list_astuce %}
+            {% for art in list_astuce %}
                 <div class="panel-body"><h1><a href="{{ art.link }}">{{ art.titre }}</a></h1>
                     {% if art.photo %}
                         <a href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" alt="Photo Du Dernier Article" width="225" height="225"></a>
