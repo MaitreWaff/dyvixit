@@ -39,5 +39,5 @@ function update_articles(){
 }
 
 $(document).ready(function(){
-	setInterval("update_articles()", 10000); // On rafraichit le contenu toutes les minutes (60.000 millisecondes).
+	setInterval("update_articles()", 60000); // On rafraichit le contenu toutes les minutes (60.000 millisecondes).
 });

@@ -3,9 +3,12 @@ from dyvixitsolutions.models import Client, Facture, LigneCommandeMateriel, Lign
     CategoryMateriel, CategoryService
 
 class PersonForm(forms.Form):
-    first  = forms.CharField()
-    last   = forms.CharField()
-    middle = forms.CharField()
+    societe   = forms.CharField() # widget=forms.CheckboxInput)
+    prenom    = forms.CharField()
+    nom       = forms.CharField()
+    fonction  = forms.CharField()
+    telephone = forms.IntegerField()
+    email     = forms.EmailField()
 
 class ClientForm(forms.ModelForm):
     class Meta:
