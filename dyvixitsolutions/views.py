@@ -211,17 +211,36 @@ def test(request):
 
 
 
-
-
-def update_after(request, id):
+def update_astuce_after(request, id):
+    """
+    URL pour la mise a jour des Astuces dans la page.
+    :param request:
+    :param id:
+    :return:
+    """
     response = HttpResponse()
     response['Content-Type'] = "text/javascript"
+
     response.write(serializers.serialize("json",
-            Info.objects.all()))
+            Astuce.objects.filter(pk__gt=id)))
 
     return response
 
 
+def update_info_after(request, id):
+    """
+    URL pour la mise a jour des Info dans la page.
+    :param request:
+    :param id:
+    :return:
+    """
+    response = HttpResponse()
+    response['Content-Type'] = "text/javascript"
+
+    response.write(serializers.serialize("json",
+            Info.objects.filter(pk__gt=id)))
+
+    return response
 
 
 

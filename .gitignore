@@ -1,6 +1,9 @@
 assets/
 dont/
-dyvixvirtenv/
+*virtenv/
 media/
 db.dyvixit.sqlite3
 *.xml
+*.pyc
+.idea/
+*.db

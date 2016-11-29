@@ -42,6 +42,8 @@ urlpatterns = patterns('',
         },
         name='liste_materiel'),
     url(r'^404/$', django.views.defaults.page_not_found,),
+    url(r'^update-astuce-after/(?P<id>\d+)/$', views.update_astuce_after,),
+    url(r'^update-info-after/(?P<id>\d+)/$', views.update_info_after,),
 )
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
