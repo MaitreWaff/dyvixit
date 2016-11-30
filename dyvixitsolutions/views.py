@@ -295,8 +295,13 @@ def process_form(request):
         form_lcmat   = LigneCommandeMaterielForm()
         form_lcserv  = LigneCommandeServiceForm()
 
+    astuce_list = Astuce.objects.order_by('-date')[:1]
+    info = Info.objects.order_by('-date')[:1]
+
+
     context_dict = {'form' : form, 'form_client' : form_client, 'form_facture' : form_facture, \
-                    'form_lcmat' : form_lcmat, 'form_lcserv' : form_lcserv}
+                    'form_lcmat' : form_lcmat, 'form_lcserv' : form_lcserv, 'list_astuce' : astuce_list, \
+                    'list_info' : info}
 
     return render_to_response('dyvixitsolutions/assistant.html', context_dict, context)
 
