@@ -9,6 +9,18 @@ def populate():
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     reseau_cat    = add_cat_materiel('Equipement Reseau', ' -- Equipement reseau passif (cables, prises, panneaux de brassage, armoire reseau, ...) et actif (switch, routeur, firewall, ...)')
     electrique_cat       = add_cat_materiel('Equipement electrique (PDU, onduleur, ...)', 'UNIX Equipement electrique (PDU, onduleur, ...)')
     monitoring_cat      = add_cat_materiel('Monitoring (sonde, capteur, ...)', 'LINUX  Monitoring (sonde, capteur, ...)')
@@ -20,15 +32,18 @@ def populate():
 
 
 
-    progra_cat          = add_cat_service('Programmation', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    database_cat        = add_cat_service('DataBase', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    securite_cat        = add_cat_service('Securite', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    system_cat          = add_cat_service('Systeme', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    cloud_cat           = add_cat_service('Systeme', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    cluster_cat         = add_cat_service('Cluster', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    virtualisation_cat  = add_cat_service('Virtualisation', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    telephonie_cat      = add_cat_service('Telephonie', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    telephoniesurip_cat = add_cat_service('Telephonie sur IP', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+
+
+
+
+    reseau_cat       = add_cat_service('ADMINISTRATION MAINTENANCE DES SYSTEMES ET RESEAUX INFORMATIQUE.', 'ADMINISTRATION MAINTENANCE DES SYSTEMES ET RESEAUX INFORMATIQUE.')
+    materiel_cat       = add_cat_service('MATERIEL INFORMATIQUE', 'MATERIEL INFORMATIQUE')
+    virtualisation_cat      = add_cat_service('VIRTUALISATION ET STOCKAGE', 'VIRTUALISATION ET STOCKAGE')
+    telsurip_cat        = add_cat_service('TECHNOLOGIES DE LA COMMUNICATION SUR IP(ToIP, VoIP et Messagerie Unifiee).', 'TECHNOLOGIES DE LA COMMUNICATION SUR IP(ToIP, VoIP et Messagerie Unifiee).')
+    securite_cat        = add_cat_service('SECURITE INFORMATIQUE.', 'SECURITE INFORMATIQUE.')
+    glo_cat        = add_cat_service('GENIE LOGICIEL.', 'GENIE LOGICIEL.')
+    environ_cat        = add_cat_service('ENVIRONNEMENT DE TRAVAIL COLLABORATIF.', 'ENVIRONNEMENT DE TRAVAIL COLLABORATIF.')
+    archivage_cat        = add_cat_service('ARCHIVAGE NUMERIQUE ET GESTION ELECTRONIQUE DES DOCUMENTS(GED)', 'ARCHIVAGE NUMERIQUE ET GESTION ELECTRONIQUE DES DOCUMENTS(GED)')
 
 
 
