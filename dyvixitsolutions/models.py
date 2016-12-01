@@ -6,6 +6,11 @@ from django.template.defaultfilters import slugify
 
 from django.core.urlresolvers import reverse
 
+# Variables pour l'armonisation de la taille des champs.
+CHARFIELD_LENGTH, TEXTFIELD_LENGTH = 256, 1024
+
+
+
 # Retourne le Nom De l'Image telechargee.
 def get_upload_file_name(instance, filename):
     return "uploaded_files/%s_%s" % (str(time()).replace('.', '_'), filename)
@@ -15,8 +20,8 @@ class Consultant(models.Model):
     """
     Consultant : Fournisseur de Services.
     """
-    nom             = models.CharField(max_length=128)
-    prenom          = models.CharField(max_length=128)
+    nom             = models.CharField(max_length=CHARFIELD_LENGTH)
+    prenom          = models.CharField(max_length=CHARFIELD_LENGTH)
     phone           = models.IntegerField(unique=True)
     email           = models.EmailField(unique=True)
 
@@ -31,7 +36,7 @@ class Fournisseur(models.Model):
     """
     Fournisseur : Fournisseur de Produits.
     """
-    compagnie       = models.CharField(max_length=128, unique=True)
+    compagnie       = models.CharField(max_length=CHARFIELD_LENGTH, unique=True)
     phone           = models.IntegerField(unique=True)
     email           = models.EmailField(unique=True)
     address         = models.TextField()
@@ -47,7 +52,10 @@ class Client(models.Model):
     """
     Client : Societe qui commande un Produit ou un Service.
     """
-    societe         = models.CharField(max_length=128, unique=True)
+    societe         = models.CharField(max_length=CHARFIELD_LENGTH, unique=True)
+    prenom          = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
+    nom             = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
+    fonction        = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
     phone           = models.IntegerField(unique=True)
     email           = models.EmailField(unique=True)
     address         = models.TextField()
@@ -59,12 +67,48 @@ class Client(models.Model):
     def __unicode__(self):
         return "Client %s (%s): %d" % (self.societe, self.email, self.phone)
 
+class Realisation(models.Model):
+    """
+    RealisationSimilaire : Descriptions des Realisations effectuees par la Comapanie.
+    """
+    titre        = models.CharField(max_length=CHARFIELD_LENGTH)
+    description  = models.TextField(max_length=TEXTFIELD_LENGTH)
+    client       = models.CharField(max_length=CHARFIELD_LENGTH)
+    date         = models.DateTimeField('Date Creation', auto_now_add=True)
+    photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
+
+    class Meta:
+        abstract = True
+        ordering = ['-date']
+
+    def __unicode__(self):
+        return self.titre
+
+class References(Realisation):
+    """
+    References : References de l'entreprise.
+    """
+    pass
+
+class RealisationSimilaire(Realisation):
+    """
+    RealisationSimilaire : Realisation Similaire par la Companie.
+    """
+    pass
+
+
+class Contact(models.Model):
+    service   = models.CharField(max_length=CHARFIELD_LENGTH)
+    telephone = models.IntegerField()
+
+
+
 class Category(models.Model):
     """
     Category : Caracteristiques de base de la Categorie. Classe Abstraite.
     """
-    titre        = models.CharField(max_length=48, unique=True)
-    desc         = models.TextField()
+    titre        = models.CharField(max_length=CHARFIELD_LENGTH, unique=True)
+    desc         = models.TextField(max_length=TEXTFIELD_LENGTH)
     date         = models.DateTimeField('Date Creation', auto_now_add=True) #default=timezone.now)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
 
@@ -158,8 +202,8 @@ class Produit(models.Model):
     """
     Produit : Materiel ou Service disponible sur le site.
     """
-    libelle         = models.CharField(max_length=128, unique=True)
-    desc            = models.TextField()
+    libelle         = models.CharField(max_length=CHARFIELD_LENGTH, unique=True)
+    desc            = models.TextField(max_length=TEXTFIELD_LENGTH)
     prix            = models.IntegerField()
     photo           = models.FileField(upload_to=get_upload_file_name, blank=True)
     date            = models.DateTimeField('Date De Creation du Produit', auto_now_add=True)
@@ -182,7 +226,7 @@ class Materiel(Produit):
     """
     category = models.ForeignKey(CategoryMateriel)
     fournisseur = models.ForeignKey(Fournisseur)
-    quantite = models.IntegerField(default=100)
+    quantite = models.IntegerField(default=10)
 
     @permalink
     def get_absolute_url(self):
@@ -216,9 +260,13 @@ class Facture(models.Model):
     """
     Facture : Commande validee par un client.
     """
+
+    # Differents Status dans lesquels peuvent etre une Facture...
+    # En Edition, Commandee, Validee, Annulee, Livree.
     EDITER, COMMANDER, VALIDER, ANNULER, LIVRER = 1, 2, 3, 4, 5
 
-    STATUS_CHOICES = (
+    # Tuple de Choix pour les Factures.
+    STATUS_FACTURE = (
         (EDITER, "Editer"),
         (COMMANDER, "Commander"),
         (VALIDER, "Valider"),
@@ -229,12 +277,12 @@ class Facture(models.Model):
     numero_facture = models.AutoField(primary_key=True)
     client         = models.ForeignKey(Client)
     #
-    cloturee       = models.BooleanField(default=False)
-    ordonnee       = models.BooleanField(default=False)
-    livree         = models.BooleanField(default=False)
-    annulee        = models.BooleanField(default=False)
+    # cloturee       = models.BooleanField(default=False)
+    # ordonnee       = models.BooleanField(default=False)
+    # livree         = models.BooleanField(default=False)
+    # annulee        = models.BooleanField(default=False)
     #
-    status         = models.IntegerField(choices=STATUS_CHOICES, default=1)
+    status         = models.IntegerField(choices=STATUS_FACTURE, default=1)
     date           = models.DateTimeField('Date De Validation De La Commande', auto_now_add=True) #default=timezone.now)
     montant        = models.IntegerField(default=0)
 

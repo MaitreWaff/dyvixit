@@ -1,0 +1,2755 @@
+[
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.consultant", 
+  "fields": {
+    "nom": "Waffo", 
+    "email": "waffoluc@gmail.com", 
+    "prenom": "Luc", 
+    "phone": 699581262
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.consultant", 
+  "fields": {
+    "nom": "Wouleu", 
+    "email": "wouleuf@gmail.com", 
+    "prenom": "Franklin", 
+    "phone": 696241088
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.consultant", 
+  "fields": {
+    "nom": "Feugwang", 
+    "email": "v.feugwang@gmail.com", 
+    "prenom": "Valere", 
+    "phone": 699580265
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.consultant", 
+  "fields": {
+    "nom": "Fotso", 
+    "email": "valere.fotso@gmail.com", 
+    "prenom": "Valere", 
+    "phone": 699450688
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.consultant", 
+  "fields": {
+    "nom": "Tata", 
+    "email": "tata.kimbanz@gmail.com", 
+    "prenom": "Kim", 
+    "phone": 699775522
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.fournisseur", 
+  "fields": {
+    "phone": 97164538463, 
+    "compagnie": "HP", 
+    "email": "hp@hp.com", 
+    "address": "HP Houston"
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.fournisseur", 
+  "fields": {
+    "phone": 97164426353, 
+    "compagnie": "Dell", 
+    "email": "dell@dell.com", 
+    "address": "Dell Abu Dhabi"
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.fournisseur", 
+  "fields": {
+    "phone": 97152423373, 
+    "compagnie": "Machintosh", 
+    "email": "machintosh@mac.com", 
+    "address": "Machintosh Denver"
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.fournisseur", 
+  "fields": {
+    "phone": 97163543422, 
+    "compagnie": "Azus", 
+    "email": "azus@azus.com", 
+    "address": "Azus Paris"
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.fournisseur", 
+  "fields": {
+    "phone": 97156339262, 
+    "compagnie": "Toshiba", 
+    "email": "toshiba@toshiba.com", 
+    "address": "Toshiba Tokyo"
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.fournisseur", 
+  "fields": {
+    "phone": 97153945262, 
+    "compagnie": "Cisco", 
+    "email": "cisco@cisco.com", 
+    "address": "Cisco Us, Atlanta DC"
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.client", 
+  "fields": {
+    "phone": 699127737, 
+    "address": "Cite Verte G31", 
+    "societe": "Ets Alan And Steve", 
+    "email": "alan_and_steve@yahoo.fr"
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.client", 
+  "fields": {
+    "phone": 699374736, 
+    "address": "Cite Verte H52", 
+    "societe": "Koryn Nancy", 
+    "email": "koryn_and_nancy@yahoo.fr"
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.client", 
+  "fields": {
+    "phone": 699735338, 
+    "address": "Mokolo en bas", 
+    "societe": "Ets Fokou", 
+    "email": "fokou@yahoo.fr"
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.client", 
+  "fields": {
+    "phone": 699669900, 
+    "address": "Bertoua", 
+    "societe": "Ets Nziko", 
+    "email": "nziko@yahoo.fr"
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:16.805Z", 
+    "titre": "Equipement Reseau", 
+    "photo": "", 
+    "slug": "equipement-reseau", 
+    "desc": " -- Equipement reseau passif (cables, prises, panneaux de brassage, armoire reseau, ...) et actif (switch, routeur, firewall, ...)"
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:16.856Z", 
+    "titre": "Equipement electrique (PDU, onduleur, ...)", 
+    "photo": "", 
+    "slug": "", 
+    "desc": "UNIX Equipement electrique (PDU, onduleur, ...)"
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:16.907Z", 
+    "titre": "Monitoring (sonde, capteur, ...)", 
+    "photo": "", 
+    "slug": "monitoring-sonde-capteur", 
+    "desc": "LINUX  Monitoring (sonde, capteur, ...)"
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:16.957Z", 
+    "titre": "Imprimante, copieur, fax", 
+    "photo": "", 
+    "slug": "", 
+    "desc": "OSX  Imprimante, copieur, fax -- "
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.008Z", 
+    "titre": "PC fixe", 
+    "photo": "", 
+    "slug": "", 
+    "desc": " PC fixe -- "
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.069Z", 
+    "titre": "PC portable", 
+    "photo": "", 
+    "slug": "pc-portable", 
+    "desc": "PC portable -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 7, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.128Z", 
+    "titre": "Serveur", 
+    "photo": "", 
+    "slug": "", 
+    "desc": "Serveur -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 8, 
+  "model": "dyvixitsolutions.categorymateriel", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.187Z", 
+    "titre": "Materiel de sauvegarde (NAS, SAN, DAT, ...)", 
+    "photo": "", 
+    "slug": "", 
+    "desc": "Materiel de sauvegarde (NAS, SAN, DAT, ...) --"
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.254Z", 
+    "titre": "Programmation", 
+    "photo": "uploaded_files/1480278965_33_10478382_817706538239726_3927080796671458087_o.jpg", 
+    "slug": "programmation", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.329Z", 
+    "titre": "DataBase", 
+    "photo": "uploaded_files/1480278957_99_10497402_823816324295414_3847670072324933394_o.jpg", 
+    "slug": "database", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.404Z", 
+    "titre": "Securite", 
+    "photo": "uploaded_files/1480278975_44_10724983_585707941594796_502380349_n.jpg", 
+    "slug": "securite", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.572Z", 
+    "titre": "Systeme", 
+    "photo": "uploaded_files/1480278986_24_10505057_820904007919979_3808894211863037842_o.jpg", 
+    "slug": "systeme", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.624Z", 
+    "titre": "Cluster", 
+    "photo": "uploaded_files/1480278948_92_10397010_817707161572997_5796211721289658468_o.jpg", 
+    "slug": "cluster", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.674Z", 
+    "titre": "Virtualisation", 
+    "photo": "uploaded_files/1480279020_24_10563200_819985361345177_2947954548585942143_n.jpg", 
+    "slug": "virtualisation", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 7, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.724Z", 
+    "titre": "Telephonie", 
+    "photo": "uploaded_files/1480278999_05_3f2622d009e12b44d87a79e50e45c012.jpg", 
+    "slug": "telephonie", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 8, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-25T23:27:17.775Z", 
+    "titre": "Telephonie sur IP", 
+    "photo": "uploaded_files/1480279010_69_10514709_823816217628758_3899698671221963815_n.jpg", 
+    "slug": "telephonie-sur-ip", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 9, 
+  "model": "dyvixitsolutions.categoryservice", 
+  "fields": {
+    "date": "2016-11-27T20:49:07.002Z", 
+    "titre": "test un service EM", 
+    "photo": "uploaded_files/1480279747_0_10478413_817706848239695_3170065383924323134_o.jpg", 
+    "slug": "test-un-service-em", 
+    "desc": "lsdholakhfsl cla bla blah"
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.astuce", 
+  "fields": {
+    "photo": "", 
+    "link": "http://www.premier.com/", 
+    "likes": 0, 
+    "date": "2016-11-25T23:27:17.835Z", 
+    "titre": "Article Premier", 
+    "slug": "article-premier", 
+    "desc": "ARTICLE PREMIER -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.astuce", 
+  "fields": {
+    "photo": "", 
+    "link": "http://www.deuxieme.com/", 
+    "likes": 0, 
+    "date": "2016-11-25T23:27:17.893Z", 
+    "titre": "Article Deuxieme", 
+    "slug": "", 
+    "desc": "ARTICLE DEUXIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.astuce", 
+  "fields": {
+    "photo": "", 
+    "link": "http://www.troisieme.com/", 
+    "likes": 0, 
+    "date": "2016-11-25T23:27:17.953Z", 
+    "titre": "Article Troisieme", 
+    "slug": "article-troisieme", 
+    "desc": "ARTICLE TROISIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.astuce", 
+  "fields": {
+    "photo": "uploaded_files/1480126281_21_0b4f89f8cbee291f950e1b43651acb73.jpg", 
+    "link": "https://www.facebook.com/photo.php?fbid=1335324656502086&set=a.1326324804068738.1073741828.100000736920039&type=3&theater", 
+    "likes": 0, 
+    "date": "2016-11-26T02:11:21.210Z", 
+    "titre": "astuce pp", 
+    "slug": "astuce-toukillyou", 
+    "desc": "Astuce Toukillyou"
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.astuce", 
+  "fields": {
+    "photo": "uploaded_files/1480383890_6_tribal_skull_by_voodoo_smurf-d3fndfw.jpg", 
+    "link": "http://www.free-spider-solitaire.com/", 
+    "likes": 20, 
+    "date": "2016-11-29T01:44:50.595Z", 
+    "titre": "Premiere Astuce", 
+    "slug": "premiere-astuce", 
+    "desc": "Premiere Astuce de la journee... "
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.astuce", 
+  "fields": {
+    "photo": "uploaded_files/1480481164_98_images (91).jpg", 
+    "link": "https://www.facebook.com/groups/660791077311952/?fref=nf", 
+    "likes": 0, 
+    "date": "2016-11-30T04:46:04.983Z", 
+    "titre": "Lionnes en finale", 
+    "slug": "lionnes-en-finale", 
+    "desc": "Comment font-elles pour jouer aussi bien au football? Mieux que les hommes alors???"
+  }
+},
+{
+  "pk": 7, 
+  "model": "dyvixitsolutions.astuce", 
+  "fields": {
+    "photo": "uploaded_files/1480481653_26_10365585_817707861572927_1414370231283752961_o.jpg", 
+    "link": "https://www.facebook.com/franklin.wouleu?fref=ts", 
+    "likes": 0, 
+    "date": "2016-11-30T04:54:13.264Z", 
+    "titre": "Bonjour", 
+    "slug": "bonjour", 
+    "desc": "uruyroyfhgfck jc"
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "", 
+    "link": "http://www.un.com", 
+    "likes": 0, 
+    "date": "2016-11-25T23:27:18.188Z", 
+    "titre": "Info Un", 
+    "slug": "", 
+    "desc": "INFORMATION UN -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "", 
+    "link": "http://www.deux.com", 
+    "likes": 0, 
+    "date": "2016-11-25T23:27:18.380Z", 
+    "titre": "Info Deux", 
+    "slug": "", 
+    "desc": "INFORMATION DEUX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "", 
+    "link": "http://www.trois.com", 
+    "likes": 0, 
+    "date": "2016-11-25T23:27:18.431Z", 
+    "titre": "Info Trois", 
+    "slug": "", 
+    "desc": "INFORMATION TROIS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480286143_35_10329925_817707781572935_3834968888451832266_o.jpg", 
+    "link": "https://www.facebook.com/falone.yougankamdem?fref=ts", 
+    "likes": 0, 
+    "date": "2016-11-26T03:26:36.131Z", 
+    "titre": "Info Waffo", 
+    "slug": "info-waffo", 
+    "desc": "Les Informations de Monsieur Waffo."
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480373376_59_75f6c86d3ffa3079600bc20ed332c49a.jpg", 
+    "link": "https://www.facebook.com/pierremerlin.pamfensie?fref=ts", 
+    "likes": 0, 
+    "date": "2016-11-28T22:49:36.588Z", 
+    "titre": "Info de l heure", 
+    "slug": "info-de-l-heure", 
+    "desc": "L'information de l'heure actuelle, le chaud, chaud, chaud la .... lol "
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480373885_86_images (22).png", 
+    "link": "https://www.facebook.com/franklin.wouleu?fref=ts", 
+    "likes": 0, 
+    "date": "2016-11-28T22:58:05.855Z", 
+    "titre": "Latest News.", 
+    "slug": "latest-news", 
+    "desc": "Fidel Castro is dead!"
+  }
+},
+{
+  "pk": 7, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480374100_55_lord_vader__suit_up_by_powerbuldog-d3y4jld.png", 
+    "link": "https://www.facebook.com/profile.php?id=100001809908691&fref=ts", 
+    "likes": 0, 
+    "date": "2016-11-28T23:01:40.547Z", 
+    "titre": "Donald Trump", 
+    "slug": "donald-trump", 
+    "desc": "Donald Trump is the elected President of United States."
+  }
+},
+{
+  "pk": 8, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480375906_58_3ad27b87c6425f475cd181dd27b0a2aa.jpg", 
+    "link": "https://www.facebook.com/sandra.liliane.kamga?pnref=lhc.friends", 
+    "likes": 0, 
+    "date": "2016-11-28T23:31:46.578Z", 
+    "titre": "No Issue", 
+    "slug": "no-issue", 
+    "desc": "Il n'y a pas de probleme."
+  }
+},
+{
+  "pk": 9, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480376378_65_scale (2).jpg", 
+    "link": "https://www.facebook.com/frerojulien?pnref=lhc.unseen", 
+    "likes": 0, 
+    "date": "2016-11-28T23:39:38.648Z", 
+    "titre": "Trop de Problemes", 
+    "slug": "trop-de-problemes", 
+    "desc": "Monsieur Waff a bcp de pb en ce moment."
+  }
+},
+{
+  "pk": 10, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480378813_29_images (89).jpg", 
+    "link": "https://www.facebook.com/wilfried.akono.1?pnref=lhc.unseen", 
+    "likes": 0, 
+    "date": "2016-11-29T00:20:13.288Z", 
+    "titre": "Activation", 
+    "slug": "activation", 
+    "desc": "Proof of concept."
+  }
+},
+{
+  "pk": 11, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480378888_99_Hot Female Robot Creative Render iPhone 5 Wallpaper-320x480.jpg", 
+    "link": "https://www.facebook.com/georges.mabaya?pnref=lhc.unseen", 
+    "likes": 0, 
+    "date": "2016-11-29T00:21:28.994Z", 
+    "titre": "Derniere Nouvelle", 
+    "slug": "derniere-nouvelle", 
+    "desc": "Latest News ..."
+  }
+},
+{
+  "pk": 12, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480379115_55_images (60).jpg", 
+    "link": "https://www.facebook.com/amanapartx?pnref=lhc.unseen", 
+    "likes": 0, 
+    "date": "2016-11-29T00:25:15.549Z", 
+    "titre": "Premiere Info", 
+    "slug": "premiere-info", 
+    "desc": "Premiere info de la journee sur le site."
+  }
+},
+{
+  "pk": 13, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480379977_48_tumblr_o6wvz0bj2j1uutnkko1_500.jpg", 
+    "link": "https://www.facebook.com/profile.php?id=100010456833229&pnref=lhc.unseen", 
+    "likes": 0, 
+    "date": "2016-11-29T00:39:37.482Z", 
+    "titre": "Ukrane", 
+    "slug": "ukrane", 
+    "desc": "Infos sur l'Ukraine."
+  }
+},
+{
+  "pk": 14, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480380144_86_images (1).jpg", 
+    "link": "https://www.facebook.com/profile.php?id=100010456833229&pnref=lhc.unseen", 
+    "likes": 0, 
+    "date": "2016-11-29T00:42:24.861Z", 
+    "titre": "kmer", 
+    "slug": "kmer", 
+    "desc": "kslknda"
+  }
+},
+{
+  "pk": 15, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480380386_83_images (68).jpg", 
+    "link": "https://docs.djangoproject.com/fr/1.10/ref/templates/builtins/", 
+    "likes": 0, 
+    "date": "2016-11-29T00:46:26.831Z", 
+    "titre": "Info 1234", 
+    "slug": "info-1234", 
+    "desc": "Info 1234"
+  }
+},
+{
+  "pk": 16, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480380614_79_images (90).jpg", 
+    "link": "https://api.jquery.com/", 
+    "likes": 0, 
+    "date": "2016-11-29T00:50:14.789Z", 
+    "titre": "Info Jesus", 
+    "slug": "info-jesus", 
+    "desc": "Enfin j'ai une Information qui se mets a jour sur ma page avec son image de definition... :P"
+  }
+},
+{
+  "pk": 17, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480380923_81_scale (3).jpg", 
+    "link": "https://docs.djangoproject.com/fr/1.10/ref/templates/api/", 
+    "likes": 0, 
+    "date": "2016-11-29T00:55:23.812Z", 
+    "titre": "Sauve par le Gong!", 
+    "slug": "sauve-par-le-gong", 
+    "desc": "Enfin j'ai une Information qui se mets a jour sur ma page avec son image de definition... :P"
+  }
+},
+{
+  "pk": 18, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480383991_52_suit__amp__tie_final_by_moonboyv-d75s0vi.jpg", 
+    "link": "https://mail.google.com/mail/u/0/#inbox", 
+    "likes": 18, 
+    "date": "2016-11-29T01:46:31.520Z", 
+    "titre": "Derniere Info", 
+    "slug": "derniere-info", 
+    "desc": "Derniere Information de la journee chez D'Yvix IT Services Consulting... "
+  }
+},
+{
+  "pk": 19, 
+  "model": "dyvixitsolutions.info", 
+  "fields": {
+    "photo": "uploaded_files/1480481171_64_images (11).jpg", 
+    "link": "https://www.facebook.com/maitre.waff", 
+    "likes": 0, 
+    "date": "2016-11-30T04:46:11.642Z", 
+    "titre": "Lionnes en Finale de la CAN", 
+    "slug": "lionnes-en-finale-de-la-can", 
+    "desc": "Les lionnes viennent de se qualifier pour la finale de la CAN feminine de football ... "
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 5, 
+    "quantite": 110, 
+    "fournisseur": 1, 
+    "photo": "", 
+    "libelle": "Ecran HP", 
+    "prix": 15000, 
+    "date": "2016-11-25T23:27:18.971Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 5, 
+    "quantite": 130, 
+    "fournisseur": 2, 
+    "photo": "", 
+    "libelle": "Ecran Del", 
+    "prix": 17000, 
+    "date": "2016-11-25T23:27:19.123Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 6, 
+    "quantite": 40, 
+    "fournisseur": 5, 
+    "photo": "", 
+    "libelle": "UC Toshiba", 
+    "prix": 45000, 
+    "date": "2016-11-25T23:27:19.173Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 1, 
+    "quantite": 200, 
+    "fournisseur": 4, 
+    "photo": "", 
+    "libelle": "UC Azus", 
+    "prix": 45000, 
+    "date": "2016-11-25T23:27:19.224Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 7, 
+    "quantite": 20, 
+    "fournisseur": 1, 
+    "photo": "", 
+    "libelle": "Serveurs HP Pavillon", 
+    "prix": 250000, 
+    "date": "2016-11-25T23:27:19.276Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 4, 
+    "quantite": 20, 
+    "fournisseur": 2, 
+    "photo": "", 
+    "libelle": "Clavier Dell", 
+    "prix": 5000, 
+    "date": "2016-11-25T23:27:19.334Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 7, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 1, 
+    "quantite": 299, 
+    "fournisseur": 3, 
+    "photo": "", 
+    "libelle": "Souris Mac", 
+    "prix": 2500, 
+    "date": "2016-11-25T23:27:19.393Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 8, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 4, 
+    "quantite": 299, 
+    "fournisseur": 2, 
+    "photo": "", 
+    "libelle": "Souris Dell", 
+    "prix": 2500, 
+    "date": "2016-11-25T23:27:19.453Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 9, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 1, 
+    "quantite": 347, 
+    "fournisseur": 6, 
+    "photo": "", 
+    "libelle": "Switch Cisco", 
+    "prix": 210000, 
+    "date": "2016-11-25T23:27:19.529Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 10, 
+  "model": "dyvixitsolutions.materiel", 
+  "fields": {
+    "category": 5, 
+    "quantite": 100, 
+    "fournisseur": 1, 
+    "photo": "uploaded_files/1480207116_11_0972c99225ed06f2918a8227fde167cd (1).jpg", 
+    "libelle": "test Materiel", 
+    "prix": 25, 
+    "date": "2016-11-27T00:38:36.120Z", 
+    "slug": "test-materiel", 
+    "desc": ";safdkjs"
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.service", 
+  "fields": {
+    "category": 1, 
+    "photo": "", 
+    "libelle": "Programmation C", 
+    "prix": 50000, 
+    "consultant": 1, 
+    "date": "2016-11-25T23:27:20.016Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.service", 
+  "fields": {
+    "category": 1, 
+    "photo": "", 
+    "libelle": "Programmation Python", 
+    "prix": 150000, 
+    "consultant": 1, 
+    "date": "2016-11-25T23:27:20.075Z", 
+    "slug": "programmation-python", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.service", 
+  "fields": {
+    "category": 1, 
+    "photo": "", 
+    "libelle": "Programmation Web Avec Django", 
+    "prix": 250000, 
+    "consultant": 1, 
+    "date": "2016-11-25T23:27:20.126Z", 
+    "slug": "programmation-web-avec-django", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.service", 
+  "fields": {
+    "category": 1, 
+    "photo": "", 
+    "libelle": "Programmation PHP", 
+    "prix": 750000, 
+    "consultant": 2, 
+    "date": "2016-11-25T23:27:20.185Z", 
+    "slug": "programmation-php", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.service", 
+  "fields": {
+    "category": 5, 
+    "photo": "", 
+    "libelle": "Installation Reseau", 
+    "prix": 250000, 
+    "consultant": 4, 
+    "date": "2016-11-25T23:27:20.243Z", 
+    "slug": "installation-reseau", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.service", 
+  "fields": {
+    "category": 4, 
+    "photo": "", 
+    "libelle": "Depannage Reseau", 
+    "prix": 20000, 
+    "consultant": 4, 
+    "date": "2016-11-25T23:27:20.311Z", 
+    "slug": "", 
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque."
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.facture", 
+  "fields": {
+    "status": 1, 
+    "montant": 0, 
+    "annulee": false, 
+    "livree": false, 
+    "client": 4, 
+    "cloturee": false, 
+    "date": "2016-11-25T23:27:20.716Z", 
+    "ordonnee": false
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.facture", 
+  "fields": {
+    "status": 1, 
+    "montant": 0, 
+    "annulee": false, 
+    "livree": false, 
+    "client": 3, 
+    "cloturee": false, 
+    "date": "2016-11-25T23:27:21.052Z", 
+    "ordonnee": false
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.lignecommandemateriel", 
+  "fields": {
+    "article": 3, 
+    "client": 4, 
+    "facture": 1, 
+    "quantite": 3
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.lignecommandemateriel", 
+  "fields": {
+    "article": 8, 
+    "client": 4, 
+    "facture": 1, 
+    "quantite": 8
+  }
+},
+{
+  "pk": 3, 
+  "model": "dyvixitsolutions.lignecommandemateriel", 
+  "fields": {
+    "article": 3, 
+    "client": 4, 
+    "facture": 1, 
+    "quantite": 17
+  }
+},
+{
+  "pk": 4, 
+  "model": "dyvixitsolutions.lignecommandemateriel", 
+  "fields": {
+    "article": 9, 
+    "client": 4, 
+    "facture": 1, 
+    "quantite": 9
+  }
+},
+{
+  "pk": 5, 
+  "model": "dyvixitsolutions.lignecommandemateriel", 
+  "fields": {
+    "article": 8, 
+    "client": 3, 
+    "facture": 2, 
+    "quantite": 3
+  }
+},
+{
+  "pk": 6, 
+  "model": "dyvixitsolutions.lignecommandemateriel", 
+  "fields": {
+    "article": 3, 
+    "client": 3, 
+    "facture": 2, 
+    "quantite": 17
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.lignecommandeservice", 
+  "fields": {
+    "article": 2, 
+    "client": 3, 
+    "facture": 2, 
+    "quantite": 8
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.lignecommandeservice", 
+  "fields": {
+    "article": 1, 
+    "client": 3, 
+    "facture": 2, 
+    "quantite": 9
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.likeastuce", 
+  "fields": {
+    "date": "2016-11-25T23:27:18.045Z", 
+    "liker": "https://www.facebook.com/maitre.waff", 
+    "ref_like": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.likeastuce", 
+  "fields": {
+    "date": "2016-11-25T23:27:18.112Z", 
+    "liker": "https://www.facebook.com/maitre.waff", 
+    "ref_like": 2
+  }
+},
+{
+  "pk": 1, 
+  "model": "dyvixitsolutions.likeinfo", 
+  "fields": {
+    "date": "2016-11-25T23:27:18.482Z", 
+    "liker": "https://www.facebook.com/maitre.waff", 
+    "ref_like": 2
+  }
+},
+{
+  "pk": 2, 
+  "model": "dyvixitsolutions.likeinfo", 
+  "fields": {
+    "date": "2016-11-25T23:27:18.532Z", 
+    "liker": "https://www.facebook.com/maitre.waff", 
+    "ref_like": 3
+  }
+},
+{
+  "pk": 1, 
+  "model": "sites.site", 
+  "fields": {
+    "domain": "example.com", 
+    "name": "example.com"
+  }
+},
+{
+  "pk": 1, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "consultant", 
+    "name": "consultant", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 2, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "fournisseur", 
+    "name": "fournisseur", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 3, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "client", 
+    "name": "client", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 4, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "categorymateriel", 
+    "name": "category materiel", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 5, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "categoryservice", 
+    "name": "category service", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 6, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "astuce", 
+    "name": "astuce", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 7, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "info", 
+    "name": "info", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 8, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "materiel", 
+    "name": "materiel", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 9, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "service", 
+    "name": "service", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 10, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "facture", 
+    "name": "facture", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 11, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "lignecommandemateriel", 
+    "name": "ligne commande materiel", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 12, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "lignecommandeservice", 
+    "name": "ligne commande service", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 13, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "likeastuce", 
+    "name": "like astuce", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 14, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "likeinfo", 
+    "name": "like info", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 15, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "likemateriel", 
+    "name": "like materiel", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 16, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "likeservice", 
+    "name": "like service", 
+    "app_label": "dyvixitsolutions"
+  }
+},
+{
+  "pk": 17, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "logentry", 
+    "name": "log entry", 
+    "app_label": "admin"
+  }
+},
+{
+  "pk": 18, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "flatpage", 
+    "name": "flat page", 
+    "app_label": "flatpages"
+  }
+},
+{
+  "pk": 19, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "site", 
+    "name": "site", 
+    "app_label": "sites"
+  }
+},
+{
+  "pk": 20, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "permission", 
+    "name": "permission", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 21, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "group", 
+    "name": "group", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 22, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "user", 
+    "name": "user", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 23, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "contenttype", 
+    "name": "content type", 
+    "app_label": "contenttypes"
+  }
+},
+{
+  "pk": 24, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "session", 
+    "name": "session", 
+    "app_label": "sessions"
+  }
+},
+{
+  "pk": "7mz3mzy6gh5hhgb6snkmne1dfpmde6xv", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2016-12-10T02:15:13.978Z", 
+    "session_data": "YjcyMWVkYzkyYmQ4OGRiMTlkYTY4NWM2NWViZjg3ZDY2Mjg0MzMyYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
+  }
+},
+{
+  "pk": "ftj3sfxlg3q7sq5kqvtuv0r1kw7vfr4p", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2016-12-10T15:05:57.783Z", 
+    "session_data": "YjcyMWVkYzkyYmQ4OGRiMTlkYTY4NWM2NWViZjg3ZDY2Mjg0MzMyYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
+  }
+},
+{
+  "pk": "i4559z98csqncpj48xpn8vtsm3llole1", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2016-12-14T21:48:50.450Z", 
+    "session_data": "YjcyMWVkYzkyYmQ4OGRiMTlkYTY4NWM2NWViZjg3ZDY2Mjg0MzMyYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
+  }
+},
+{
+  "pk": "k1gj2rp11i5bml87kt4rn17xmjfg5myf", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2016-12-14T04:52:06.422Z", 
+    "session_data": "YjcyMWVkYzkyYmQ4OGRiMTlkYTY4NWM2NWViZjg3ZDY2Mjg0MzMyYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
+  }
+},
+{
+  "pk": "oo2ws7qv7jcxbjyrrmhlfsx9kilkgy65", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2016-12-11T17:20:07.370Z", 
+    "session_data": "YjcyMWVkYzkyYmQ4OGRiMTlkYTY4NWM2NWViZjg3ZDY2Mjg0MzMyYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
+  }
+},
+{
+  "pk": "z6lv2pbxkdkhy300icac0qbp793bo16h", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2016-12-12T22:48:02.122Z", 
+    "session_data": "YjcyMWVkYzkyYmQ4OGRiMTlkYTY4NWM2NWViZjg3ZDY2Mjg0MzMyYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
+  }
+},
+{
+  "pk": 1, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_consultant", 
+    "name": "Can add consultant", 
+    "content_type": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_consultant", 
+    "name": "Can change consultant", 
+    "content_type": 1
+  }
+},
+{
+  "pk": 3, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_consultant", 
+    "name": "Can delete consultant", 
+    "content_type": 1
+  }
+},
+{
+  "pk": 4, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_fournisseur", 
+    "name": "Can add fournisseur", 
+    "content_type": 2
+  }
+},
+{
+  "pk": 5, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_fournisseur", 
+    "name": "Can change fournisseur", 
+    "content_type": 2
+  }
+},
+{
+  "pk": 6, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_fournisseur", 
+    "name": "Can delete fournisseur", 
+    "content_type": 2
+  }
+},
+{
+  "pk": 7, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_client", 
+    "name": "Can add client", 
+    "content_type": 3
+  }
+},
+{
+  "pk": 8, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_client", 
+    "name": "Can change client", 
+    "content_type": 3
+  }
+},
+{
+  "pk": 9, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_client", 
+    "name": "Can delete client", 
+    "content_type": 3
+  }
+},
+{
+  "pk": 10, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_categorymateriel", 
+    "name": "Can add category materiel", 
+    "content_type": 4
+  }
+},
+{
+  "pk": 11, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_categorymateriel", 
+    "name": "Can change category materiel", 
+    "content_type": 4
+  }
+},
+{
+  "pk": 12, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_categorymateriel", 
+    "name": "Can delete category materiel", 
+    "content_type": 4
+  }
+},
+{
+  "pk": 13, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_categoryservice", 
+    "name": "Can add category service", 
+    "content_type": 5
+  }
+},
+{
+  "pk": 14, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_categoryservice", 
+    "name": "Can change category service", 
+    "content_type": 5
+  }
+},
+{
+  "pk": 15, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_categoryservice", 
+    "name": "Can delete category service", 
+    "content_type": 5
+  }
+},
+{
+  "pk": 16, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_astuce", 
+    "name": "Can add astuce", 
+    "content_type": 6
+  }
+},
+{
+  "pk": 17, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_astuce", 
+    "name": "Can change astuce", 
+    "content_type": 6
+  }
+},
+{
+  "pk": 18, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_astuce", 
+    "name": "Can delete astuce", 
+    "content_type": 6
+  }
+},
+{
+  "pk": 19, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_info", 
+    "name": "Can add info", 
+    "content_type": 7
+  }
+},
+{
+  "pk": 20, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_info", 
+    "name": "Can change info", 
+    "content_type": 7
+  }
+},
+{
+  "pk": 21, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_info", 
+    "name": "Can delete info", 
+    "content_type": 7
+  }
+},
+{
+  "pk": 22, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_materiel", 
+    "name": "Can add materiel", 
+    "content_type": 8
+  }
+},
+{
+  "pk": 23, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_materiel", 
+    "name": "Can change materiel", 
+    "content_type": 8
+  }
+},
+{
+  "pk": 24, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_materiel", 
+    "name": "Can delete materiel", 
+    "content_type": 8
+  }
+},
+{
+  "pk": 25, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_service", 
+    "name": "Can add service", 
+    "content_type": 9
+  }
+},
+{
+  "pk": 26, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_service", 
+    "name": "Can change service", 
+    "content_type": 9
+  }
+},
+{
+  "pk": 27, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_service", 
+    "name": "Can delete service", 
+    "content_type": 9
+  }
+},
+{
+  "pk": 28, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_facture", 
+    "name": "Can add facture", 
+    "content_type": 10
+  }
+},
+{
+  "pk": 29, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_facture", 
+    "name": "Can change facture", 
+    "content_type": 10
+  }
+},
+{
+  "pk": 30, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_facture", 
+    "name": "Can delete facture", 
+    "content_type": 10
+  }
+},
+{
+  "pk": 31, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_lignecommandemateriel", 
+    "name": "Can add ligne commande materiel", 
+    "content_type": 11
+  }
+},
+{
+  "pk": 32, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_lignecommandemateriel", 
+    "name": "Can change ligne commande materiel", 
+    "content_type": 11
+  }
+},
+{
+  "pk": 33, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_lignecommandemateriel", 
+    "name": "Can delete ligne commande materiel", 
+    "content_type": 11
+  }
+},
+{
+  "pk": 34, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_lignecommandeservice", 
+    "name": "Can add ligne commande service", 
+    "content_type": 12
+  }
+},
+{
+  "pk": 35, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_lignecommandeservice", 
+    "name": "Can change ligne commande service", 
+    "content_type": 12
+  }
+},
+{
+  "pk": 36, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_lignecommandeservice", 
+    "name": "Can delete ligne commande service", 
+    "content_type": 12
+  }
+},
+{
+  "pk": 37, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_likeastuce", 
+    "name": "Can add like astuce", 
+    "content_type": 13
+  }
+},
+{
+  "pk": 38, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_likeastuce", 
+    "name": "Can change like astuce", 
+    "content_type": 13
+  }
+},
+{
+  "pk": 39, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_likeastuce", 
+    "name": "Can delete like astuce", 
+    "content_type": 13
+  }
+},
+{
+  "pk": 40, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_likeinfo", 
+    "name": "Can add like info", 
+    "content_type": 14
+  }
+},
+{
+  "pk": 41, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_likeinfo", 
+    "name": "Can change like info", 
+    "content_type": 14
+  }
+},
+{
+  "pk": 42, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_likeinfo", 
+    "name": "Can delete like info", 
+    "content_type": 14
+  }
+},
+{
+  "pk": 43, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_likemateriel", 
+    "name": "Can add like materiel", 
+    "content_type": 15
+  }
+},
+{
+  "pk": 44, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_likemateriel", 
+    "name": "Can change like materiel", 
+    "content_type": 15
+  }
+},
+{
+  "pk": 45, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_likemateriel", 
+    "name": "Can delete like materiel", 
+    "content_type": 15
+  }
+},
+{
+  "pk": 46, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_likeservice", 
+    "name": "Can add like service", 
+    "content_type": 16
+  }
+},
+{
+  "pk": 47, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_likeservice", 
+    "name": "Can change like service", 
+    "content_type": 16
+  }
+},
+{
+  "pk": 48, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_likeservice", 
+    "name": "Can delete like service", 
+    "content_type": 16
+  }
+},
+{
+  "pk": 49, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_logentry", 
+    "name": "Can add log entry", 
+    "content_type": 17
+  }
+},
+{
+  "pk": 50, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_logentry", 
+    "name": "Can change log entry", 
+    "content_type": 17
+  }
+},
+{
+  "pk": 51, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_logentry", 
+    "name": "Can delete log entry", 
+    "content_type": 17
+  }
+},
+{
+  "pk": 52, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_flatpage", 
+    "name": "Can add flat page", 
+    "content_type": 18
+  }
+},
+{
+  "pk": 53, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_flatpage", 
+    "name": "Can change flat page", 
+    "content_type": 18
+  }
+},
+{
+  "pk": 54, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_flatpage", 
+    "name": "Can delete flat page", 
+    "content_type": 18
+  }
+},
+{
+  "pk": 55, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_site", 
+    "name": "Can add site", 
+    "content_type": 19
+  }
+},
+{
+  "pk": 56, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_site", 
+    "name": "Can change site", 
+    "content_type": 19
+  }
+},
+{
+  "pk": 57, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_site", 
+    "name": "Can delete site", 
+    "content_type": 19
+  }
+},
+{
+  "pk": 58, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_permission", 
+    "name": "Can add permission", 
+    "content_type": 20
+  }
+},
+{
+  "pk": 59, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_permission", 
+    "name": "Can change permission", 
+    "content_type": 20
+  }
+},
+{
+  "pk": 60, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_permission", 
+    "name": "Can delete permission", 
+    "content_type": 20
+  }
+},
+{
+  "pk": 61, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_group", 
+    "name": "Can add group", 
+    "content_type": 21
+  }
+},
+{
+  "pk": 62, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_group", 
+    "name": "Can change group", 
+    "content_type": 21
+  }
+},
+{
+  "pk": 63, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_group", 
+    "name": "Can delete group", 
+    "content_type": 21
+  }
+},
+{
+  "pk": 64, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_user", 
+    "name": "Can add user", 
+    "content_type": 22
+  }
+},
+{
+  "pk": 65, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_user", 
+    "name": "Can change user", 
+    "content_type": 22
+  }
+},
+{
+  "pk": 66, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_user", 
+    "name": "Can delete user", 
+    "content_type": 22
+  }
+},
+{
+  "pk": 67, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_contenttype", 
+    "name": "Can add content type", 
+    "content_type": 23
+  }
+},
+{
+  "pk": 68, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_contenttype", 
+    "name": "Can change content type", 
+    "content_type": 23
+  }
+},
+{
+  "pk": 69, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_contenttype", 
+    "name": "Can delete content type", 
+    "content_type": 23
+  }
+},
+{
+  "pk": 70, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_session", 
+    "name": "Can add session", 
+    "content_type": 24
+  }
+},
+{
+  "pk": 71, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_session", 
+    "name": "Can change session", 
+    "content_type": 24
+  }
+},
+{
+  "pk": 72, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_session", 
+    "name": "Can delete session", 
+    "content_type": 24
+  }
+},
+{
+  "pk": 1, 
+  "model": "auth.group", 
+  "fields": {
+    "name": "Administration", 
+    "permissions": [
+      7, 
+      1, 
+      4, 
+      22, 
+      25
+    ]
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.group", 
+  "fields": {
+    "name": "Gestion Contenu", 
+    "permissions": [
+      16, 
+      17, 
+      10, 
+      11, 
+      13, 
+      14, 
+      7, 
+      8, 
+      1, 
+      2, 
+      4, 
+      19, 
+      20, 
+      22, 
+      23, 
+      25, 
+      26
+    ]
+  }
+},
+{
+  "pk": 1, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "lmwm", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2016-11-30T21:48:50.392Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$12000$caDhOFMensQD$Ye4M81yhCbfS6d1c4+wQQiAhlvXuJhWKfJVKh0158jg=", 
+    "email": "waffoluc@gmail.com", 
+    "date_joined": "2016-11-25T23:27:04.173Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "touko", 
+    "first_name": "Ambrose Yves", 
+    "last_name": "Touko Ngaunji", 
+    "is_active": true, 
+    "is_superuser": false, 
+    "is_staff": true, 
+    "last_login": "2016-11-26T02:14:21.258Z", 
+    "groups": [
+      2
+    ], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$12000$F5jcbpZVAXog$GkiOBA2+O7dypvMbEONE3+pq4gm26/Xr49ULIbNEi7M=", 
+    "email": "toukillyou@yahoo.fr", 
+    "date_joined": "2016-11-26T02:04:06Z"
+  }
+},
+{
+  "pk": 1, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-26T02:04:06.092Z", 
+    "object_repr": "touko", 
+    "object_id": "2", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 22
+  }
+},
+{
+  "pk": 2, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-26T02:05:58.475Z", 
+    "object_repr": "touko", 
+    "object_id": "2", 
+    "change_message": "Modifi\u00e9 first_name, last_name, email et is_staff.", 
+    "user": 1, 
+    "content_type": 22
+  }
+},
+{
+  "pk": 3, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-26T02:06:29.798Z", 
+    "object_repr": "Administrateurs", 
+    "object_id": "1", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 21
+  }
+},
+{
+  "pk": 4, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-26T02:08:06.025Z", 
+    "object_repr": "Gestion Contenu", 
+    "object_id": "2", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 21
+  }
+},
+{
+  "pk": 5, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-26T02:08:53.486Z", 
+    "object_repr": "Administration", 
+    "object_id": "1", 
+    "change_message": "Modifi\u00e9 name et permissions.", 
+    "user": 1, 
+    "content_type": 21
+  }
+},
+{
+  "pk": 6, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-26T02:09:16.563Z", 
+    "object_repr": "touko", 
+    "object_id": "2", 
+    "change_message": "Modifi\u00e9 groups.", 
+    "user": 1, 
+    "content_type": 22
+  }
+},
+{
+  "pk": 7, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-26T02:11:21.219Z", 
+    "object_repr": "Astuce - astuce pp ( 0 Likes!)", 
+    "object_id": "4", 
+    "change_message": "", 
+    "user": 2, 
+    "content_type": 6
+  }
+},
+{
+  "pk": 8, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-26T02:14:13.452Z", 
+    "object_repr": "Gestion Contenu", 
+    "object_id": "2", 
+    "change_message": "Modifi\u00e9 permissions.", 
+    "user": 1, 
+    "content_type": 21
+  }
+},
+{
+  "pk": 9, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-26T03:26:36.143Z", 
+    "object_repr": "Information - jfd ( 0 Likes!)", 
+    "object_id": "4", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 10, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-27T00:38:36.123Z", 
+    "object_repr": "test Materiel", 
+    "object_id": "10", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 8
+  }
+},
+{
+  "pk": 11, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:41:18.779Z", 
+    "object_repr": "Programmation Python", 
+    "object_id": "2", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 9
+  }
+},
+{
+  "pk": 12, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:41:23.620Z", 
+    "object_repr": "Programmation Web Avec Django", 
+    "object_id": "3", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 9
+  }
+},
+{
+  "pk": 13, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:41:39.135Z", 
+    "object_repr": "Programmation PHP", 
+    "object_id": "4", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 9
+  }
+},
+{
+  "pk": 14, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:41:50.533Z", 
+    "object_repr": "Installation Reseau", 
+    "object_id": "5", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 9
+  }
+},
+{
+  "pk": 15, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:44:53.911Z", 
+    "object_repr": "Virtualisation", 
+    "object_id": "6", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 16, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:45:05.649Z", 
+    "object_repr": "Telephonie sur IP", 
+    "object_id": "8", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 17, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:57:24.535Z", 
+    "object_repr": "Securite", 
+    "object_id": "3", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 18, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:57:47.482Z", 
+    "object_repr": "Astuce - Article Deuxieme ( 0 Likes!)", 
+    "object_id": "2", 
+    "change_message": "Modifi\u00e9 link.", 
+    "user": 1, 
+    "content_type": 6
+  }
+},
+{
+  "pk": 19, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T00:57:54.668Z", 
+    "object_repr": "Astuce - Article Deuxieme ( 0 Likes!)", 
+    "object_id": "2", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 6
+  }
+},
+{
+  "pk": 20, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T01:00:09.780Z", 
+    "object_repr": "Astuce - Article Troisieme ( 0 Likes!)", 
+    "object_id": "3", 
+    "change_message": "Modifi\u00e9 link.", 
+    "user": 1, 
+    "content_type": 6
+  }
+},
+{
+  "pk": 21, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T01:00:18.138Z", 
+    "object_repr": "Astuce - Article Premier ( 0 Likes!)", 
+    "object_id": "1", 
+    "change_message": "Modifi\u00e9 link.", 
+    "user": 1, 
+    "content_type": 6
+  }
+},
+{
+  "pk": 22, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T17:20:20.515Z", 
+    "object_repr": "PC portable", 
+    "object_id": "6", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 4
+  }
+},
+{
+  "pk": 23, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T17:20:31.192Z", 
+    "object_repr": "Monitoring (sonde, capteur, ...)", 
+    "object_id": "3", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 4
+  }
+},
+{
+  "pk": 24, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T17:20:41.363Z", 
+    "object_repr": "Equipement Reseau", 
+    "object_id": "1", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 4
+  }
+},
+{
+  "pk": 25, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:35:11.861Z", 
+    "object_repr": "Cluster", 
+    "object_id": "5", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 26, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:35:38.150Z", 
+    "object_repr": "DataBase", 
+    "object_id": "2", 
+    "change_message": "Aucun champ modifi\u00e9.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 27, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:35:48.942Z", 
+    "object_repr": "Cluster", 
+    "object_id": "5", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 28, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:35:58Z", 
+    "object_repr": "DataBase", 
+    "object_id": "2", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 29, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:36:05.341Z", 
+    "object_repr": "Programmation", 
+    "object_id": "1", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 30, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:36:15.453Z", 
+    "object_repr": "Securite", 
+    "object_id": "3", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 31, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:36:26.254Z", 
+    "object_repr": "Systeme", 
+    "object_id": "4", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 32, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:36:39.057Z", 
+    "object_repr": "Telephonie", 
+    "object_id": "7", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 33, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:36:50.696Z", 
+    "object_repr": "Telephonie sur IP", 
+    "object_id": "8", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 34, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T20:37:00.253Z", 
+    "object_repr": "Virtualisation", 
+    "object_id": "6", 
+    "change_message": "Modifi\u00e9 photo.", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 35, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-27T20:49:07.010Z", 
+    "object_repr": "test un service EM", 
+    "object_id": "9", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 5
+  }
+},
+{
+  "pk": 36, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 2, 
+    "action_time": "2016-11-27T22:35:43.358Z", 
+    "object_repr": "Information - Info Waffo ( 0 Likes!)", 
+    "object_id": "4", 
+    "change_message": "Modifi\u00e9 titre, desc, photo et slug.", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 37, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-28T22:49:36.598Z", 
+    "object_repr": "Information - Info de l heure ( 0 Likes!)", 
+    "object_id": "5", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 38, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-28T22:58:05.859Z", 
+    "object_repr": "Information - Latest News. ( 0 Likes!)", 
+    "object_id": "6", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 39, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-28T23:01:40.553Z", 
+    "object_repr": "Information - Donald Trump ( 0 Likes!)", 
+    "object_id": "7", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 40, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-28T23:31:46.587Z", 
+    "object_repr": "Information - No Issue ( 0 Likes!)", 
+    "object_id": "8", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 41, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-28T23:39:38.657Z", 
+    "object_repr": "Information - Trop de Problemes ( 0 Likes!)", 
+    "object_id": "9", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 42, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:20:13.293Z", 
+    "object_repr": "Information - Activation ( 0 Likes!)", 
+    "object_id": "10", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 43, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:21:29.004Z", 
+    "object_repr": "Information - Derniere Nouvelle ( 0 Likes!)", 
+    "object_id": "11", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 44, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:25:15.554Z", 
+    "object_repr": "Information - Premiere Info ( 0 Likes!)", 
+    "object_id": "12", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 45, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:39:37.490Z", 
+    "object_repr": "Information - Ukrane ( 0 Likes!)", 
+    "object_id": "13", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 46, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:42:24.869Z", 
+    "object_repr": "Information - kmer ( 0 Likes!)", 
+    "object_id": "14", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 47, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:46:26.841Z", 
+    "object_repr": "Information - Info 1234 ( 0 Likes!)", 
+    "object_id": "15", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 48, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:50:14.794Z", 
+    "object_repr": "Information - Info Jesus ( 0 Likes!)", 
+    "object_id": "16", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 49, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T00:55:23.816Z", 
+    "object_repr": "Information - Sauve par le Gong! ( 0 Likes!)", 
+    "object_id": "17", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 50, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T01:44:50.605Z", 
+    "object_repr": "Astuce - Premiere Astuce ( 20 Likes!)", 
+    "object_id": "5", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 6
+  }
+},
+{
+  "pk": 51, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-29T01:46:31.534Z", 
+    "object_repr": "Information - Derniere Info ( 18 Likes!)", 
+    "object_id": "18", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 52, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-30T04:46:05.023Z", 
+    "object_repr": "Astuce - Lionnes en finale ( 0 Likes!)", 
+    "object_id": "6", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 6
+  }
+},
+{
+  "pk": 53, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-30T04:46:11.652Z", 
+    "object_repr": "Information - Lionnes en Finale de la CAN ( 0 Likes!)", 
+    "object_id": "19", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 7
+  }
+},
+{
+  "pk": 54, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-11-30T04:54:13.274Z", 
+    "object_repr": "Astuce - Bonjour ( 0 Likes!)", 
+    "object_id": "7", 
+    "change_message": "", 
+    "user": 1, 
+    "content_type": 6
+  }
+}
+]

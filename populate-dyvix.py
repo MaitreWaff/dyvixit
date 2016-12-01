@@ -21,18 +21,14 @@ def populate():
 
 
 
-    reseau_cat    = add_cat_materiel('Equipement Reseau', ' -- Equipement reseau passif (cables, prises, panneaux de brassage, armoire reseau, ...) et actif (switch, routeur, firewall, ...)')
-    electrique_cat       = add_cat_materiel('Equipement electrique (PDU, onduleur, ...)', 'UNIX Equipement electrique (PDU, onduleur, ...)')
-    monitoring_cat      = add_cat_materiel('Monitoring (sonde, capteur, ...)', 'LINUX  Monitoring (sonde, capteur, ...)')
-    imprimente_cat        = add_cat_materiel('Imprimante, copieur, fax', 'OSX  Imprimante, copieur, fax -- ')
-    pcfixe_cat        = add_cat_materiel('PC fixe', ' PC fixe -- ')
-    pcportable_cat        = add_cat_materiel('PC portable', 'PC portable -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    serveur_cat        = add_cat_materiel('Serveur', 'Serveur -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    sauvegarde_cat        = add_cat_materiel('Materiel de sauvegarde (NAS, SAN, DAT, ...)', 'Materiel de sauvegarde (NAS, SAN, DAT, ...) --')
-
-
-
-
+    equipreseau_cat    = add_cat_materiel('Equipement Reseau', ' -- Equipement reseau passif (cables, prises, panneaux de brassage, armoire reseau, ...) et actif (switch, routeur, firewall, ...)')
+    equipelectrique_cat       = add_cat_materiel('Equipement electrique (PDU, onduleur, ...)', 'UNIX Equipement electrique (PDU, onduleur, ...)')
+    equipmonitoring_cat      = add_cat_materiel('Monitoring (sonde, capteur, ...)', 'LINUX  Monitoring (sonde, capteur, ...)')
+    equipimprimente_cat        = add_cat_materiel('Imprimante, copieur, fax', 'OSX  Imprimante, copieur, fax -- ')
+    equippcfixe_cat        = add_cat_materiel('PC fixe', ' PC fixe -- ')
+    equippcportable_cat        = add_cat_materiel('PC portable', 'PC portable -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    equipserveur_cat        = add_cat_materiel('Serveur', 'Serveur -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    equipsauvegarde_cat        = add_cat_materiel('Materiel de sauvegarde (NAS, SAN, DAT, ...)', 'Materiel de sauvegarde (NAS, SAN, DAT, ...) --')
 
 
 
@@ -49,19 +45,19 @@ def populate():
 
 
 
-    art_un    = add_astuce('Article Premier', 'http://www.premier.com', 'ARTICLE PREMIER -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    art_deux  = add_astuce('Article Deuxieme', 'http://www.deuxieme.com', 'ARTICLE DEUXIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    art_trois = add_astuce('Article Troisieme', 'http://www.troisieme.com', 'ARTICLE TROISIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    art_un    = add_astuce('Liberez de l\' espace sur vos disques', 'http://www.netixel.fr/tutoriel-video-informatique/liberer-espace-disque-dur/', 'Le disque dur de votre PC est presque plein ? Il est grand temps de liberer de la place et de se debarrasser de tout ce dont vous pouvez vous debarrasser !En savoir plus sur http://www.netixel.fr/tutoriel-video-informatique/liberer-espace-disque-dur/#RR1iy1jWUWjlHCdi.99')
+    # art_deux  = add_astuce('Astuce Deuxieme', 'http://www.deuxieme.com', 'ARTICLE DEUXIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    # art_trois = add_astuce('Astuce Troisieme', 'http://www.troisieme.com', 'ARTICLE TROISIEME -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
 
     add_like_astuce('https://www.facebook.com/maitre.waff', art_un)
-    add_like_astuce('https://www.facebook.com/maitre.waff', art_deux)
+    add_like_astuce('https://myaccount.google.com/?utm_source=OGB&pli=1', art_un)
 
     inf_un    = add_info('Info Un', 'http://www.un.com', 'INFORMATION UN -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    inf_deux  = add_info('Info Deux', 'http://www.deux.com', 'INFORMATION DEUX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
-    inf_trois = add_info('Info Trois', 'http://www.trois.com', 'INFORMATION TROIS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    # inf_deux  = add_info('Info Deux', 'http://www.deux.com', 'INFORMATION DEUX -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
+    # inf_trois = add_info('Info Trois', 'http://www.trois.com', 'INFORMATION TROIS -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.')
 
-    add_like_info('https://www.facebook.com/maitre.waff', inf_deux)
-    add_like_info('https://www.facebook.com/maitre.waff', inf_trois)
+    add_like_info('https://www.facebook.com/maitre.waff', inf_un)
+    add_like_info('https://myaccount.google.com/?utm_source=OGB&pli=1', inf_un)
 
 
 
@@ -77,10 +73,10 @@ def populate():
     phone="97164426353", 
     email="dell@dell.com", 
     address="Dell Abu Dhabi")
-    Mac_four     = add_fournisseur(compagnie="Machintosh", 
+    Mac_four     = add_fournisseur(compagnie="Apple",
     phone="97152423373", 
     email="machintosh@mac.com", 
-    address="Machintosh Denver")
+    address="Apple Machintosh Denver")
     Azus_four    = add_fournisseur(compagnie="Azus", 
     phone="97163543422", 
     email="azus@azus.com", 
@@ -97,59 +93,62 @@ def populate():
 
 
     ec_hp_prod = add_materiel(lib="Ecran HP",
-    cat=pcfixe_cat,
+    cat=equippcfixe_cat,
     desc= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="15000", 
     qte="110", 
     four=Hp_four)
     ec_dell_prod = add_materiel(lib="Ecran Del",
-    cat=pcfixe_cat,
+    cat=equippcfixe_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="17000", 
     qte="130", 
     four=Dell_four)
     uc_toshiba_prod = add_materiel(lib="UC Toshiba",
-    cat=pcportable_cat,
+    cat=equippcportable_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="45000", 
     qte="40", 
     four=Toshiba_four)
     uc_azus_prod = add_materiel(lib="UC Azus",
-    cat=reseau_cat,
+    cat=equipreseau_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="45000", 
     qte="200", 
     four=Azus_four)
     cl_hp_prod = add_materiel(lib="Serveurs HP Pavillon",
-    cat=serveur_cat,
+    cat=equipserveur_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="250000",
     qte="20", 
     four=Hp_four)
     cl_dell_prod = add_materiel(lib="Clavier Dell",
-    cat=imprimente_cat,
+    cat=equipimprimente_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="5000",
     qte="20", 
     four=Dell_four)
     sr_mac_prod = add_materiel(lib="Souris Mac",
-    cat=reseau_cat,
+    cat=equipreseau_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="2500",
     qte="299", 
     four=Mac_four)
     sr_dell_prod = add_materiel(lib="Souris Dell",
-    cat=imprimente_cat,
+    cat=equipimprimente_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="2500",
     qte="299", 
     four=Dell_four)
     sw_cisco_prod = add_materiel(lib="Switch Cisco",
-    cat=reseau_cat,
+    cat=equipreseau_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix_u="210000",
     qte="347", 
     four=Cisco_four)
+
+
+
 
     waffo_cons     = add_consultant(nom="Waffo",
     prenom="Luc",
@@ -171,6 +170,9 @@ def populate():
     prenom="Kim", 
     phone="699775522", 
     email="tata.kimbanz@gmail.com")
+
+
+
 
     progra_c_svc = add_service(nom="Programmation C", 
     type=progra_cat, 
