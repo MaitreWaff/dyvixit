@@ -8,19 +8,6 @@ def populate():
     #from django.utils import timezone
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     equipreseau_cat    = add_cat_materiel('Equipement Reseau', ' -- Equipement reseau passif (cables, prises, panneaux de brassage, armoire reseau, ...) et actif (switch, routeur, firewall, ...)')
     equipelectrique_cat       = add_cat_materiel('Equipement electrique (PDU, onduleur, ...)', 'UNIX Equipement electrique (PDU, onduleur, ...)')
     equipmonitoring_cat      = add_cat_materiel('Monitoring (sonde, capteur, ...)', 'LINUX  Monitoring (sonde, capteur, ...)')
@@ -31,7 +18,6 @@ def populate():
     equipsauvegarde_cat        = add_cat_materiel('Materiel de sauvegarde (NAS, SAN, DAT, ...)', 'Materiel de sauvegarde (NAS, SAN, DAT, ...) --')
 
 
-
     reseau_cat       = add_cat_service('ADMINISTRATION MAINTENANCE DES SYSTEMES ET RESEAUX INFORMATIQUE.', 'ADMINISTRATION MAINTENANCE DES SYSTEMES ET RESEAUX INFORMATIQUE.')
     materiel_cat       = add_cat_service('MATERIEL INFORMATIQUE', 'MATERIEL INFORMATIQUE')
     virtualisation_cat      = add_cat_service('VIRTUALISATION ET STOCKAGE', 'VIRTUALISATION ET STOCKAGE')
@@ -40,9 +26,6 @@ def populate():
     glo_cat        = add_cat_service('GENIE LOGICIEL.', 'GENIE LOGICIEL.')
     environ_cat        = add_cat_service('ENVIRONNEMENT DE TRAVAIL COLLABORATIF.', 'ENVIRONNEMENT DE TRAVAIL COLLABORATIF.')
     archivage_cat        = add_cat_service('ARCHIVAGE NUMERIQUE ET GESTION ELECTRONIQUE DES DOCUMENTS(GED)', 'ARCHIVAGE NUMERIQUE ET GESTION ELECTRONIQUE DES DOCUMENTS(GED)')
-
-
-
 
 
     art_un    = add_astuce('Liberez de l\' espace sur vos disques', 'http://www.netixel.fr/tutoriel-video-informatique/liberer-espace-disque-dur/', 'Le disque dur de votre PC est presque plein ? Il est grand temps de liberer de la place et de se debarrasser de tout ce dont vous pouvez vous debarrasser !En savoir plus sur http://www.netixel.fr/tutoriel-video-informatique/liberer-espace-disque-dur/#RR1iy1jWUWjlHCdi.99')
@@ -58,10 +41,6 @@ def populate():
 
     add_like_info('https://www.facebook.com/maitre.waff', inf_un)
     add_like_info('https://myaccount.google.com/?utm_source=OGB&pli=1', inf_un)
-
-
-
-
 
 
 
@@ -175,49 +154,61 @@ def populate():
 
 
     progra_c_svc = add_service(nom="Programmation C", 
-    type=progra_cat, 
+    type=glo_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="50000",
     cons=waffo_cons)
     progra_python_svc = add_service(nom="Programmation Python", 
-    type=progra_cat, 
+    type=glo_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="150000",
     cons=waffo_cons)
     progra_django_svc = add_service(nom="Programmation Web Avec Django", 
-    type=progra_cat, 
+    type=securite_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="250000",
     cons=waffo_cons)
     progra_php_svc = add_service(nom="Programmation PHP", 
-    type=progra_cat, 
+    type=virtualisation_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="750000",
     cons=wouleu_cons)
     reseau_install_svc = add_service(nom="Installation Reseau", 
-    type=cluster_cat,
+    type=telsurip_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="250000",
     cons=fotso_cons)
     reseau_depann_svc = add_service(nom="Depannage Reseau", 
-    type=cloud_cat,
+    type=reseau_cat,
     desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque.",
     prix="20000",
     cons=fotso_cons)
 
-    alan_and_steve  = add_client(societe="Ets Alan And Steve", 
+    alan_and_steve  = add_client(societe="Ets Alan And Steve",
+    prenom="Alain Ghiscar",
+    nom= "Soupkoudjou",
+    fonction="pousseur",
     phone="699127737", 
     email="alan_and_steve@yahoo.fr", 
     address="Cite Verte G31")
-    koryn_and_nancy = add_client(societe="Koryn Nancy", 
+    koryn_and_nancy = add_client(societe="Koryn Nancy",
+    prenom="Martial",
+    nom="Mukodi",
+    fonction="Cadre",
     phone="699374736", 
     email="koryn_and_nancy@yahoo.fr", 
     address="Cite Verte H52")
-    fokou           = add_client(societe="Ets Fokou", 
+    fokou           = add_client(societe="Ets Fokou",
+    prenom="Jean Debonaire",
+    nom="Olinga Kayo",
+    fonction="Chercheur",
     phone="699735338", 
     email="fokou@yahoo.fr", 
     address="Mokolo en bas")
-    nziko           = add_client(societe="Ets Nziko", 
+    nziko           = add_client(societe="Ets Nziko",
+    prenom="Blaise",
+    nom="Compaore",
+    fonction="President",
     phone="699669900", 
     email="nziko@yahoo.fr", 
     address="Bertoua")
@@ -282,8 +273,8 @@ def add_fournisseur(compagnie, phone, email, address):
     f = Fournisseur.objects.get_or_create(compagnie=compagnie, phone=phone, email=email, address=address)[0]
     return f
 
-def add_client(societe, phone, email, address):
-    c = Client.objects.get_or_create(societe=societe, phone=phone, email=email, address=address)[0]
+def add_client(societe, prenom, nom, fonction, phone, email, address):
+    c = Client.objects.get_or_create(societe=societe, prenom=prenom, nom=nom, fonction=fonction, phone=phone, email=email, address=address)[0]
     return c
 
 def add_consultant(nom, prenom, phone, email):
@@ -308,7 +299,8 @@ def add_ligne_command_service(cli, qte, cat, fact):
     return com_serv
 
 def add_facture(cli,): #
-    f = Facture.objects.get_or_create(client=cli, cloturee=False)[0]
+    EDITER, COMMANDER, VALIDER, ANNULER, LIVRER = 1, 2, 3, 4, 5
+    f = Facture.objects.get_or_create(client=cli, status=EDITER)[0]
     return f
 
 def add_like_astuce(liker, ref_like):

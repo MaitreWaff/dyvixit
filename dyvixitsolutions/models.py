@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 
 # Variables pour l'armonisation de la taille des champs.
 CHARFIELD_LENGTH, TEXTFIELD_LENGTH = 256, 1024
+KAMER_PHONE_CODE_MAX_LENGTH = 13
 
 
 
@@ -74,8 +75,8 @@ class Realisation(models.Model):
     titre        = models.CharField(max_length=CHARFIELD_LENGTH)
     description  = models.TextField(max_length=TEXTFIELD_LENGTH)
     client       = models.CharField(max_length=CHARFIELD_LENGTH)
-    date         = models.DateTimeField('Date Creation', auto_now_add=True)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
+    date         = models.DateTimeField('Date Creation', auto_now_add=True)
 
     class Meta:
         abstract = True
@@ -84,7 +85,7 @@ class Realisation(models.Model):
     def __unicode__(self):
         return self.titre
 
-class References(Realisation):
+class Reference(Realisation):
     """
     References : References de l'entreprise.
     """
@@ -98,8 +99,15 @@ class RealisationSimilaire(Realisation):
 
 
 class Contact(models.Model):
+    """
+    Contact: Differents Contacts de la Compagnie.
+    """
     service   = models.CharField(max_length=CHARFIELD_LENGTH)
-    telephone = models.IntegerField()
+    telephone = models.IntegerField(max_length=KAMER_PHONE_CODE_MAX_LENGTH)
+    desc      = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
+
+    def __unicode__(self):
+        return self.service
 
 
 
@@ -112,7 +120,7 @@ class Category(models.Model):
     date         = models.DateTimeField('Date Creation', auto_now_add=True) #default=timezone.now)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
 
-    slug         = models.SlugField(blank=True) #, prepopulate_from=('titre',))
+    slug         = models.SlugField(default=slugify(titre), blank=True) #, prepopulate_from=('titre',))
 
     class Meta:
         abstract = True
@@ -208,7 +216,7 @@ class Produit(models.Model):
     photo           = models.FileField(upload_to=get_upload_file_name, blank=True)
     date            = models.DateTimeField('Date De Creation du Produit', auto_now_add=True)
 
-    slug            = models.SlugField(blank=True) # , prepopulate_from=('titre',)
+    slug            = models.SlugField(default=slugify(libelle), blank=True) # , prepopulate_from=('titre',)
 
     class Meta:
         abstract = True
@@ -273,15 +281,15 @@ class Facture(models.Model):
         (ANNULER, "Annuler"),
         (LIVRER, "Livrer"),
     )
-
-    numero_facture = models.AutoField(primary_key=True)
-    client         = models.ForeignKey(Client)
     #
     # cloturee       = models.BooleanField(default=False)
     # ordonnee       = models.BooleanField(default=False)
     # livree         = models.BooleanField(default=False)
     # annulee        = models.BooleanField(default=False)
     #
+    numero_facture = models.AutoField(primary_key=True)
+    client         = models.ForeignKey(Client)
+
     status         = models.IntegerField(choices=STATUS_FACTURE, default=1)
     date           = models.DateTimeField('Date De Validation De La Commande', auto_now_add=True) #default=timezone.now)
     montant        = models.IntegerField(default=0)
