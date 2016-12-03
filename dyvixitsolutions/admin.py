@@ -66,25 +66,25 @@ class ServiceAdmin(admin.ModelAdmin):
     search_fields       = ('libelle', 'date', 'prix',)
     prepopulated_fields = {'slug' : ('libelle',)}
 
-class LigneCommandeMaterielInline(admin.TabularInline):
+class LigneCommandeMaterielInline(admin.TabularInline): #StackedInline):TabularInline
     model = LigneCommandeMateriel
 
 class LigneCommandeMaterielAdmin(admin.ModelAdmin):
     list_display  = ('client', 'quantite', 'article') #, 'facture')
     search_fields = ('client', 'quantite', 'article')
-    inlines = [
-        LigneCommandeMaterielInline,
-    ]
+    # inlines = [
+    #     LigneCommandeMaterielInline,
+    # ]
 
-class LigneCommandeServiceInline(admin.TabularInline):
+class LigneCommandeServiceInline(admin.TabularInline): #StackedInline):
     model = LigneCommandeService
 
 class LigneCommandeServiceAdmin(admin.ModelAdmin):
     list_display  = ('client', 'quantite', 'article') #, 'facture')
     search_fields = ('client', 'quantite', 'article')
-    inlines = [
-        LigneCommandeServiceInline,
-    ]
+    # inlines = [
+    #     LigneCommandeServiceInline,
+    # ]
 
 
 EDITER, COMMANDER, VALIDER, ANNULER, LIVRER = 1, 2, 3, 4, 5
@@ -95,6 +95,9 @@ class FactureAdmin(admin.ModelAdmin):
     search_fields = ('numero_facture', 'status', 'date')
     ordering      = ('-date',)
     actions = ['faireValider', 'faireAnnuler', 'faireLivrer',]
+    inlines = [
+        LigneCommandeMaterielInline, LigneCommandeServiceInline
+    ]
 
     def faireCommander(self, request, queryset):
         rows_updated = queryset.update(status=COMMANDER)
@@ -190,6 +193,6 @@ admin.site.register(Reference, ReferenceAdmin)
 
 
 # Site Customization
-class MyAdminSite(AdminSite):
-    site_header = 'Luc Waffo'
-    empty_value_display = '-Vide-'
+# class MyAdminSite(AdminSite):
+#     site_header = 'Luc Waffo'
+#     empty_value_display = '-Vide-'

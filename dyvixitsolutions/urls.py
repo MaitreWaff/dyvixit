@@ -5,10 +5,11 @@ from dyvixitsolutions import views
 
 import django.views.defaults
 
-from dyvixitsolutions.models import Materiel, Service
+from dyvixitsolutions.models import Materiel, Service, Facture
 
 # handler404 = 'path.to.views.custom404'
 
+from django.views.generic import *
 
 urlpatterns = patterns('',
     # Examples:
@@ -44,6 +45,12 @@ urlpatterns = patterns('',
     url(r'^404/$', django.views.defaults.page_not_found,),
     url(r'^update-astuce-after/(?P<id>\d+)/$', views.update_astuce_after,),
     url(r'^update-info-after/(?P<id>\d+)/$', views.update_info_after,),
+    # url(r'^waffo/$', 'django.views.generic',
+    #     kwargs={
+    #         'template' : 'index.html',
+    #         'extra_context' : {'item_list' : lambda : Facture.objects.all()}
+    #     },
+    #     name='waffo'),
 )
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

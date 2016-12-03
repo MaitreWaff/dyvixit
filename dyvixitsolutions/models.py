@@ -120,7 +120,7 @@ class Category(models.Model):
     date         = models.DateTimeField('Date Creation', auto_now_add=True) #default=timezone.now)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
 
-    slug         = models.SlugField(default=slugify(titre), blank=True) #, prepopulate_from=('titre',))
+    slug         = models.SlugField(blank=True) #, prepopulate_from=('titre',)) default=slugify(titre),
 
     class Meta:
         abstract = True
@@ -216,7 +216,7 @@ class Produit(models.Model):
     photo           = models.FileField(upload_to=get_upload_file_name, blank=True)
     date            = models.DateTimeField('Date De Creation du Produit', auto_now_add=True)
 
-    slug            = models.SlugField(default=slugify(libelle), blank=True) # , prepopulate_from=('titre',)
+    slug            = models.SlugField(blank=True) # , prepopulate_from=('titre',) default=slugify(libelle),
 
     class Meta:
         abstract = True
@@ -294,6 +294,11 @@ class Facture(models.Model):
     date           = models.DateTimeField('Date De Validation De La Commande', auto_now_add=True) #default=timezone.now)
     montant        = models.IntegerField(default=0)
 
+    # @property
+    # def montant(self):
+    #     result = self.lignecommandemateriel_set.aggregate(total=Sum(prix))
+    #     return result['total']
+
     class Meta:
         ordering   = ['-date']
 
@@ -341,12 +346,18 @@ class LikeAstuce(Like):
     """
     ref_like = models.ForeignKey(Astuce) # Astuce du Like
 
+    class Meta:
+        unique_together = ['liker', 'ref_like']
+
 
 class LikeInfo(Like):
     """
     LikeInfo : Mention Like pour une Information.
     """
     ref_like = models.ForeignKey(Info) # Info du Like
+
+    class Meta:
+        unique_together = ['liker', 'ref_like']
 
 
 class LikeMateriel(Like):
@@ -355,10 +366,16 @@ class LikeMateriel(Like):
     """
     ref_like = models.ForeignKey(Materiel) # Materiel du Like
 
+    class Meta:
+        unique_together = ['liker', 'ref_like']
+
 
 class LikeService(Like):
     """
     LikeService : Mention Like sur un Service Informatique.
     """
     ref_like = models.ForeignKey(Service) # Service du Like
+
+    class Meta:
+        unique_together = ['liker', 'ref_like']
 
