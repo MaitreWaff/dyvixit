@@ -62,7 +62,7 @@ class Client(models.Model):
     address         = models.TextField()
 
     class Meta:
-        ordering    = ['societe']
+        ordering    = ['nom']
 	unique_together = ['societe', 'phone', 'address']
 
     def __unicode__(self):
@@ -218,14 +218,13 @@ class Produit(models.Model):
 
     slug            = models.SlugField(blank=True) # , prepopulate_from=('titre',) default=slugify(libelle),
 
+    def __unicode__(self):
+        return self.libelle
+
     class Meta:
         abstract = True
         ordering    = ['libelle']
 	unique_together = ['libelle', 'desc','prix']
-
-    def __unicode__(self):
-        return self.libelle
-
 
 
 class Materiel(Produit):
@@ -291,7 +290,7 @@ class Facture(models.Model):
     client         = models.ForeignKey(Client)
 
     status         = models.IntegerField(choices=STATUS_FACTURE, default=1)
-    date           = models.DateTimeField('Date De Validation De La Commande', auto_now_add=True) #default=timezone.now)
+    date           = models.DateTimeField('Date De Commande', auto_now_add=True) #default=timezone.now)
     montant        = models.IntegerField(default=0)
 
     # @property
@@ -309,7 +308,7 @@ class LigneCommande(models.Model):
     """
     LigneCommande : Ligne de commande sur la Facture du client. Classe Abstraite.
     """
-    client           = models.ForeignKey(Client)
+    # client           = models.ForeignKey(Client)
     quantite         = models.IntegerField(default=1)
     facture          = models.ForeignKey(Facture)
 
@@ -323,11 +322,19 @@ class LigneCommandeMateriel(LigneCommande):
     """
     article = models.ForeignKey(Materiel)
 
+    def __unicode__(self):
+        return self.article
+    #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
+
 class LigneCommandeService(LigneCommande):
     """
     LigneCommandeService : Ligne de commande en reference a un Service Informatique.
     """
     article = models.ForeignKey(Service)
+
+    def __unicode__(self):
+        return self.article
+    #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
 
 class Like(models.Model):
     """

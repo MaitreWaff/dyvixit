@@ -290,12 +290,12 @@ def add_service(nom, type, desc, prix, cons):
     return s
 
 def add_ligne_command_materiel(cli, qte, prod, fact):
-    com_prod = LigneCommandeMateriel.objects.get_or_create(client=cli, quantite=qte, article=prod, facture=fact)[0]
+    com_prod = LigneCommandeMateriel.objects.get_or_create(quantite=qte, article=prod, facture=fact)[0]
     return com_prod
 
 
 def add_ligne_command_service(cli, qte, cat, fact):
-    com_serv = LigneCommandeService.objects.get_or_create(client=cli, quantite=qte, article=cat, facture=fact)[0]
+    com_serv = LigneCommandeService.objects.get_or_create(quantite=qte, article=cat, facture=fact)[0]
     return com_serv
 
 def add_facture(cli,): #

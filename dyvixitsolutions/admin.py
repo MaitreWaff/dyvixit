@@ -70,8 +70,8 @@ class LigneCommandeMaterielInline(admin.TabularInline): #StackedInline):TabularI
     model = LigneCommandeMateriel
 
 class LigneCommandeMaterielAdmin(admin.ModelAdmin):
-    list_display  = ('client', 'quantite', 'article') #, 'facture')
-    search_fields = ('client', 'quantite', 'article')
+    list_display  = ('article', 'quantite') #, 'facture')
+    search_fields = ('article', 'quantite')
     # inlines = [
     #     LigneCommandeMaterielInline,
     # ]
@@ -80,8 +80,8 @@ class LigneCommandeServiceInline(admin.TabularInline): #StackedInline):
     model = LigneCommandeService
 
 class LigneCommandeServiceAdmin(admin.ModelAdmin):
-    list_display  = ('client', 'quantite', 'article') #, 'facture')
-    search_fields = ('client', 'quantite', 'article')
+    list_display  = ('article', 'quantite') #, 'facture')
+    search_fields = ('article', 'quantite')
     # inlines = [
     #     LigneCommandeServiceInline,
     # ]
@@ -90,10 +90,10 @@ class LigneCommandeServiceAdmin(admin.ModelAdmin):
 EDITER, COMMANDER, VALIDER, ANNULER, LIVRER = 1, 2, 3, 4, 5
 
 class FactureAdmin(admin.ModelAdmin):
-    list_display  = ('numero_facture', 'montant', 'status','date')
+    list_display  = ('numero_facture', 'client', 'montant', 'status','date')
     list_filter   = ('status', 'date')
-    search_fields = ('numero_facture', 'status', 'date')
-    ordering      = ('-date',)
+    search_fields = ('numero_facture', 'status', 'date', 'client')
+    ordering      = ('-date','-numero_facture')
     actions = ['faireValider', 'faireAnnuler', 'faireLivrer',]
     inlines = [
         LigneCommandeMaterielInline, LigneCommandeServiceInline
@@ -178,8 +178,8 @@ admin.site.register(CategoryService, CategoryServiceAdmin)
 admin.site.register(Materiel, MaterielAdmin)
 admin.site.register(Service, ServiceAdmin)
 
-admin.site.register(LigneCommandeMateriel, LigneCommandeMaterielAdmin)
-admin.site.register(LigneCommandeService, LigneCommandeServiceAdmin)
+admin.site.register(LigneCommandeMateriel) # , LigneCommandeMaterielAdmin)
+admin.site.register(LigneCommandeService) # , LigneCommandeServiceAdmin)
 admin.site.register(Facture, FactureAdmin)
 
 admin.site.register(LikeAstuce, LikeAstuceAdmin)
