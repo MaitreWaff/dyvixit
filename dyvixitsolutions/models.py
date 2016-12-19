@@ -31,7 +31,7 @@ class Consultant(models.Model):
 	unique_together = ['nom', 'prenom']
 
     def __unicode__(self):
-        return "M. %s %s (%s): %d" % (self.prenom, self.nom, self.email, self.phone)
+        return "M./Mme. %s %s (%s): %d" % (self.prenom, self.nom, self.email, self.phone)
 
 class Fournisseur(models.Model):
     """
@@ -66,9 +66,9 @@ class Client(models.Model):
 	unique_together = ['societe', 'phone', 'address']
 
     def __unicode__(self):
-        return "Client %s (%s): %d" % (self.societe, self.email, self.phone)
+        return "Client %s %s (%s): %d" % (self.prenom, self.nom, self.societe, self.phone)
 
-class Realisation(models.Model):
+class RealisationAbstract(models.Model):
     """
     RealisationSimilaire : Descriptions des Realisations effectuees par la Comapanie.
     """
@@ -83,15 +83,15 @@ class Realisation(models.Model):
         ordering = ['-date']
 
     def __unicode__(self):
-        return self.titre
+        return "%s" % self.titre
 
-class Reference(Realisation):
+class Reference(RealisationAbstract):
     """
     References : References de l'entreprise.
     """
     pass
 
-class RealisationSimilaire(Realisation):
+class RealisationSimilaire(RealisationAbstract):
     """
     RealisationSimilaire : Realisation Similaire par la Companie.
     """
@@ -107,11 +107,11 @@ class Contact(models.Model):
     desc      = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
 
     def __unicode__(self):
-        return self.service
+        return "%s" % self.service
 
 
 
-class Category(models.Model):
+class CategoryAbstract(models.Model):
     """
     Category : Caracteristiques de base de la Categorie. Classe Abstraite.
     """
@@ -127,9 +127,9 @@ class Category(models.Model):
         ordering = ['titre']
 
     def __unicode__(self):
-        return self.titre
+        return "%s" % self.titre
 
-class CategoryMateriel(Category):
+class CategoryMateriel(CategoryAbstract):
     """
     CategoryMateriel : Categorie de Produit.
     """
@@ -145,7 +145,7 @@ class CategoryMateriel(Category):
         super(CategoryMateriel, self).save(*args, **kwargs)
 
 
-class CategoryService(Category):
+class CategoryService(CategoryAbstract):
     """
     CategoryService : Categorie de Service.
     """
@@ -161,7 +161,7 @@ class CategoryService(Category):
         super(CategoryService, self).save(*args, **kwargs)
 
 
-class Article(Category):
+class ArticleAbstract(CategoryAbstract):
     """
     Article : Astuce ou Information a consulter sur le site. Classe Abstraite.
     """
@@ -176,7 +176,7 @@ class Article(Category):
 
 
 
-class Astuce(Article):
+class Astuce(ArticleAbstract):
     """
     Astuce : Astuces a consulter sur le site
     """
@@ -191,7 +191,7 @@ class Astuce(Article):
         super(Astuce, self).save(*args, **kwargs)
 
 
-class Info(Article):
+class Info(ArticleAbstract):
     """
     Info : Information a consulter sur le site.
     """
@@ -206,7 +206,7 @@ class Info(Article):
 
 
 
-class Produit(models.Model):
+class ProduitAbstract(models.Model):
     """
     Produit : Materiel ou Service disponible sur le site.
     """
@@ -219,7 +219,7 @@ class Produit(models.Model):
     slug            = models.SlugField(blank=True) # , prepopulate_from=('titre',) default=slugify(libelle),
 
     def __unicode__(self):
-        return self.libelle
+        return "%s (%d)" % (self.libelle, self.prix)
 
     class Meta:
         abstract = True
@@ -227,7 +227,7 @@ class Produit(models.Model):
 	unique_together = ['libelle', 'desc','prix']
 
 
-class Materiel(Produit):
+class Materiel(ProduitAbstract):
     """
     Materiel : Materiel Informatique a Vendre sur le site.
     """
@@ -245,7 +245,7 @@ class Materiel(Produit):
         super(Materiel, self).save(*args, **kwargs)
 
 
-class Service(Produit):
+class Service(ProduitAbstract):
     """
     Service : Services Informatiques disponible sur le site.
     """
@@ -302,9 +302,9 @@ class Facture(models.Model):
         ordering   = ['-date']
 
     def __unicode__(self):
-        return self.numero_facture
+        return "%s" % self.numero_facture
 
-class LigneCommande(models.Model):
+class LigneCommandeAbstract(models.Model):
     """
     LigneCommande : Ligne de commande sur la Facture du client. Classe Abstraite.
     """
@@ -316,27 +316,27 @@ class LigneCommande(models.Model):
         abstract = True
 
 
-class LigneCommandeMateriel(LigneCommande):
+class LigneCommandeMateriel(LigneCommandeAbstract):
     """
     LigneCommandeMateriel : Ligne de commande en reference a un Materiel Informatique.
     """
     article = models.ForeignKey(Materiel)
 
     def __unicode__(self):
-        return self.article
+        return "%s" % self.article
     #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
 
-class LigneCommandeService(LigneCommande):
+class LigneCommandeService(LigneCommandeAbstract):
     """
     LigneCommandeService : Ligne de commande en reference a un Service Informatique.
     """
     article = models.ForeignKey(Service)
 
     def __unicode__(self):
-        return self.article
+        return "%s" % self.article
     #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
 
-class Like(models.Model):
+class LikeAbstract(models.Model):
     """
     Like : Mention Like sur un Article ou un Produit. Classe Abstraite.
     """
@@ -347,7 +347,7 @@ class Like(models.Model):
         abstract = True
         ordering = ['-date']
 
-class LikeAstuce(Like):
+class LikeAstuce(LikeAbstract):
     """
     LikeAstuce : Mention Like pour un Materiel Informatique.
     """
@@ -357,7 +357,7 @@ class LikeAstuce(Like):
         unique_together = ['liker', 'ref_like']
 
 
-class LikeInfo(Like):
+class LikeInfo(LikeAbstract):
     """
     LikeInfo : Mention Like pour une Information.
     """
@@ -367,7 +367,7 @@ class LikeInfo(Like):
         unique_together = ['liker', 'ref_like']
 
 
-class LikeMateriel(Like):
+class LikeMateriel(LikeAbstract):
     """
     LikeMateriel : Mention Like pour un Materiel Informatique.
     """
@@ -377,7 +377,7 @@ class LikeMateriel(Like):
         unique_together = ['liker', 'ref_like']
 
 
-class LikeService(Like):
+class LikeService(LikeAbstract):
     """
     LikeService : Mention Like sur un Service Informatique.
     """

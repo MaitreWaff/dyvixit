@@ -1,0 +1,72 @@
+{% extends 'dyvixitsolutions/references.html' %}
+{% load static %}
+
+    {% block content %}
+        <ul>
+            {% for ref in object_list %}
+                <li>{{ ref.titre }}</li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
+
+
+
+
+{% block contenu %}
+    <div class="alert alert-info" role="alert">
+      <a href="#" class="#"><h1>D'Yvix I.T. Solutions References</h1></a>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Nos References</h3>
+      </div>
+        <div class="panel-body">
+            <!-- Ne sert strictement a rien -->
+
+            {% for ref in object_list %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="media">
+                      <div class="media-left media-middle">
+                        <a href="#">
+                            {% if ref.photo %}
+                                <img class="media-object" src="/dyvixitsolutions/media/{{ ref.photo }}/" alt="Help!" width="150" height="150">
+                            {% else %}
+                                <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!" width="150" height="150">
+                            {% endif %}
+
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading"><a href="#">{{ ref.titre }}</a></h4>
+                        <p>{{ ref.description }}</p>
+                      </div>
+                    </div>
+                {% else %}
+                    <div class="media">
+                      <div class="media-body">
+                        <h4 class="media-heading"><a href="#">{{ ref.titre }}</a></h4>
+                        <p>{{ ref.description }}</p>
+                      </div>
+                      <div class="media-right media-middle">
+                        <a href="#">
+                            {% if ref.photo %}
+                                <img class="media-object" src="/dyvixitsolutions/media/{{ ref.photo }}/" alt="Help!" width="150" height="150">
+                            {% else %}
+                                <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!" width="150" height="150">
+                            {% endif %}
+
+                        </a>
+                      </div>
+                    </div>
+                {% endif %}
+                <br />
+
+            {% endfor %}
+
+            <!-- Ne sert strictement a rien -->
+
+            </div>
+        </div>
+
+{% endblock %}
+

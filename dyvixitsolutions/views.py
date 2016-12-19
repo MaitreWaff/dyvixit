@@ -2,6 +2,8 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext
 # from django.core.context_processors import csrf
+from django.views import generic
+
 from dyvixitsolutions.models import *
 
 from django.core import serializers
@@ -304,6 +306,21 @@ def process_form(request):
                     'list_info' : info}
 
     return render_to_response('dyvixitsolutions/assistant.html', context_dict, context)
+
+
+
+class ReferenceListView(generic.ListView):
+    template_name = 'dyvixitsolutions/references_list.html'
+
+    def get_queryset(self):
+        return Reference.objects.all()
+
+
+
+
+
+
+
 
 
 

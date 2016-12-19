@@ -178,8 +178,8 @@ admin.site.register(CategoryService, CategoryServiceAdmin)
 admin.site.register(Materiel, MaterielAdmin)
 admin.site.register(Service, ServiceAdmin)
 
-admin.site.register(LigneCommandeMateriel) # , LigneCommandeMaterielAdmin)
-admin.site.register(LigneCommandeService) # , LigneCommandeServiceAdmin)
+# admin.site.register(LigneCommandeMateriel) # , LigneCommandeMaterielAdmin)
+# admin.site.register(LigneCommandeService) # , LigneCommandeServiceAdmin)
 admin.site.register(Facture, FactureAdmin)
 
 admin.site.register(LikeAstuce, LikeAstuceAdmin)

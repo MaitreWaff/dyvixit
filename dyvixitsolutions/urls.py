@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     url(r'^services/category/(?P<service_slug>[-\w]+)/$', views.get_service_in_cat, name='get_service_in_cat'),
     url(r'^produits/$', views.produits, name='produits'),
     url(r'^produits/category/(?P<materiel_slug>[-\w]+)/$', views.get_materiel_in_cat, name='get_materiel_in_cat'),
-    url(r'^references/$', views.references, name='references'),
+    url(r'^references/$', views.ReferenceListView.as_view(), name='references'),
     url(r'^contact/$', views.contact, name='contact'),
 
     # url(r'^move/$', views.move, name='move'),
