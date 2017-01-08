@@ -93,6 +93,7 @@ class FactureAdmin(admin.ModelAdmin):
     list_display  = ('numero_facture', 'client', 'montant', 'status','date')
     list_filter   = ('status', 'date')
     search_fields = ('numero_facture', 'status', 'date', 'client')
+    save_on_top = True
     ordering      = ('-date','-numero_facture')
     actions = ['faireValider', 'faireAnnuler', 'faireLivrer',]
     inlines = [
@@ -178,8 +179,13 @@ admin.site.register(CategoryService, CategoryServiceAdmin)
 admin.site.register(Materiel, MaterielAdmin)
 admin.site.register(Service, ServiceAdmin)
 
-# admin.site.register(LigneCommandeMateriel) # , LigneCommandeMaterielAdmin)
-# admin.site.register(LigneCommandeService) # , LigneCommandeServiceAdmin)
+#
+admin.site.register(LigneCommandeMateriel) # , LigneCommandeMaterielAdmin)
+admin.site.register(LigneCommandeService) # , LigneCommandeServiceAdmin)
+#
+
+
+
 admin.site.register(Facture, FactureAdmin)
 
 admin.site.register(LikeAstuce, LikeAstuceAdmin)

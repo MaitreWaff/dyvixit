@@ -96,6 +96,11 @@
 
 
 
+
+
+
+
+
 {% block contenu %}
     <div class="alert alert-info" role="alert">
       <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions Assistant</h1></a>
@@ -108,6 +113,9 @@
 
       </div>
       <div class="panel-body">
+          <form action="/dyvixitsolutions/assistant/" method="post">
+              {% csrf_token %}
+
           <!-- Here we'll display form -->
 
           <span>Les éléments avec un astérisque (*) sont obligatoires</span>
@@ -129,8 +137,7 @@
                     <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
 
 
-                      <form action="/dyvixitsolutions/assistant/" method="post">
-                  {% csrf_token %}
+
 
                   <fieldset>
                       <legend>Nombre de Machines :</legend>
@@ -192,8 +199,6 @@
                   <br />
 
 
-              </form>
-
 
 
                   </div>
@@ -211,8 +216,6 @@
                   <div class="panel-body">
                     <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque. -->
 
-                      <form action="/dyvixitsolutions/assistant/" method="post">
-                  {% csrf_token %}
 
                   <fieldset>
                       <legend>Nombre de Machines :</legend>
@@ -294,7 +297,6 @@
                   <br />
 
 
-              </form>
 
 
                   </div>
@@ -311,45 +313,12 @@
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                   <div class="panel-body">
-                    <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
-
-                      <form action="/dyvixitsolutions/assistant/" method="post">
-                  {% csrf_token %}
-
-                  <fieldset>
-                      <legend>Votre besoin en infrastructure :</legend>
-                      <ul>
-                          <li><input type="checkbox" id="win"/><label for="win">Dimensionnement et création d'une salle réseau</label></li>
-                          <li><input type="checkbox" id="osx"/><label for="osx">Création et câblage d'un réseau</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Baie de brassage</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Sécurisation alimentation électrique (onduleur, PDU)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Création d'accès distants (DRAC)</label></li>
-                      </ul>
-
-                  </fieldset>
 
 
-                  <br />
-
-                  <fieldset>
-                      <legend>Votre besoin en matériel :</legend>
-                      <ul>
-                          <li><input type="checkbox" id="win"/><label for="win">Equipement réseau passif (câbles, prises, armoire réseau, ...) et actif (switch, routeur, firewall, ...)</label></li>
-                          <li><input type="checkbox" id="osx"/><label for="osx">Equipement électrique (PDU, onduleur, ...)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Monitoring (sonde, capteur, ...)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Imprimante, copieur, fax</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">PC fixe</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">PC portable</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Serveur</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Matériel de sauvegarde (NAS, SAN, DAT, ...)</label></li>
-                      </ul>
-
-                  </fieldset>
-
-                  <br />
 
 
-              </form>
+                      {{ form_lcmat.as_p }}
+
 
                   </div>
                 </div>
@@ -368,8 +337,7 @@
                   <div class="panel-body">
                     <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
 
-                      <form action="/dyvixitsolutions/assistant/" method="post">
-                  {% csrf_token %}
+
 
 
                   <fieldset>
@@ -388,7 +356,6 @@
                   <br />
 
 
-              </form>
 
                   </div>
                 </div>
@@ -421,62 +388,23 @@
                 </div>
               </div>
 
-
-
             </div>
 
 
-
-
-
-
         <h6>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</h6><br />
-          <form action="/dyvixitsolutions/assistant/" method="post">
-              {% csrf_token %}
+            <fieldset>
+                {{ form_client.as_p }}
+            </fieldset>
 
 
-
-              {{ form.as_p }}
-
-              <input type="submit" value="Generer Mon Cahier De Charges Simplifie">
-          </form>
-
-
-              <!-- {{ form.as_p }} -->
-              <!--
-              <p>{{ form_client.as_p }}</p> <br />
-              <p>{{ form_lcmat.as_p }}</p> <br />
-              <p>{{ form_lcserv.as_p }}</p> <br />
-              -->
               <br />
-              <!---->
-              <!--{{ form.non_field_errors }}-->
-                <!--<div class="fieldWrapper">-->
-                    <!--{{ form_client.societe.errors }}-->
-                    <!--<label for="{{ form_client.societe.id_for_label }}">Societe:</label>-->
-                    <!--{{ form_client.societe }}-->
-                <!--</div>-->
-                <!--<div class="fieldWrapper">-->
-                    <!--{{ form_client.phone.errors }}-->
-                    <!--<label for="{{ form_client.phone.id_for_label }}">Telephone:</label>-->
-                    <!--{{ form_client.phone }}-->
-                <!--</div>-->
-                <!--<div class="fieldWrapper">-->
-                    <!--{{ form_client.email.errors }}-->
-                    <!--<label for="{{ form_client.email.id_for_label }}">Votre adresse email:</label>-->
-                    <!--{{ form_client.email }}-->
-                <!--</div>-->
-                <!--<div class="fieldWrapper">-->
-                    <!--{{ form_client.cc_myself.errors }}-->
-                    <!--<label for="{{ form_client.address.id_for_label }}">Adresse:</label>-->
-                    <!--{{ form_client.address }}-->
-                <!--</div>-->
 
-
-
+          <input type="submit" value="Generer Mon Cahier De Charges Simplifie">
+          </form>
       </div>
+
     </div>
-{% endblock %} <!-- Block Contenu -->
+{% endblock contenu %} <!-- Block Contenu -->
 
 
 
@@ -498,11 +426,11 @@
         </div>
     </div>
 
-{% endblock %}
+{% endblock breadcrumb %}
 
 {% block javascript %}
     <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>
-{% endblock %}
+{% endblock javascript %}
 
 
 

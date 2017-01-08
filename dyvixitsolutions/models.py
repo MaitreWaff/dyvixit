@@ -302,7 +302,7 @@ class Facture(models.Model):
         ordering   = ['-date']
 
     def __unicode__(self):
-        return "%s" % self.numero_facture
+        return "%s (%d)" % (self.numero_facture, self.montant)
 
 class LigneCommandeAbstract(models.Model):
     """
@@ -322,9 +322,18 @@ class LigneCommandeMateriel(LigneCommandeAbstract):
     """
     article = models.ForeignKey(Materiel)
 
+    @property
+    def montant(self):
+        mnt = 0
+        art = Materiel.objects.get(pk=self.article)
+        mnt = art.prix * self.quantite
+        return mnt
+
     def __unicode__(self):
         return "%s" % self.article
+        # return "%s (%s)" % (self.article, self.montant())
     #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
+
 
 class LigneCommandeService(LigneCommandeAbstract):
     """

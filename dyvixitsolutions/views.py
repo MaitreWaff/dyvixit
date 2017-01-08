@@ -300,10 +300,14 @@ def process_form(request):
     astuce_list = Astuce.objects.order_by('-date')[:1]
     info = Info.objects.order_by('-date')[:1]
 
+    list_cat_materiel = CategoryMateriel.objects.all()
+    list_cat_service  = CategoryService.objects.all()
+
 
     context_dict = {'form' : form, 'form_client' : form_client, 'form_facture' : form_facture, \
                     'form_lcmat' : form_lcmat, 'form_lcserv' : form_lcserv, 'list_astuce' : astuce_list, \
-                    'list_info' : info}
+                    'list_info' : info, 'list_categorie_materiel' : list_cat_materiel, \
+                    'list_categorie_service' : list_cat_service}
 
     return render_to_response('dyvixitsolutions/assistant.html', context_dict, context)
 

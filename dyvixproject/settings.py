@@ -45,6 +45,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'dyvixitsolutions',
     'django.contrib.admin',
+    'django.contrib.admindocs',
     'django.contrib.flatpages',
     'django.contrib.sites',
     'django.contrib.auth',

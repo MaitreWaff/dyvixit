@@ -1,6 +1,6 @@
 from django import forms
 from dyvixitsolutions.models import Client, Facture, LigneCommandeMateriel, LigneCommandeService, \
-    CategoryMateriel, CategoryService
+    CategoryMateriel, CategoryService, Materiel, Service
 
 class PersonForm(forms.Form):
     societe   = forms.CharField() # widget=forms.CheckboxInput)
@@ -12,8 +12,10 @@ class PersonForm(forms.Form):
 
 
 class ClientForm(forms.ModelForm):
+    # model = Client
     class Meta:
         model = Client
+
     def __init__(self, *args, **kwargs):
         super(ClientForm, self).__init__(*args, **kwargs)
 
@@ -24,16 +26,18 @@ class FactureForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FactureForm, self).__init__(*args, **kwargs)
 
-class LigneCommandeMaterielForm(forms.ModelForm):
-    class Meta:
-        model = LigneCommandeMateriel
+class LigneCommandeMaterielForm(forms.Form): #.ModelForm):
+    lcm = forms.ModelMultipleChoiceField(required=False, queryset=Materiel.objects.all(), widget=forms.CheckboxSelectMultiple)
+    # class Meta:
+    #     model = LigneCommandeMateriel
+    #
+    # def __init__(self, *args, **kwargs):
+    #     super(LigneCommandeMaterielForm, self).__init__(*args, **kwargs)
 
-    def __init__(self, *args, **kwargs):
-        super(LigneCommandeMaterielForm, self).__init__(*args, **kwargs)
-
-class LigneCommandeServiceForm(forms.ModelForm):
-    class Meta:
-        model = LigneCommandeService
-
-    def __init__(self, *args, **kwargs):
-        super(LigneCommandeServiceForm, self).__init__(*args, **kwargs)
+class LigneCommandeServiceForm(forms.Form):
+    lcs = forms.ModelMultipleChoiceField(required=False, queryset=Service.objects.all(), widget=forms.CheckboxSelectMultiple)
+    # class Meta:
+    #     model = LigneCommandeService
+    #
+    # def __init__(self, *args, **kwargs):
+    #     super(LigneCommandeServiceForm, self).__init__(*args, **kwargs)

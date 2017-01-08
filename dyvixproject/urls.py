@@ -8,6 +8,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'dyvixproject.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^dyvixitsolutions/', include('dyvixitsolutions.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+   url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+   url(r'^admin/', include(admin.site.urls)),
+   url(r'^dyvixitsolutions/', include('dyvixitsolutions.urls')),
+
 )
