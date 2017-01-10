@@ -180,18 +180,20 @@ admin.site.register(Materiel, MaterielAdmin)
 admin.site.register(Service, ServiceAdmin)
 
 #
-admin.site.register(LigneCommandeMateriel) # , LigneCommandeMaterielAdmin)
-admin.site.register(LigneCommandeService) # , LigneCommandeServiceAdmin)
+# admin.site.register(LigneCommandeMateriel)
+# admin.site.register(LigneCommandeService)
 #
 
 
 
 admin.site.register(Facture, FactureAdmin)
 
-admin.site.register(LikeAstuce, LikeAstuceAdmin)
-admin.site.register(LikeInfo, LikeInfoAdmin)
-admin.site.register(LikeMateriel, LikeMaterielAdmin)
-admin.site.register(LikeService, LikeServiceAdmin)
+#
+# admin.site.register(LikeAstuce, LikeAstuceAdmin)
+# admin.site.register(LikeInfo, LikeInfoAdmin)
+# admin.site.register(LikeMateriel, LikeMaterielAdmin)
+# admin.site.register(LikeService, LikeServiceAdmin)
+#
 
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(RealisationSimilaire, RealisationSimilaireAdmin)

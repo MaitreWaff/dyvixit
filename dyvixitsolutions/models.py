@@ -304,6 +304,23 @@ class Facture(models.Model):
     def __unicode__(self):
         return "%s (%d)" % (self.numero_facture, self.montant)
 
+    def update_montant_facture(self):
+        lcm = LigneCommandeMateriel.objects.filter(facture=self.pk)
+        montant_lcm = 0
+        for cm in lcm:
+            montant_lcm += cm.montant
+
+        lcs = LigneCommandeService.objects.filter(facture=self.pk)
+        montant_lcs = 0
+        for cs in lcs:
+            montant_lcs += cs.montant
+
+        self.montant = montant_lcm + montant_lcs
+
+    def save(self, *args, **kwargs):
+        self.update_montant_facture()
+        return super(Facture, self).save(*args, **kwargs)
+
 class LigneCommandeAbstract(models.Model):
     """
     LigneCommande : Ligne de commande sur la Facture du client. Classe Abstraite.
@@ -324,8 +341,7 @@ class LigneCommandeMateriel(LigneCommandeAbstract):
 
     @property
     def montant(self):
-        mnt = 0
-        art = Materiel.objects.get(pk=self.article)
+        art = self.article #Materiel.objects.get(pk=self.article)
         mnt = art.prix * self.quantite
         return mnt
 
@@ -334,6 +350,12 @@ class LigneCommandeMateriel(LigneCommandeAbstract):
         # return "%s (%s)" % (self.article, self.montant())
     #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
 
+    def save(self, *args, **kwargs):
+        super(LigneCommandeMateriel, self).save(*args, **kwargs)
+        facture = Facture.objects.get(pk=self.facture.pk)
+        facture.save()
+
+
 
 class LigneCommandeService(LigneCommandeAbstract):
     """
@@ -341,9 +363,20 @@ class LigneCommandeService(LigneCommandeAbstract):
     """
     article = models.ForeignKey(Service)
 
+    @property
+    def montant(self):
+        art = self.article
+        mnt = art.prix * self.quantite
+        return mnt
+
     def __unicode__(self):
         return "%s" % self.article
     #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
+
+    def save(self, *args, **kwargs):
+        super(LigneCommandeService, self).save(*args, **kwargs)
+        facture = Facture.objects.get(pk=self.facture.pk)
+        facture.save()
 
 class LikeAbstract(models.Model):
     """
