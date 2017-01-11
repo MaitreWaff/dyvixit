@@ -22,9 +22,12 @@ def index(request):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
 
+    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:3]
+
     context_dict['list_cat_service'] = cat_service_list
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
+    context_dict['slider']           = rea_similaires
 
     return render_to_response('dyvixitsolutions/index.html', context_dict, context)
 
@@ -39,9 +42,11 @@ def about(request):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
+    context_dict['slider']           = rea_similaires
 
 
     return render_to_response('dyvixitsolutions/about.html', context_dict, context)
@@ -58,10 +63,12 @@ def services(request):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat_service_list = CategoryService.objects.all()
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
     context_dict['list_cat_service'] = cat_service_list
+    context_dict['slider']           = rea_similaires
 
     return render_to_response('dyvixitsolutions/services.html', context_dict, context)
 
@@ -77,10 +84,12 @@ def produits(request):
     astuce_list           = Astuce.objects.order_by('-date')[:1]
     info                  = Info.objects.order_by('-date')[:1]
     cat_materiel_list     = CategoryMateriel.objects.all()
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']       = astuce_list
     context_dict['list_info']         = info
     context_dict['list_cat_materiel'] = cat_materiel_list
+    context_dict['slider']            = rea_similaires
 
     return render_to_response('dyvixitsolutions/produits.html', context_dict, context)
 
@@ -95,9 +104,11 @@ def references(request):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
+    context_dict['slider']           = rea_similaires
 
     return render_to_response('dyvixitsolutions/references.html', context_dict, context)
 
@@ -112,9 +123,12 @@ def contact(request):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
+    context_dict['slider']           = rea_similaires
+
 
     return render_to_response('dyvixitsolutions/contacts.html', context_dict, context)
 
@@ -131,11 +145,13 @@ def get_service_in_cat(request, service_slug):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat = CategoryService.objects.get(slug=service_slug)
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']            = astuce_list
     context_dict['list_info']              = info
     context_dict['list_services_dans_cat'] = cat.service_set.all()
     context_dict['nom_cat_service']        = cat.service_set.all()[0].titre
+    context_dict['slider']                 = rea_similaires
 
     return render_to_response('dyvixitsolutions/services_par_cat.html', context_dict, context)
 
@@ -152,11 +168,14 @@ def get_materiel_in_cat(request, materiel_slug):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat              = CategoryMateriel.objects.get(slug=materiel_slug)
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']             = astuce_list
     context_dict['list_info']               = info
     context_dict['list_materiels_dans_cat'] = cat.materiel_set.all()
     context_dict['nom_cat_materiel']        = materiel_slug
+    context_dict['slider']                  = rea_similaires
+
     return render_to_response('dyvixitsolutions/produits_par_cat.html', context_dict, context)
 
 
@@ -173,11 +192,14 @@ def get_list_service_in_cat(request, service_slug):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat = CategoryService.objects.get(slug=service_slug)
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']            = astuce_list
     context_dict['list_info']              = info
     context_dict['list_services_dans_cat'] = cat.service_set.all()
     context_dict['nom_cat_service']        = cat.service_set.all()[0].libelle # service_slug
+    context_dict['slider']                 = rea_similaires
+
     return render_to_response('dyvixitsolutions/services_par_cat.html', context_dict, context)
 
 def get_list_materiel_in_cat(request, materiel_slug):
@@ -193,11 +215,16 @@ def get_list_materiel_in_cat(request, materiel_slug):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat              = CategoryMateriel.objects.get(slug=materiel_slug)
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+
     print materiel_slug
+
     context_dict['list_astuce']             = astuce_list
     context_dict['list_info']               = info
     context_dict['list_materiels_dans_cat'] = cat.materiel_set.all()
     context_dict['nom_cat_materiel']        = materiel_slug
+    context_dict['slider']                  = rea_similaires
+
     return render_to_response('dyvixitsolutions/produits_par_cat.html', context_dict, context)
 
 def test(request):
@@ -302,12 +329,14 @@ def process_form(request):
 
     list_cat_materiel = CategoryMateriel.objects.all()
     list_cat_service  = CategoryService.objects.all()
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
 
 
     context_dict = {'form' : form, 'form_client' : form_client, 'form_facture' : form_facture, \
                     'form_lcmat' : form_lcmat, 'form_lcserv' : form_lcserv, 'list_astuce' : astuce_list, \
                     'list_info' : info, 'list_categorie_materiel' : list_cat_materiel, \
                     'list_categorie_service' : list_cat_service}
+    context_dict['slider'] = rea_similaires
 
     return render_to_response('dyvixitsolutions/assistant.html', context_dict, context)
 

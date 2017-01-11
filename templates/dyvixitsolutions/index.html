@@ -26,8 +26,31 @@
 {% endblock %}
 
 
+
+{% if slider %}
+    {% block carousel %}
+        {% for rea in slider %}
+            <div class="item {% if forloop.first %}active{% endif %}">
+              <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre }}" width="500" heigth="800" />
+              <div class="carousel-caption">
+                  <h3>{{ rea.titre }}</h3>
+                  <p>{{ rea.description }}</p>
+              </div>
+            </div>
+        {% endfor %}
+
+    {% endblock %}
+{% endif %}
+
+
+
 {% block header-img1 %}
     Image 1
+    <!--{% if slider %}-->
+        <!--{{ slider.titre}}-->
+    <!--{% else %}-->
+        <!--No Desc.-->
+    <!--{% endif %}-->
 {% endblock %}
 {% block header-img2 %}
     Image 2
@@ -38,7 +61,13 @@
 
 
 {% block caption-img1 %}
-    <p>Caption for Image 1</p>
+
+    {% if slider %}
+        {{ slider.titre}}
+    {% else %}
+        No Desc.
+    {% endif %}
+
 {% endblock %}
 {% block caption-img2 %}
     <p>Caption for Image 2</p>
