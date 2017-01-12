@@ -31,7 +31,7 @@
     {% block carousel %}
         {% for rea in slider %}
             <div class="item {% if forloop.first %}active{% endif %}">
-              <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre }}" width="500" heigth="800" />
+              <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre }}" width=80% heigth=auto />
               <div class="carousel-caption">
                   <h3>{{ rea.titre }}</h3>
                   <p>{{ rea.description }}</p>
@@ -41,41 +41,6 @@
 
     {% endblock %}
 {% endif %}
-
-
-
-{% block header-img1 %}
-    Image 1
-    <!--{% if slider %}-->
-        <!--{{ slider.titre}}-->
-    <!--{% else %}-->
-        <!--No Desc.-->
-    <!--{% endif %}-->
-{% endblock %}
-{% block header-img2 %}
-    Image 2
-{% endblock %}
-{% block header-img3 %}
-    Image 3
-{% endblock %}
-
-
-{% block caption-img1 %}
-
-    {% if slider %}
-        {{ slider.titre}}
-    {% else %}
-        No Desc.
-    {% endif %}
-
-{% endblock %}
-{% block caption-img2 %}
-    <p>Caption for Image 2</p>
-{% endblock %}
-{% block caption-img3 %}
-    <p>Caption for Image 3</p>
-{% endblock %}
-
 
 
 {% block sidebar %}
@@ -148,15 +113,15 @@
                         </a>
                       </div>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}/">{{ cat_serv.titre }}</a></h4>
-                        <p>{{ cat_serv.desc }}</p>
+                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}/">{{ cat_serv.titre|title }}</a></h4>
+                        <p>{{ cat_serv.desc|capfirst }}</p>
                       </div>
                     </div>
                 {% else %}
                     <div class="media">
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}/">{{ cat_serv.titre }}</a></h4>
-                        <p>{{ cat_serv.desc }}</p>
+                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}/">{{ cat_serv.titre|title }}</a></h4>
+                        <p>{{ cat_serv.desc|capfirst }}</p>
                       </div>
                       <div class="media-right media-middle">
                         <a href="/dyvixitsolutions/services/category/{{ cat_serv.get_absolute_url }}/">

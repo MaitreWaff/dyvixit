@@ -22,7 +22,7 @@ def index(request):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
 
-    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:4]
 
     context_dict['list_cat_service'] = cat_service_list
     context_dict['list_astuce']      = astuce_list
@@ -42,11 +42,15 @@ def about(request):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    contacts         = Contact.objects.all()
+    slider           = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaire   = RealisationSimilaire.objects.all()
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
-    context_dict['slider']           = rea_similaires
+    context_dict['slider']           = slider
+    context_dict['rea_similaire']   = rea_similaire
+    context_dict['list_contact']     = contacts
 
 
     return render_to_response('dyvixitsolutions/about.html', context_dict, context)
@@ -123,11 +127,13 @@ def contact(request):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    contacts         = Contact.objects.all()
+    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:3]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
     context_dict['slider']           = rea_similaires
+    context_dict['list_contact']     = contacts
 
 
     return render_to_response('dyvixitsolutions/contacts.html', context_dict, context)

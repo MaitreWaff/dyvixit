@@ -319,6 +319,37 @@
 
 
 
+       <!--&lt;!&ndash; Ne sert strictement a rien &ndash;&gt;-->
+        <!--{% for cat_serv in services_cat %}-->
+            <!--{% if forloop.counter|divisibleby:2 %}-->
+                <!--<div class="media">-->
+                  <!--<div class="media-left media-middle">-->
+                    <!--<a href="#">-->
+                      <!--<img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!">-->
+                    <!--</a>-->
+                  <!--</div>-->
+                  <!--<div class="media-body">-->
+                    <!--<h4 class="media-heading"><a href="#">{{ cat_serv.title }}</a></h4>-->
+                    <!--<p>{{ cat_serv.desc }}</p>-->
+                  <!--</div>-->
+                <!--</div>-->
+            <!--{% else %}-->
+                <!--<div class="media">-->
+                  <!--<div class="media-body">-->
+                    <!--<h4 class="media-heading"><a href="#">{{ cat_serv.title }}</a></h4>-->
+                    <!--<p>{{ cat_serv.desc }}</p>-->
+                  <!--</div>-->
+                  <!--<div class="media-right media-middle">-->
+                    <!--<a href="#">-->
+                      <!--<img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!">-->
+                    <!--</a>-->
+                  <!--</div>-->
+                <!--</div>-->
+            <!--{% endif %}-->
+            <!--<br />-->
+
+        <!--{% endfor %}-->
+          <!--&lt;!&ndash; Ne sert strictement a rien &ndash;&gt;-->
 
 
 
