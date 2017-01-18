@@ -106,293 +106,150 @@
 
       </div>
       <div class="panel-body">
-          <form action="/dyvixitsolutions/assistant/" method="post">
+          <form action="{% url 'cahier_des_charges_informatique' %}" method="post">
               {% csrf_token %}
 
           <!-- Here we'll display form -->
 
           <span>Les éléments avec un astérisque (*) sont obligatoires</span>
-
-
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              {% for cat_serv in list_categorie_service %}
+
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="heading{{ forloop.counter }}">
+                      <h4 class="panel-title">
+                        <a {% if forloop.first %} {% else %} class="collapsed"{% endif %} role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}" {% if forloop.first %} aria-expanded="true" {% else %} aria-expanded="false" {% endif %} aria-controls="collapse{{ forloop.counter }}">
+                          <span class="glyphicon glyphicon-king"> </span> {{ cat_serv.titre|title }}
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse {% if forloop.first %}in{% endif %}" role="tabpanel" aria-labelledby="heading{{ forloop.counter }}">
+                      <div class="panel-body">
+                          {% if forloop.first %}
+                            <fieldset>
+                              <legend>Nombre de Machines :</legend>
+                              <label for="nombre_postes">
+                                  <span>Nombre de Postes de votre installation :</span>
+                              </label>
+                              <input type="text" id="nombre_postes" name="nombre_poste" required />
+                              <strong><abbr title="required">*</abbr></strong>
+
+                              <br />
+
+                              <label for="nombre_serveurs">
+                                  <span>Nombre de Serveurs (dans l'entreprise et hébergés) :</span>
+                              </label>
+                              <input type="text" id="nombre_serveurs" name="nombre_serveurs" required />
+                              <strong><abbr title="required">*</abbr></strong>
+
+                            </fieldset>
+                          {% endif %}
+
+
+                      <br />
+                          {% if cat_serv.service_set.all %}
+                          <fieldset>
+                              <legend>Services {{ cat_serv.titre|title }} :</legend>
+                              <ul>
+                                  {% for service in cat_serv.service_set.all %}
+                                    <li><input type="checkbox" id="{{ service.libelle }}" name="checkbox service {% firstof service.libelle %}"/><label for="win">{{ service.libelle }}</label></li>
+                                  {% endfor %}
+
+                              </ul>
+
+                          </fieldset>
+
+                          {% else %}
+
+                          <fieldset>
+                              <legend>Services {{ cat_serv.titre|title }} :</legend>
+                              <p>No Service in this Category.</p>
+
+                          </fieldset>
+                          {% endif %}
+
+
+
+                      <br />
+
+
+
+                      <br />
+
+
+
+
+                      </div>
+                    </div>
+                  </div>
+
+
+              {% empty %}
+                <p>Aucun Service disponible pour le moment...</p>
+              {% endfor %}
+
 
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      <span class="glyphicon glyphicon-king"> </span> Services Informatiques
+                      <span class="glyphicon glyphicon-king"> </span> Mat&eacute;riel & R&eacute;seau Informatique
                     </a>
                   </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
-
-                    <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
-
-
-
-
-                  <fieldset>
-                      <legend>Nombre de Machines :</legend>
-                      <label for="nombre_postes">
-                          <span>Nombre de Postes de votre installation :</span>
-                      </label>
-                      <input type="text" id="nombre_postes" name="nombre_poste" required />
-                      <strong><abbr title="required">*</abbr></strong>
-
-                      <br />
-
-                      <label for="nombre_serveurs">
-                          <span>Nombre de Serveurs (dans l'entreprise et hébergés) :</span>
-                      </label>
-                      <input type="text" id="nombre_serveurs" name="nombre_serveurs" required />
-                      <strong><abbr title="required">*</abbr></strong>
-
-                  </fieldset>
-
-                  <br />
-
-                  <fieldset>
-                      <legend>Systèmes d'exploitation* :</legend>
-                      <ul>
-                          <li><input type="checkbox" id="win"/><label for="win">Windows 2000 & antérieur</label></li>
-                          <li><input type="checkbox" id="osx"/><label for="osx">Windows XP</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Windows Vista</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Windows Seven</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Windows Server 2000 & antérieur</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Windows Server 2003 à 2008</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin"> Windows SBS 2000 & antérieur</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Windows SBS 2003 à 2008</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Linux / Unix</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Mac OS</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Novell / Citrix</label></li>
-                      </ul>
-
-                  </fieldset>
-
-
-                  <br />
-
-                  <fieldset>
-                      <legend>Pensez-vous déjà nous confier certains de ses projets :</legend>
-                      <ul>
-                          <li><input type="checkbox" id="win"/><label for="win">Mise en place d'un VPN</label></li>
-                          <li><input type="checkbox" id="osx"/><label for="osx">Serveur TSE (bureau à distance)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Serveur Exchange</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">SharePoint</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Windows Server (serveur de fichier, active directory, ...)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Windows Small Business Server (SBS, EBS)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Firewall, proxy</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Sauvegarde (sur bandes ou disques, externalisée, ...)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Virtualisation (hyper-V, Xen Server, Vmware)</label></li>
-                      </ul>
-
-                  </fieldset>
-
-                  <br />
-
-
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      <span class="glyphicon glyphicon-phone-alt"> </span> Telephonie
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                  <div class="panel-body">
-                    <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque. -->
-
-
-                  <fieldset>
-                      <legend>Nombre de Machines :</legend>
-                      <label for="nombre_postes">
-                          <span>Nombre de postes fixes de votre installation :</span>
-                      </label>
-                      <input type="text" id="nombre_postes" name="nombre_poste" required />
-                      <strong><abbr title="required">*</abbr></strong>
-
-                      <br />
-
-                      <label for="nombre_serveurs">
-                          <span>Et sans fil :</span>
-                      </label>
-                      <input type="text" id="nombre_serveurs" name="nombre_serveurs" required />
-                      <strong><abbr title="required">*</abbr></strong>
-
-                      <br />
-
-
-                      <label for="nombre_postes">
-                          <span>Besoin en nombre d'appels entrants simultanés :</span>
-                      </label>
-                      <input type="text" id="nombre_postes" name="nombre_poste" required />
-                      <strong><abbr title="required">*</abbr></strong>
-
-                      <br />
-
-                      <label for="nombre_serveurs">
-                          <span>Et en nombre d'appels sortants simultanés :</span>
-                      </label>
-                      <input type="text" id="nombre_serveurs" name="nombre_serveurs" required />
-                      <strong><abbr title="required">*</abbr></strong>
-
-                      <br />
-
-
-                      <label for="nombre_postes">
-                          <span>Nombre de fax et modem :</span>
-                      </label>
-                      <input type="text" id="nombre_postes" name="nombre_poste" required />
-                      <strong><abbr title="required">*</abbr></strong>
-
-                  </fieldset>
-
-                  <br />
-
-                  <fieldset>
-                      <legend>Aujourd'hui, vous avez comme standard :</legend>
-                      <ul>
-                          <li><input type="checkbox" id="win"/><label for="win">Numeris (RNIS , T0, PABX)</label></li>
-                          <li><input type="checkbox" id="osx"/><label for="osx">IP (IP BX)</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Centrex</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Ne sait pas</label></li>
-                      </ul>
-
-                  </fieldset>
-
-
-                  <br />
-
-                  <fieldset>
-                      <legend>Avez-vous d'ores et déjà identifié certaines fonctionnalités comme intéressantes pour vous :</legend>
-                      <ul>
-                          <li><input type="checkbox" id="win"/><label for="win">Softphone</label></li>
-                          <li><input type="checkbox" id="osx"/><label for="osx">Click to call / click to dial</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Fax to mail</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Voice mail</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Supervision</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Interception</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Conférences téléphoniques</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Communications intersite</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Couplage téléphonie informatique</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Journaux et analyse du trafic</label></li>
-                      </ul>
-
-                  </fieldset>
-
-                  <br />
-
-
-
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      <span class="glyphicon glyphicon-hdd"> </span> Materiel & Reseaux
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
 
 
-
-
-                      {{ form_lcmat.as_p }}
-
-
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFour">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                      <span class="glyphicon glyphicon-cloud-upload"> </span> Solutions Hebergees
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                  <div class="panel-body">
-                    <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
-
-
-
-
-                  <fieldset>
-                      <legend>Votre besoin en externalisation :</legend>
-                      <ul>
-                          <li><input type="checkbox" id="win"/><label for="win">Serveur de mail</label></li>
-                          <li><input type="checkbox" id="osx"/><label for="osx">Serveur de travail collaboratif</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Serveur pour votre site Web</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Serveur de fichier</label></li>
-                          <li><input type="checkbox" id="lin"/><label for="lin">Sauvegarde</label></li>
-                      </ul>
-
-                  </fieldset>
-
-
                   <br />
 
 
 
-                  </div>
-                </div>
-              </div>
-
-
-
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFive">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                      <span class="glyphicon glyphicon-wrench"> </span> Logiciel Sur Mesure
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                  <div class="panel-body">
-                    <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
-
-
+                      {% for cat_mat in list_categorie_materiel %}
 
                       <fieldset>
-                          <legend>Cahier de Charge du Logiciel sur Mesure :</legend>
-                          <span>Décrivez simplement votre projet en indiquant les principales fonctions :</span>
-                          <textarea name="logi_sur_mesure" id="textarea" cols="100" rows="10"></textarea>
+                          <legend>Mat&eacute;riel {{ cat_mat.titre|title }}</legend>
+                          <ul>
+                          {% for mat in cat_mat.materiel_set.all %}
+
+                              <li><input type="checkbox" id="cbmat{{ mat.id }}" name="checkbox materiel {{ mat.id }}"/><label for="cbmat{{ mat.id }}">{{ mat.libelle }}</label></li>
+                          {% empty %}
+                          <p>Aucun Mat&eacute;riel disponible pour cette categorie pour le moment...</p>
+                          {% endfor %}
+
+                          </ul>
+
                       </fieldset>
-                      <span>(par exemple : gestion de devis, planning, gestion de la relation client, organisation de tournées, suivi de la production ou des stocks, ...)</span>
+                      <br />
+                      {% empty %}
+                        <p>Aucun Mat&eacute;riel disponible pour le moment...</p>
+                      {% endfor %}
+
+                  <br />
+
+
                   </div>
                 </div>
               </div>
+
+
+
+
 
             </div>
 
 
         <h6>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</h6><br />
             <fieldset>
+                <legend>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</legend>
                 {{ form_client.as_p }}
             </fieldset>
 
 
               <br />
 
-          <input type="submit" value="Generer Mon Cahier De Charges Simplifie">
+          <input class="btn btn-success btn-lg" role="button" type="submit" value="Generer Mon Cahier De Charges Simplifie">
           </form>
       </div>
 

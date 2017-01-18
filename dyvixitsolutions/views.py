@@ -292,57 +292,101 @@ def process_form(request):
     :return:
     """
 
+    context = RequestContext(request)
+
+
 
     if request.POST:
-        context   = RequestContext(request)
+        # context   = RequestContext(request)
         post_data = request.POST.copy()
 
+        print "****** Begin POST Data"
+        print post_data
+        print "****** End POST Data"
+
+        for cb, val in post_data.items():
+            if "checkbox" in cb:
+                print cb, val
+                if post_data[cb]:
+                    if "materiel " in cb:
+                        print "Materiel"
+                        # variable, value = post_data.get(cb)
+                        # print variable, value
+                        # typ, cat, id = variable
+                        # print id
+                    elif "service" in cb:
+                        print "Service"
+
         # Test Formulaire
-        form      = PersonForm(post_data)
-        newperson = form.save(commit=False)
+        # form      = PersonForm(post_data)
+        # newperson = form.save(commit=False)
 
         # Formulaire Client
         form_client = ClientForm(post_data)
-        newclient   = form_client.save(commit=False)
+
+        if form_client.is_valid():
+            print "New Client Ok!"
+            print form_client.cleaned_data
+            print "Ok!"
+
+        else:
+            print "Not Ok for New Client!"
+
+        newclient = form_client.save(commit=False)
 
         # Formulaire Facture
-        form_facture = FactureForm(post_data)
-        newbill      = form_facture.save(commit=False)
+        # form_facture = FactureForm(post_data)
+        # newbill      = form_facture.save(commit=False)
 
         # Formulaire Ligne de Commande Materiel
-        form_lcmat   = LigneCommandeMaterielForm(post_data)
-        newmat       = form_lcmat.save(commit=False)
+        # form_lcmat   = LigneCommandeMaterielForm(post_data)
+        # newmat       = form_lcmat.save(commit=False)
 
         # Formulaire Ligne de Commande Service
-        form_lcserv  = LigneCommandeServiceForm(post_data)
-        newser       = form_lcserv.save(commit=False)
+        # form_lcserv  = LigneCommandeServiceForm(post_data)
+        # newser       = form_lcserv.save(commit=False)
 
-        if newperson.is_valid():
-            print newperson.cleaned_data
-        if newclient.is_valid():
-            print newclient.cleaned_data
+        # if newperson.is_valid():
+        #     print newperson.cleaned_data
+
     else:
-        context = RequestContext(request) # {}
 
-        form    = PersonForm()
+
+        # form    = PersonForm()
         form_client = ClientForm()
-        form_facture = FactureForm()
-        form_lcmat   = LigneCommandeMaterielForm()
-        form_lcserv  = LigneCommandeServiceForm()
+        # form_facture = FactureForm()
+        # form_lcmat   = LigneCommandeMaterielForm()
+        # form_lcserv  = LigneCommandeServiceForm()
 
     astuce_list = Astuce.objects.order_by('-date')[:1]
     info = Info.objects.order_by('-date')[:1]
 
-    list_cat_materiel = CategoryMateriel.objects.all()
-    list_cat_service  = CategoryService.objects.all()
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    # list_cat_materiel = CategoryMateriel.objects.all()
+    # list_cat_service  = CategoryService.objects.all()
+    rea_similaires    = RealisationSimilaire.objects.order_by('-date')[:3]
 
+    categories_service = CategoryService.objects.all()
+    categories_materiel = CategoryMateriel.objects.all()
 
-    context_dict = {'form' : form, 'form_client' : form_client, 'form_facture' : form_facture, \
-                    'form_lcmat' : form_lcmat, 'form_lcserv' : form_lcserv, 'list_astuce' : astuce_list, \
-                    'list_info' : info, 'list_categorie_materiel' : list_cat_materiel, \
-                    'list_categorie_service' : list_cat_service}
+    list_service = Service.objects.all()
+    list_materiel = Materiel.objects.all()
+
+    # Un block pour tous les mat et un par cat de service.
+    nbre_block = categories_service.count() + 1
+    print nbre_block
+
+    context_dict = {'form_client' : form_client,  \
+                     'list_astuce' : astuce_list, \
+                    'list_info' : info, \
+                    'list_categorie_materiel' : categories_materiel, \
+                    'list_categorie_service' : categories_service}
     context_dict['slider'] = rea_similaires
+
+    # context_dict['list_categorie_service']  = categories_service
+    # context_dict['list_categorie_materiel'] = categories_materiel
+
+    context_dict['list_service']  = list_service
+    context_dict['list_materiel'] = list_materiel
 
     return render_to_response('dyvixitsolutions/assistant.html', context_dict, context)
 
@@ -350,6 +394,7 @@ def process_form(request):
 
 class ReferenceListView(generic.ListView):
     template_name = 'dyvixitsolutions/references_list.html'
+
 
     def get_queryset(self):
         return Reference.objects.all()

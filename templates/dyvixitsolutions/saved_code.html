@@ -429,3 +429,193 @@
                     <!--{{ form_client.address }}-->
                 <!--</div>-->
 
+
+
+
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <span class="glyphicon glyphicon-phone-alt"> </span> Telephonie
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                    <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus optio beatae iste architecto, laudantium eaque perferendis fugit quae iure voluptate quaerat! Molestias atque ea, accusamus aliquid dolorum omnis esse neque. -->
+
+
+                  <fieldset>
+                      <legend>Nombre de Machines :</legend>
+                      <label for="nombre_postes">
+                          <span>Nombre de postes fixes de votre installation :</span>
+                      </label>
+                      <input type="text" id="nombre_postes" name="nombre_poste" required />
+                      <strong><abbr title="required">*</abbr></strong>
+
+                      <br />
+
+                      <label for="nombre_serveurs">
+                          <span>Et sans fil :</span>
+                      </label>
+                      <input type="text" id="nombre_serveurs" name="nombre_serveurs" required />
+                      <strong><abbr title="required">*</abbr></strong>
+
+                      <br />
+
+
+                      <label for="nombre_postes">
+                          <span>Besoin en nombre d'appels entrants simultanés :</span>
+                      </label>
+                      <input type="text" id="nombre_postes" name="nombre_poste" required />
+                      <strong><abbr title="required">*</abbr></strong>
+
+                      <br />
+
+                      <label for="nombre_serveurs">
+                          <span>Et en nombre d'appels sortants simultanés :</span>
+                      </label>
+                      <input type="text" id="nombre_serveurs" name="nombre_serveurs" required />
+                      <strong><abbr title="required">*</abbr></strong>
+
+                      <br />
+
+
+                      <label for="nombre_postes">
+                          <span>Nombre de fax et modem :</span>
+                      </label>
+                      <input type="text" id="nombre_postes" name="nombre_poste" required />
+                      <strong><abbr title="required">*</abbr></strong>
+
+                  </fieldset>
+
+                  <br />
+
+                  <fieldset>
+                      <legend>Aujourd'hui, vous avez comme standard :</legend>
+                      <ul>
+                          <li><input type="checkbox" id="win"/><label for="win">Numeris (RNIS , T0, PABX)</label></li>
+                          <li><input type="checkbox" id="osx"/><label for="osx">IP (IP BX)</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Centrex</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Ne sait pas</label></li>
+                      </ul>
+
+                  </fieldset>
+
+
+                  <br />
+
+                  <fieldset>
+                      <legend>Avez-vous d'ores et déjà identifié certaines fonctionnalités comme intéressantes pour vous :</legend>
+                      <ul>
+                          <li><input type="checkbox" id="win"/><label for="win">Softphone</label></li>
+                          <li><input type="checkbox" id="osx"/><label for="osx">Click to call / click to dial</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Fax to mail</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Voice mail</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Supervision</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Interception</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Conférences téléphoniques</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Communications intersite</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Couplage téléphonie informatique</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Journaux et analyse du trafic</label></li>
+                      </ul>
+
+                  </fieldset>
+
+                  <br />
+
+
+
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <span class="glyphicon glyphicon-hdd"> </span> Materiel & Reseaux
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
+
+
+
+
+                      {{ form_lcmat.as_p }}
+
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      <span class="glyphicon glyphicon-cloud-upload"> </span> Solutions Hebergees
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="panel-body">
+                    <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
+
+
+
+
+                  <fieldset>
+                      <legend>Votre besoin en externalisation :</legend>
+                      <ul>
+                          <li><input type="checkbox" id="win"/><label for="win">Serveur de mail</label></li>
+                          <li><input type="checkbox" id="osx"/><label for="osx">Serveur de travail collaboratif</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Serveur pour votre site Web</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Serveur de fichier</label></li>
+                          <li><input type="checkbox" id="lin"/><label for="lin">Sauvegarde</label></li>
+                      </ul>
+
+                  </fieldset>
+
+
+                  <br />
+
+
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      <span class="glyphicon glyphicon-wrench"> </span> Logiciel Sur Mesure
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                  <div class="panel-body">
+                    <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
+
+
+
+                      <fieldset>
+                          <legend>Cahier de Charge du Logiciel sur Mesure :</legend>
+                          <span>Décrivez simplement votre projet en indiquant les principales fonctions :</span>
+                          <textarea name="logi_sur_mesure" id="textarea" cols="100" rows="10"></textarea>
+                      </fieldset>
+                      <span>(par exemple : gestion de devis, planning, gestion de la relation client, organisation de tournées, suivi de la production ou des stocks, ...)</span>
+                  </div>
+                </div>
+              </div>
+
+

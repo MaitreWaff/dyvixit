@@ -12,6 +12,70 @@
 
 
 
+{% if slider %}
+    {% block carousel %}
+        {% for rea in slider %}
+            <div class="item {% if forloop.first %}active{% endif %}">
+              <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre }}" width=80% heigth=auto />
+              <div class="carousel-caption">
+                  <h3>{{ rea.titre }}</h3>
+                  <p>{{ rea.description }}</p>
+              </div>
+            </div>
+        {% endfor %}
+
+    {% endblock %}
+{% endif %}
+
+
+
+{% block sidebar %}
+    <div class="panel panel-default" id="info-update-holder">
+        <div class="panel-heading">Infos</div>
+        {% if list_info %}
+            {% for inf in list_info %}
+                {% if forloop.last %}
+                <div class="panel-body last-info" id="{{ inf.id }}"><h1><a target="_blank" href="{{ inf.link }}">{{ inf.titre }}</a></h1>
+                    <p>
+                    {% if inf.photo %}
+                        <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
+                    {% endif %}
+                    </p>
+                    <p>{{ inf.desc }}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="panel-body last-info" id="0"><h1>Pas D'Info</h1>
+                <p>Aucune Information n'est actuellement disponible dans la BD!</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="panel panel-default" id="astuce-update-holder">
+        <div class="panel-heading">Astuces</div>
+        {% if list_astuce %}
+            {% for art in list_astuce %}
+                {% if forloop.last %}
+                <div class="panel-body last-astuce" id="{{ art.id }}"><h1><a target="_blank" href="{{ art.link }}">{{ art.titre }}</a></h1>
+                    <p>
+                    {% if art.photo %}
+                        <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" alt="Photo De la Derniere Astuce" width="225" height="225"></a>
+                    {% endif %}
+                    </p>
+                    <p>{{ art.desc }}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="panel-body last-astuce" id="0"><h1>Pas D'Astuce</h1>
+                <p>Aucune Astuce n'est actuellement disponible dans la BD!</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %} <!-- Block Sidebar -->
+
+
+
 {% block contenu %}
     <div class="alert alert-info" role="alert">
       <a href="#" class="#"><h1>D'Yvix I.T. Solutions References</h1></a>
