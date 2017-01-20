@@ -142,9 +142,10 @@ class CategoryMateriel(CategoryAbstract):
     # def get_absolute_url(self):
     #     return ('liste_materiel', (), {'slug': self.slug})
 
-    @permalink
-    def get_absolute_url(self):
-        return reverse('get_materiel_in_cat', (), {'slug': self.slug})
+    # @permalink
+    # def get_absolute_url(self):
+    #     return reverse('get_materiel_in_cat', (), {'slug': self.slug, 'materiel_slug': self.slug})
+    #     return "/dyvixitsolutions/services/category/%s/" % self.slug
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -165,9 +166,10 @@ class CategoryService(CategoryAbstract):
     # def get_absolute_url(self):
     #     return ('liste_service', (), {'slug': self.slug})
 
-    @permalink
-    def get_absolute_url(self):
-        return reverse('get_service_in_cat', (), {'slug': self.slug})
+    # @permalink
+    # def get_absolute_url(self):
+        # return reverse('get_service_in_cat', (), {'slug': self.slug, 'service_slug': self.slug})
+        # return "/dyvixitsolutions/%s/" % self.slug
 
     def save(self, *args, **kwargs):
         if not self.slug:

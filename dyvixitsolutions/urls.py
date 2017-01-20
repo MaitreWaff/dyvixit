@@ -28,7 +28,7 @@ urlpatterns = patterns('',
     url(r'^contact/$', views.contact, name='contact'),
 
     # url(r'^move/$', views.move, name='move'),
-    url(r'^produit/category/(?P<produit_slug>[-\w]+)/$', views.get_list_materiel_in_cat, name='details_materiel'),
+    url(r'^produit/category/(?P<materiel_slug>[-\w]+)/$', views.get_list_materiel_in_cat, name='details_materiel'),
     url(r'^service/category/(?P<service_slug>[\-w]+)/$', views.get_list_service_in_cat, name='details_service'),
 
     url(r'^test/(?P<produit_slug>\w+)/$', views.get_list_service_in_cat,
