@@ -59,14 +59,14 @@ class Client(models.Model):
     fonction        = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
     phone           = models.IntegerField(unique=True)
     email           = models.EmailField(unique=True)
-    address         = models.TextField()
+    address         = models.TextField(blank=True)
 
     class Meta:
         ordering    = ['nom']
 	unique_together = ['societe', 'phone', 'address']
 
     def __unicode__(self):
-        return "Client %s %s (%s): %d" % (self.prenom, self.nom, self.societe, self.phone)
+        return "Client %s %s (%s a %s): %d" % (self.prenom, self.nom, self.fonction, self.societe, self.phone)
 
 class RealisationAbstract(models.Model):
     """
@@ -96,6 +96,10 @@ class RealisationSimilaire(RealisationAbstract):
     RealisationSimilaire : Realisation Similaire par la Companie.
     """
     pass
+
+    class Meta:
+        verbose_name_plural = "Realisations Similaires"
+
 
 
 class Contact(models.Model):
@@ -138,11 +142,18 @@ class CategoryMateriel(CategoryAbstract):
     # def get_absolute_url(self):
     #     return ('liste_materiel', (), {'slug': self.slug})
 
+    @permalink
+    def get_absolute_url(self):
+        return reverse('get_materiel_in_cat', (), {'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.titre)
         super(CategoryMateriel, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "Categories Materiel"
+
 
 
 class CategoryService(CategoryAbstract):
@@ -154,11 +165,18 @@ class CategoryService(CategoryAbstract):
     # def get_absolute_url(self):
     #     return ('liste_service', (), {'slug': self.slug})
 
+    @permalink
+    def get_absolute_url(self):
+        return reverse('get_service_in_cat', (), {'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.titre)
         super(CategoryService, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "Categories Service"
+
 
 
 class ArticleAbstract(CategoryAbstract):
@@ -327,7 +345,7 @@ class LigneCommandeAbstract(models.Model):
     """
     # client           = models.ForeignKey(Client)
     quantite         = models.IntegerField(default=1)
-    facture          = models.ForeignKey(Facture)
+    facture          = models.ForeignKey(Facture, on_delete=models.CASCADE)
 
     class Meta:
         abstract = True
@@ -346,7 +364,7 @@ class LigneCommandeMateriel(LigneCommandeAbstract):
         return mnt
 
     def __unicode__(self):
-        return "%s" % self.article
+        return "%s [ quantite : %d , Facture : %s ]" % (self.article, self.quantite, self.facture)
         # return "%s (%s)" % (self.article, self.montant())
     #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
 
@@ -354,6 +372,9 @@ class LigneCommandeMateriel(LigneCommandeAbstract):
         super(LigneCommandeMateriel, self).save(*args, **kwargs)
         facture = Facture.objects.get(pk=self.facture.pk)
         facture.save()
+
+    class Meta:
+        verbose_name_plural = "Lignes Commande Materiel"
 
 
 
@@ -370,13 +391,17 @@ class LigneCommandeService(LigneCommandeAbstract):
         return mnt
 
     def __unicode__(self):
-        return "%s" % self.article
+        return "%s [ quantite : %d , Facture : %s ]" % (self.article, self.quantite, self.facture)
     #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
 
     def save(self, *args, **kwargs):
         super(LigneCommandeService, self).save(*args, **kwargs)
         facture = Facture.objects.get(pk=self.facture.pk)
         facture.save()
+
+    class Meta:
+        verbose_name_plural = "Lignes Commande Service"
+
 
 class LikeAbstract(models.Model):
     """

@@ -96,7 +96,7 @@
 
 {% block contenu %}
     <div class="alert alert-info" role="alert">
-      <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions Assistant</h1></a>
+      <a href="" class="#"><h1>D'Yvix I.T. Solutions Assistant</h1></a> <!-- {% url 'cahier_des_charges_informatique' %} -->
     </div>
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -132,7 +132,7 @@
                               <label for="nombre_postes">
                                   <span>Nombre de Postes de votre installation :</span>
                               </label>
-                              <input type="text" id="nombre_postes" name="nombre_poste" required />
+                              <input type="text" id="nombre_postes" name="nombre_postes" required />
                               <strong><abbr title="required">*</abbr></strong>
 
                               <br />
@@ -152,8 +152,8 @@
                           <fieldset>
                               <legend>Services {{ cat_serv.titre|title }} :</legend>
                               <ul>
-                                  {% for service in cat_serv.service_set.all %}
-                                    <li><input type="checkbox" id="{{ service.libelle }}" name="checkbox service {% firstof service.libelle %}"/><label for="win">{{ service.libelle }}</label></li>
+                                  {% for serv in cat_serv.service_set.all %}
+                                    <li><input type="checkbox" id="cbserv{{ serv.id }}" name="checkbox service {{ serv.id }}"/><label for="cbserv{{ serv.id }}">{{ serv.libelle }}</label></li>
                                   {% endfor %}
 
                               </ul>
@@ -240,10 +240,41 @@
             </div>
 
 
-        <h6>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</h6><br />
+        <!--<h6>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</h6><br />-->
+
+              <script>
+                  {% if messages %}
+                    {% for message in messages %}
+                        alert(message)
+                    {% endfor %}
+                  {% endif %}
+              </script>
+
+
+
+              <!--{% if form.errors %}-->
+                    <!--{% for field in form %}-->
+                        <!--{% for error in field.errors %}-->
+                            <!--<div class="alert alert-danger">-->
+                                <!--<strong>{{ error|escape }}</strong>-->
+                            <!--</div>-->
+                        <!--{% endfor %}-->
+                    <!--{% endfor %}-->
+                    <!--{% for error in form.non_field_errors %}-->
+                        <!--<div class="alert alert-danger">-->
+                            <!--<strong>{{ error|escape }}</strong>-->
+                        <!--</div>-->
+                    <!--{% endfor %}-->
+                <!--{% endif %}-->
+
+
+
             <fieldset>
                 <legend>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</legend>
-                {{ form_client.as_p }}
+                <table>
+                    {{ form_client.as_table }}
+                </table>
+
             </fieldset>
 
 

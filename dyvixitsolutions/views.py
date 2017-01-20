@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse #, Http404
 from django.template import RequestContext
 # from django.core.context_processors import csrf
 from django.views import generic
@@ -15,6 +15,7 @@ def index(request):
     :param request:
     :return:
     """
+    # raise Http404("Waff doesn't exist!!")
     context = RequestContext(request)
     context_dict = {}
 
@@ -44,7 +45,7 @@ def about(request):
     info             = Info.objects.order_by('-date')[:1]
     contacts         = Contact.objects.all()
     slider           = RealisationSimilaire.objects.order_by('-date')[:3]
-    rea_similaire   = RealisationSimilaire.objects.all()
+    rea_similaire    = RealisationSimilaire.objects.all()
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
@@ -283,6 +284,19 @@ def update_info_after(request, id):
 from dyvixitsolutions.form import PersonForm, ClientForm, FactureForm, LigneCommandeMaterielForm, \
     LigneCommandeServiceForm
 
+# Differents Status dans lesquels peuvent etre une Facture...
+# En Edition, Commandee, Validee, Annulee, Livree.
+EDITER, COMMANDER, VALIDER, ANNULER, LIVRER = 1, 2, 3, 4, 5
+
+# Tuple de Choix pour les Factures.
+STATUS_FACTURE = (
+    (EDITER, "Editer"),
+    (COMMANDER, "Commander"),
+    (VALIDER, "Valider"),
+    (ANNULER, "Annuler"),
+    (LIVRER, "Livrer"),
+)
+
 
 # Form processing
 def process_form(request):
@@ -294,75 +308,113 @@ def process_form(request):
 
     context = RequestContext(request)
 
-
-
     if request.POST:
         # context   = RequestContext(request)
         post_data = request.POST.copy()
 
-        print "****** Begin POST Data"
-        print post_data
-        print "****** End POST Data"
+        # print "****** Begin POST Data"
+        # print post_data
+        # print "****** End POST Data"
 
-        for cb, val in post_data.items():
-            if "checkbox" in cb:
-                print cb, val
-                if post_data[cb]:
-                    if "materiel " in cb:
-                        print "Materiel"
-                        # variable, value = post_data.get(cb)
-                        # print variable, value
-                        # typ, cat, id = variable
-                        # print id
-                    elif "service" in cb:
-                        print "Service"
+        data_dict = dict(post_data.iterlists())
+        # print data_dict
+
+        qte_mat  = int(data_dict['nombre_postes'][0])
+        qte_serv = int(data_dict['nombre_serveurs'][0])
+        command_mat  = [] # Liste du Materiel commande.
+        command_serv = [] # Liste des Servvices commande.
+        for key in post_data:
+            if "checkbox" in key:
+                if post_data[key]:
+                    # print "Checkbox"
+        # for cb, val in data_dict.items(): # Pour toutes les paires dans le dico
+        #     if "checkbox" in cb: # Si une clef est un checkbox ... C'est a dire que la ligne a ete selectionnee.
+        #         if post_data[cb]: # Si le checkbox est a on
+                    if ("materiel" in key) or ("service" in key): # Materiel ou Service.
+                        cbstring = str(key)
+                        prod_id = int(cbstring.split(" ")[2])
+                        if "materiel " in key: # Materiel.
+                            materiel = Materiel.objects.filter(pk=prod_id)
+                            command_mat.append(materiel)
+                        elif "service" in key: # Service.
+                            service = Service.objects.filter(pk=prod_id)
+                            command_serv.append(service)
+
+        # print "Command Mat: ", command_mat
+        # print "Command Serv: ", command_serv
 
         # Test Formulaire
         # form      = PersonForm(post_data)
         # newperson = form.save(commit=False)
 
         # Formulaire Client
-        form_client = ClientForm(post_data)
+        form_client = PersonForm(post_data)
+        # print form_client
+        # print form_client.cleaned_data
 
         if form_client.is_valid():
-            print "New Client Ok!"
-            print form_client.cleaned_data
-            print "Ok!"
+            # print "New Client Ok!"
+            # print form_client.cleaned_data
+            contact_info = form_client.cleaned_data
+            cli_ste = contact_info['societe']
+            cli_prenom = contact_info['prenom']
+            cli_nom = contact_info['nom']
+            cli_fonction = contact_info['fonction']
+            cli_phone = contact_info['phone'] #[0]
+            cli_email = contact_info['email']
+            cli_address = contact_info['address']
+            # print cli_address
+            try:
+                client, created = Client.objects.get_or_create(societe=cli_ste, prenom=cli_prenom, nom=cli_nom, fonction=cli_fonction, phone=cli_phone, email=cli_email, address=cli_address)
+                #
+                if created:
+                    print "[*] Nouveau Client Enregistre avec Success!"
+                    print client
+                else:
+                    print "[*] Client existant!"
+
+                # On a une ref vers le client.
+                # On crait une facture, puis les lignes de commandes relatives a cette facture.
+
+                facture_client = Facture.objects.create(client=client)
+                print "[+] Creation Facture id: ", facture_client
+                print "  [*] Liste Materiels"
+                for cmd in command_mat:
+                    mat = Materiel.objects.get(pk=cmd[0].id)
+                    nw_mat = LigneCommandeMateriel.objects.create(facture=facture_client, article=mat, quantite=qte_mat)
+                    print "    [+] Nouvelle Commande Materiel: ", nw_mat
+
+                print "  [*] Liste Services"
+
+                for cmd in command_serv:
+                    ser = Service.objects.get(pk=cmd[0].id)
+                    nw_ser = LigneCommandeService.objects.create(facture=facture_client, article=ser, quantite=qte_serv)
+                    print "    [+] Nouvelle Commande Service: ", nw_ser
+
+                facture_client.status = COMMANDER
+                facture_client.save()
+
+                print "[+] Commande Facture : ", facture_client.client
+
+
+                # newclient = form_client.save(commit=False)
+            except Exception, e:
+                print e #, type(e) #, e.args[0]
+
 
         else:
             print "Not Ok for New Client!"
+            messages.error(request, "Error")
 
-        newclient = form_client.save(commit=False)
-
-        # Formulaire Facture
-        # form_facture = FactureForm(post_data)
-        # newbill      = form_facture.save(commit=False)
-
-        # Formulaire Ligne de Commande Materiel
-        # form_lcmat   = LigneCommandeMaterielForm(post_data)
-        # newmat       = form_lcmat.save(commit=False)
-
-        # Formulaire Ligne de Commande Service
-        # form_lcserv  = LigneCommandeServiceForm(post_data)
-        # newser       = form_lcserv.save(commit=False)
-
-        # if newperson.is_valid():
-        #     print newperson.cleaned_data
 
     else:
 
+        form_client = PersonForm() #ClientForm()
 
-        # form    = PersonForm()
-        form_client = ClientForm()
-        # form_facture = FactureForm()
-        # form_lcmat   = LigneCommandeMaterielForm()
-        # form_lcserv  = LigneCommandeServiceForm()
 
     astuce_list = Astuce.objects.order_by('-date')[:1]
     info = Info.objects.order_by('-date')[:1]
 
-    # list_cat_materiel = CategoryMateriel.objects.all()
-    # list_cat_service  = CategoryService.objects.all()
     rea_similaires    = RealisationSimilaire.objects.order_by('-date')[:3]
 
     categories_service = CategoryService.objects.all()
@@ -371,19 +423,12 @@ def process_form(request):
     list_service = Service.objects.all()
     list_materiel = Materiel.objects.all()
 
-    # Un block pour tous les mat et un par cat de service.
-    nbre_block = categories_service.count() + 1
-    print nbre_block
-
     context_dict = {'form_client' : form_client,  \
                      'list_astuce' : astuce_list, \
                     'list_info' : info, \
                     'list_categorie_materiel' : categories_materiel, \
                     'list_categorie_service' : categories_service}
     context_dict['slider'] = rea_similaires
-
-    # context_dict['list_categorie_service']  = categories_service
-    # context_dict['list_categorie_materiel'] = categories_materiel
 
     context_dict['list_service']  = list_service
     context_dict['list_materiel'] = list_materiel

@@ -53,7 +53,7 @@
                 <div class="panel-body last-info" id="{{ inf.id }}"><h1><a target="_blank" href="{{ inf.link }}">{{ inf.titre }}</a></h1>
                     <p>
                     {% if inf.photo %}
-                        <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
+                        <a target="_blank" href="{{ inf.link }}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
                     {% endif %}
                     </p>
                     <p>{{ inf.desc }}</p>
@@ -108,7 +108,7 @@
 
                   <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                      <img src="..." alt="...">
+                      <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre|title }}">
                       <div class="caption">
                         <h3>{{ rea.titre|title }}</h3>
                           <h2>{{ rea.client }}</h2>

@@ -7,8 +7,9 @@ class PersonForm(forms.Form):
     prenom    = forms.CharField()
     nom       = forms.CharField()
     fonction  = forms.CharField()
-    telephone = forms.IntegerField()
+    phone     = forms.IntegerField()
     email     = forms.EmailField()
+    address   = forms.CharField(widget=forms.Textarea)
 
 
 class ClientForm(forms.ModelForm):

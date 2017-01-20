@@ -180,8 +180,8 @@ admin.site.register(Materiel, MaterielAdmin)
 admin.site.register(Service, ServiceAdmin)
 
 #
-# admin.site.register(LigneCommandeMateriel)
-# admin.site.register(LigneCommandeService)
+admin.site.register(LigneCommandeMateriel)
+admin.site.register(LigneCommandeService)
 #
 
 
