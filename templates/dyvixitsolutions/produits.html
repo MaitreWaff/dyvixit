@@ -32,7 +32,7 @@
               <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre }}" width=80% heigth=auto />
               <div class="carousel-caption">
                   <h3>{{ rea.titre }}</h3>
-                  <p>{{ rea.description }}</p>
+                  <p>{{ rea.description|truncatewords:150 }}</p>
               </div>
             </div>
         {% endfor %}
@@ -55,7 +55,7 @@
                         <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
                     {% endif %}
                     </p>
-                    <p>{{ inf.desc }}</p>
+                    <p>{{ inf.desc|truncatewords:150 }}</p>
                 </div>
                 {% endif %}
             {% endfor %}
@@ -76,7 +76,7 @@
                         <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" alt="Photo De la Derniere Astuce" width="225" height="225"></a>
                     {% endif %}
                     </p>
-                    <p>{{ art.desc }}</p>
+                    <p>{{ art.desc|truncatewords:150 }}</p>
                 </div>
                 {% endif %}
             {% endfor %}
@@ -116,14 +116,14 @@
                       </div>
                       <div class="media-body">
                         <h4 class="media-heading"><a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">{{ cat_prod.titre }}</a></h4>
-                        <p>{{ cat_prod.desc }}</p>
+                        <p>{{ cat_prod.desc|truncatewords:150 }}</p>
                       </div>
                     </div>
                 {% else %}
                     <div class="media">
                       <div class="media-body">
                         <h4 class="media-heading"><a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">{{ cat_prod.titre }}</a></h4>
-                        <p>{{ cat_prod.desc }}</p>
+                        <p>{{ cat_prod.desc|truncatewords:150 }}</p>
                       </div>
                       <div class="media-right media-middle">
                         <a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">
