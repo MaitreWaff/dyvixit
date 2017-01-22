@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 # Variables pour l'armonisation de la taille des champs.
 CHARFIELD_LENGTH, TEXTFIELD_LENGTH = 256, 1024
 KAMER_PHONE_CODE_MAX_LENGTH = 13
-
+LONG_MAX_SLUG = 128
 
 
 # Retourne le Nom De l'Image telechargee.
@@ -124,7 +124,7 @@ class CategoryAbstract(models.Model):
     date         = models.DateTimeField('Date Creation', auto_now_add=True) #default=timezone.now)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
 
-    slug         = models.SlugField(blank=True) #, prepopulate_from=('titre',)) default=slugify(titre),
+    slug         = models.SlugField(blank=True, max_length=LONG_MAX_SLUG) #, prepopulate_from=('titre',)) default=slugify(titre),
 
     class Meta:
         abstract = True
@@ -138,9 +138,9 @@ class CategoryMateriel(CategoryAbstract):
     CategoryMateriel : Categorie de Produit.
     """
 
-    # @permalink
-    # def get_absolute_url(self):
-    #     return ('liste_materiel', (), {'slug': self.slug})
+    @permalink
+    def get_absolute_url(self):
+        return ('get_materiel_in_cat', (), {'category_slug': self.slug})
 
     # @permalink
     # def get_absolute_url(self):
@@ -162,9 +162,9 @@ class CategoryService(CategoryAbstract):
     CategoryService : Categorie de Service.
     """
     #
-    # @permalink
-    # def get_absolute_url(self):
-    #     return ('liste_service', (), {'slug': self.slug})
+    @permalink
+    def get_absolute_url(self):
+        return ('get_service_in_cat', (), {'category_slug': self.slug})
 
     # @permalink
     # def get_absolute_url(self):

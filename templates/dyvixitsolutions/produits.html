@@ -115,14 +115,14 @@
                         </a>
                       </div>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">{{ cat_prod.titre }}</a></h4>
+                        <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
                         <p>{{ cat_prod.desc|truncatewords:150 }}</p>
                       </div>
                     </div>
                 {% else %}
                     <div class="media">
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">{{ cat_prod.titre }}</a></h4>
+                        <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
                         <p>{{ cat_prod.desc|truncatewords:150 }}</p>
                       </div>
                       <div class="media-right media-middle">

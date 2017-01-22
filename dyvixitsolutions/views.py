@@ -8,6 +8,9 @@ from dyvixitsolutions.models import *
 
 from django.core import serializers
 
+# CONSTANTES
+NOMBRE_D_IMAGE_DANS_LE_SLIDER = 4
+
 # Create your views here.
 def index(request):
     """
@@ -23,7 +26,7 @@ def index(request):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
 
-    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:4]
+    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_cat_service'] = cat_service_list
     context_dict['list_astuce']      = astuce_list
@@ -44,7 +47,7 @@ def about(request):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     contacts         = Contact.objects.all()
-    slider           = RealisationSimilaire.objects.order_by('-date')[:3]
+    slider           = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
     rea_similaire    = RealisationSimilaire.objects.all()
 
     context_dict['list_astuce']      = astuce_list
@@ -67,8 +70,8 @@ def services(request):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
-    cat_service_list = CategoryService.objects.all()
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    cat_service_list = CategoryService.objects.order_by('titre') #all()
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
@@ -89,7 +92,7 @@ def produits(request):
     astuce_list           = Astuce.objects.order_by('-date')[:1]
     info                  = Info.objects.order_by('-date')[:1]
     cat_materiel_list     = CategoryMateriel.objects.all()
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']       = astuce_list
     context_dict['list_info']         = info
@@ -109,7 +112,7 @@ def references(request):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
@@ -129,7 +132,7 @@ def contact(request):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     contacts         = Contact.objects.all()
-    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaires   = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']      = astuce_list
     context_dict['list_info']        = info
@@ -139,7 +142,7 @@ def contact(request):
 
     return render_to_response('dyvixitsolutions/contacts.html', context_dict, context)
 
-def get_service_in_cat(request, service_slug):
+def get_service_in_cat(request, category_slug):
     """
     Page de Services par Categories.
     :param request:
@@ -151,18 +154,19 @@ def get_service_in_cat(request, service_slug):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
-    cat = CategoryService.objects.get(slug=service_slug)
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    # cat = CategoryService.objects.get(slug=service_slug)
+    cat_service = CategoryService.objects.get(slug=category_slug)
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']            = astuce_list
     context_dict['list_info']              = info
-    context_dict['list_services_dans_cat'] = cat.service_set.all()
-    context_dict['nom_cat_service']        = cat.service_set.all()[0].titre
+    context_dict['list_services_dans_cat'] = Service.objects.filter(category = cat_service)# cat.service_set.all()
+    context_dict['nom_cat_service']        = cat_service.titre # cat.service_set.all()[0].titre
     context_dict['slider']                 = rea_similaires
 
     return render_to_response('dyvixitsolutions/services_par_cat.html', context_dict, context)
 
-def get_materiel_in_cat(request, materiel_slug):
+def get_materiel_in_cat(request, category_slug):
     """
     Page de Materiels par Categories.
     :param request:
@@ -174,13 +178,14 @@ def get_materiel_in_cat(request, materiel_slug):
 
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
-    cat              = CategoryMateriel.objects.get(slug=materiel_slug)
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    # cat              = CategoryMateriel.objects.get(slug=materiel_slug)
+    cat_materiel = CategoryMateriel.objects.get(slug=category_slug)
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']             = astuce_list
     context_dict['list_info']               = info
-    context_dict['list_materiels_dans_cat'] = cat.materiel_set.all()
-    context_dict['nom_cat_materiel']        = materiel_slug
+    context_dict['list_materiels_dans_cat'] = Materiel.objects.filter(category = cat_materiel) #cat.materiel_set.all()
+    context_dict['nom_cat_materiel']        = cat_materiel.titre
     context_dict['slider']                  = rea_similaires
 
     return render_to_response('dyvixitsolutions/produits_par_cat.html', context_dict, context)
@@ -199,7 +204,7 @@ def get_list_service_in_cat(request, service_slug):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat = CategoryService.objects.get(slug=service_slug)
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']            = astuce_list
     context_dict['list_info']              = info
@@ -222,7 +227,7 @@ def get_list_materiel_in_cat(request, materiel_slug):
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
     cat              = CategoryMateriel.objects.get(slug=materiel_slug)
-    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     print materiel_slug
 
