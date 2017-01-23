@@ -89,38 +89,42 @@
 
             {% for ref in object_list %}
                 {% if forloop.counter|divisibleby:2 %}
-                    <div class="media">
-                      <div class="media-left media-middle">
-                        <a href="#">
-                            {% if ref.photo %}
-                                <img class="media-object" src="/dyvixitsolutions/media/{{ ref.photo }}/" alt="Help!" width="150" height="150">
-                            {% else %}
-                                <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!" width="150" height="150">
-                            {% endif %}
+                    <div class="well">
+                        <div class="media">
+                          <div class="media-left media-middle">
+                            <a href="#">
+                                {% if ref.photo %}
+                                    <img class="media-object" src="/dyvixitsolutions/media/{{ ref.photo }}/" alt="Help!" width="150" height="150">
+                                {% else %}
+                                    <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!" width="150" height="150">
+                                {% endif %}
 
-                        </a>
-                      </div>
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="#">{{ ref.titre }}</a></h4>
-                        <p>{{ ref.description }}</p>
-                      </div>
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="#">{{ ref.titre }}</a></h4>
+                            <p>{{ ref.description }}</p>
+                          </div>
+                        </div>
                     </div>
                 {% else %}
-                    <div class="media">
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="#">{{ ref.titre }}</a></h4>
-                        <p>{{ ref.description }}</p>
-                      </div>
-                      <div class="media-right media-middle">
-                        <a href="#">
-                            {% if ref.photo %}
-                                <img class="media-object" src="/dyvixitsolutions/media/{{ ref.photo }}/" alt="Help!" width="150" height="150">
-                            {% else %}
-                                <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!" width="150" height="150">
-                            {% endif %}
+                    <div class="well">
+                        <div class="media">
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="#">{{ ref.titre }}</a></h4>
+                            <p>{{ ref.description }}</p>
+                          </div>
+                          <div class="media-right media-middle">
+                            <a href="#">
+                                {% if ref.photo %}
+                                    <img class="media-object" src="/dyvixitsolutions/media/{{ ref.photo }}/" alt="Help!" width="150" height="150">
+                                {% else %}
+                                    <img class="media-object" src="{% static 'img/help.jpeg' %}" alt="Help!" width="150" height="150">
+                                {% endif %}
 
-                        </a>
-                      </div>
+                            </a>
+                          </div>
+                        </div>
                     </div>
                 {% endif %}
                 <br />
