@@ -420,7 +420,7 @@ def process_form(request):
     astuce_list = Astuce.objects.order_by('-date')[:1]
     info = Info.objects.order_by('-date')[:1]
 
-    rea_similaires    = RealisationSimilaire.objects.order_by('-date')[:3]
+    rea_similaires    = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     categories_service = CategoryService.objects.all()
     categories_materiel = CategoryMateriel.objects.all()
@@ -444,6 +444,14 @@ def process_form(request):
 
 class ReferenceListView(generic.ListView):
     template_name = 'dyvixitsolutions/references_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ReferenceListView, self).get_context_data(**kwargs)
+        context['slider'] = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
+        context['list_astuce'] = Astuce.objects.order_by('-date')[:1]
+        context['list_info'] = Info.objects.order_by('-date')[:1]
+
+        return context
 
 
     def get_queryset(self):
