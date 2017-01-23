@@ -55,7 +55,7 @@
                         <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
                     {% endif %}
                     </p>
-                    <p>{{ inf.desc|truncatewords:150 }}</p>
+                    <p>{{ inf.desc|safe|truncatewords:150 }}</p>
                 </div>
                 {% endif %}
             {% endfor %}
@@ -76,7 +76,7 @@
                         <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" alt="Photo De la Derniere Astuce" width="225" height="225"></a>
                     {% endif %}
                     </p>
-                    <p>{{ art.desc|truncatewords:150 }}</p>
+                    <p>{{ art.desc|safe|truncatewords:150 }}</p>
                 </div>
                 {% endif %}
             {% endfor %}

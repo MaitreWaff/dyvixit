@@ -91,7 +91,7 @@
 
 {% block contenu %}
     <div class="alert alert-info" role="alert">
-      <a href="#" class="#"><h1>D'Yvix I.T. Solutions Produits {{ produits_cat}}</h1></a>
+      <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions</h1></a>
     </div>
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -114,8 +114,8 @@
                               <div class="caption">
                                 <h3>{{ prod.libelle }}</h3>
                                 <p><b>Prix: </b>{{ prod.prix }}</p>
-                                  <p>{{ prod.desc }}</p>
-                                <!--<p><a href="#" class="btn btn-primary" role="button">Ok</a> <a href="#" class="btn btn-default" role="button">Cancel</a></p>-->
+                                  <p>{{ prod.desc|safe }}</p>
+                                <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button">Commander</a><!--<p> <a href="#" class="btn btn-default" role="button">Cancel</a></p>-->
                               </div>
                             </div>
                           </div>

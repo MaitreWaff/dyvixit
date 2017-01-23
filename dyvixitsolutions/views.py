@@ -91,7 +91,7 @@ def produits(request):
 
     astuce_list           = Astuce.objects.order_by('-date')[:1]
     info                  = Info.objects.order_by('-date')[:1]
-    cat_materiel_list     = CategoryMateriel.objects.all()
+    cat_materiel_list     = CategoryMateriel.objects.order_by('titre') #all()
     rea_similaires = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
     context_dict['list_astuce']       = astuce_list

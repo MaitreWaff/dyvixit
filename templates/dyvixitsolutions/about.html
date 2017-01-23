@@ -94,35 +94,40 @@
 
 {% block contenu %}
     <div class="alert alert-info" role="alert">
-      <a href="/dyvixitsolutions/about/" class="#"><h1>D'Yvix I.T. Solutions ... Qui Sommes Nous?</h1></a>
+      <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions</h1></a>
     </div>
 
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">About Us</h3>
+        <h3 class="panel-title">About Us ... Qui Sommes Nous?</h3>
       </div>
       <div class="panel-body">
-          {% if rea_similaire %}
+
           <div class="row">
+              <div class="well"><h1>Nos R&eacute;alisations Similaires.</h1></div>
+                  <!--<div class="panel panel-default">-->
+                  <!--<div class="panel-body">-->
+                    <!---->
+                  <!--</div>-->
+                <!--</div>-->
             {% for rea in rea_similaire %}
 
                   <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                       <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre|title }}" width=80% heigth=auto >
                       <div class="caption">
-                        <h3>{{ rea.titre|title }}</h3>
-                          <h2>{{ rea.client }}</h2>
-                        <p>{{ rea.description }}</p>
+                        <h4><u>{{ rea.titre|title }}</u></h4>
+                          <h5><u>Client:</u> {{ rea.client }}</h5>
+                        <div class="well"><p>{{ rea.description }}</p></div>
                         <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                       </div>
                     </div>
                   </div>
-
+            {% empty %}
+              <p>No Contacts.</p>
             {% endfor %}
           </div>
-          {% else %}
-          <p>No Contacts.</p>
-          {% endif %}
+
 
 
 
