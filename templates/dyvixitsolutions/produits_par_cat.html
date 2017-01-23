@@ -100,8 +100,9 @@
         
         <div class="panel-body">
             <div class="row">
-                {% if list_materiels_dans_cat %}
-                    {% for prod in list_materiels_dans_cat %}
+
+                {% for prod in list_materiels_dans_cat %}
+
 
                           <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
@@ -114,14 +115,14 @@
                                 <h3>{{ prod.libelle }}</h3>
                                 <p><b>Prix: </b>{{ prod.prix }}</p>
                                   <p>{{ prod.desc }}</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Ok</a> <a href="#" class="btn btn-default" role="button">Cancel</a></p>
+                                <!--<p><a href="#" class="btn btn-primary" role="button">Ok</a> <a href="#" class="btn btn-default" role="button">Cancel</a></p>-->
                               </div>
                             </div>
                           </div>
-                    {% endfor %}
-                {% else %}
+
+                {% empty %}
                     <h1>Pas de Produits dans cette Categorie!</h1>
-                {% endif %}
+                {% endfor %}
             </div>
         </div>
         <p align="center"><a href="/dyvixitsolutions/produits/">Retour Aux Categories de Nos Produits.</a></p>
@@ -137,7 +138,7 @@
         <ol class="breadcrumb">
             <li ><a href="/dyvixitsolutions/"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
             <li ><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</a></li>
-            <li ><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Produits</a></li>
+            <li ><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Services</a></li>
             <li class="active"><span class="glyphicon glyphicon-barcode"></span> Produits</li>
             <li ><a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span> References</a></li>
             <li ><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</a></li>

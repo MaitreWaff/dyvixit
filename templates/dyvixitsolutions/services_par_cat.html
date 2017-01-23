@@ -99,8 +99,8 @@
       </div>
         <div class="panel-body">
             <div class="row">
-                {% if list_services_dans_cat %}
-                    {% for serv in list_services_dans_cat %}
+                {% for serv in list_services_dans_cat %}
+
 
                           <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
@@ -117,10 +117,10 @@
                               </div>
                             </div>
                           </div>
-                    {% endfor %}
-                {% else %}
+
+                {% empty %}
                     <h1>Pas de Produits dans cette Categorie!</h1>
-                {% endif %}
+                {% endfor %}
             </div>
         </div>
         <p align="center"><a href="/dyvixitsolutions/services/">Retour Aux Categories de Nos Services.</a></p>
