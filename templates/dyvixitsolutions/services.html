@@ -104,36 +104,40 @@
             {% if list_cat_service %}
               {% for cat_serv in list_cat_service %}
                 {% if forloop.counter|divisibleby:2 %}
-                    <div class="media">
-                      <div class="media-left media-middle">
-                        <a href="{{ cat_serv.get_absolute_url }}">
-                            {% if cat_serv.photo %}
-                                    <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
-                            {% else %}
-                                <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Service" width="200" height="200">
-                            {% endif %}
-                        </a>
-                      </div>
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre }}</a></h4>
-                        <p>{{ cat_serv.desc|truncatewords:150 }}</p>
-                      </div>
+                    <div class="well">
+                        <div class="media">
+                          <div class="media-left media-middle">
+                            <a href="{{ cat_serv.get_absolute_url }}">
+                                {% if cat_serv.photo %}
+                                        <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
+                                {% else %}
+                                    <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Service" width="200" height="200">
+                                {% endif %}
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre }}</a></h4>
+                            <p>{{ cat_serv.desc|truncatewords:150 }}</p>
+                          </div>
+                        </div>
                     </div>
                 {% else %}
-                    <div class="media">
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre }}</a></h4>
-                        <p>{{ cat_serv.desc|truncatewords:150 }}</p>
-                      </div>
-                      <div class="media-right media-middle">
-                        <a href="{{ cat_serv.get_absolute_url }}">
-                            {% if cat_serv.photo %}
-                                <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
-                            {% else %}
-                                <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Service" width="200" height="200">
-                            {% endif %}
-                        </a>
-                      </div>
+                    <div class="well">
+                        <div class="media">
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre }}</a></h4>
+                            <p>{{ cat_serv.desc|truncatewords:150 }}</p>
+                          </div>
+                          <div class="media-right media-middle">
+                            <a href="{{ cat_serv.get_absolute_url }}">
+                                {% if cat_serv.photo %}
+                                    <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
+                                {% else %}
+                                    <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Service" width="200" height="200">
+                                {% endif %}
+                            </a>
+                          </div>
+                        </div>
                     </div>
                 {% endif %}
                 <br />

@@ -409,7 +409,7 @@ def process_form(request):
 
         else:
             print "Not Ok for New Client!"
-            messages.error(request, "Error")
+            # messages.error(request, "Error")
 
 
     else:

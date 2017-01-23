@@ -93,7 +93,6 @@
 
 
 
-
 {% block contenu %}
     <div class="alert alert-info" role="alert">
       <a href="" class="#"><h1>D'Yvix I.T. Solutions Assistant</h1></a> <!-- {% url 'cahier_des_charges_informatique' %} -->
@@ -242,13 +241,13 @@
 
         <!--<h6>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</h6><br />-->
 
-              <script>
-                  {% if messages %}
-                    {% for message in messages %}
-                        alert(message)
-                    {% endfor %}
-                  {% endif %}
-              </script>
+              <!--<script>-->
+                  <!--{% if messages %}-->
+                    <!--{% for message in messages %}-->
+                        <!--alert(message)-->
+                    <!--{% endfor %}-->
+                  <!--{% endif %}-->
+              <!--</script>-->
 
 
 
@@ -269,10 +268,43 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
             <fieldset>
                 <legend>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</legend>
                 <table>
-                    {{ form_client.as_table }}
+                    <!--{{ form_client.as_table }}-->
+
+                    <!--<h2 class="form-signin-heading"></h2>-->
+                    <!-- Display each form here -->
+                    <!--<div class="alert alert-success" role="alert">...</div>-->
+                    <!--<div class="alert alert-info" role="alert">...</div>-->
+                    <!--<div class="alert alert-warning" role="alert">...</div>-->
+
+
+                    {% for field in form_client.visible_fields %}
+                        <!--<div class="alert alert-danger" role="alert"></div><span> </span>-->
+                        {{ field.errors }}
+                        {{ field.help_text }}<br />
+                        {{ field.label_tag }} <br />
+                        {{ field }}<br />
+                    {% endfor %}
+
+
+                    <br />
+
+
                 </table>
 
             </fieldset>

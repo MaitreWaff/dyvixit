@@ -104,36 +104,40 @@
           {% if list_cat_materiel %}
               {% for cat_prod in list_cat_materiel %}
                 {% if forloop.counter|divisibleby:2 %}
-                    <div class="media">
-                      <div class="media-left media-middle">
-                        <a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">
-                            {% if cat_prod.photo %}
-                                    <img class="media-object" src="/dyvixitsolutions/media/{{ cat_prod.photo }}/" alt="Image Categorie Produit" width="200" height="200">
-                            {% else %}
-                                <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Produit" width="200" height="200">
-                            {% endif %}
-                        </a>
-                      </div>
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
-                        <p>{{ cat_prod.desc|truncatewords:150 }}</p>
-                      </div>
+                    <div class="well">
+                        <div class="media">
+                          <div class="media-left media-middle">
+                            <a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">
+                                {% if cat_prod.photo %}
+                                        <img class="media-object" src="/dyvixitsolutions/media/{{ cat_prod.photo }}/" alt="Image Categorie Produit" width="200" height="200">
+                                {% else %}
+                                    <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Produit" width="200" height="200">
+                                {% endif %}
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
+                            <p>{{ cat_prod.desc|truncatewords:150 }}</p>
+                          </div>
+                        </div>
                     </div>
                 {% else %}
-                    <div class="media">
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
-                        <p>{{ cat_prod.desc|truncatewords:150 }}</p>
-                      </div>
-                      <div class="media-right media-middle">
-                        <a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">
-                          {% if cat_prod.photo %}
-                                <img class="media-object" src="/dyvixitsolutions/media/{{ cat_prod.photo }}/" alt="Image Categorie Produit" width="200" height="200">
-                            {% else %}
-                                <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Produit" width="200" height="200">
-                            {% endif %}
-                        </a>
-                      </div>
+                    <div class="well">
+                        <div class="media">
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
+                            <p>{{ cat_prod.desc|truncatewords:150 }}</p>
+                          </div>
+                          <div class="media-right media-middle">
+                            <a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">
+                              {% if cat_prod.photo %}
+                                    <img class="media-object" src="/dyvixitsolutions/media/{{ cat_prod.photo }}/" alt="Image Categorie Produit" width="200" height="200">
+                                {% else %}
+                                    <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Produit" width="200" height="200">
+                                {% endif %}
+                            </a>
+                          </div>
+                        </div>
                     </div>
                 {% endif %}
                 <br />
