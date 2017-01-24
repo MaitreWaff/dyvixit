@@ -38,6 +38,11 @@ function update_articles(){
 	update_astuce_section();
 }
 
+
+
 $(document).ready(function(){
+//    $(function () {
+//      $('[data-toggle="popover"]').popover()
+//    })
 	setInterval("update_articles()", 600000); // On rafraichit le contenu toutes les minutes (60.000 millisecondes).
 });

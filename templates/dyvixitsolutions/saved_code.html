@@ -619,3 +619,33 @@
               </div>
 
 
+
+
+
+
+{% if slider %}
+    {% block carousel %}
+
+
+    {% endblock %}
+{% endif %}
+
+
+
+
+
+{% if slider %}
+    {% block carousel %}
+        {% for rea in slider %}
+            <div class="item {% if forloop.first %}active{% endif %}">
+              <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre }}" width=80% heigth=auto />
+              <div class="carousel-caption">
+                  <h3>{{ rea.titre }}</h3>
+                  <p>{{ rea.description|truncatewords:150 }}</p>
+              </div>
+            </div>
+        {% endfor %}
+
+    {% endblock %}
+{% endif %}
+

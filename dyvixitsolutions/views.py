@@ -22,7 +22,7 @@ def index(request):
     context = RequestContext(request)
     context_dict = {}
 
-    cat_service_list = CategoryService.objects.all()
+    cat_service_list = CategoryService.objects.order_by('titre')
     astuce_list      = Astuce.objects.order_by('-date')[:1]
     info             = Info.objects.order_by('-date')[:1]
 
