@@ -3,18 +3,31 @@
         {% if list_info %}
             {% for inf in list_info %}
                 {% if forloop.last %}
-                <div class="panel-body last-info" id="{{ inf.id }}"><h3><a target="_blank" href="{{ inf.link }}">{{ inf.titre|safe|truncatewords:"10" }}</a></h3>
+                <div class="panel-body last-info" id="{{ inf.id }}"><h3><a target="_blank" href="{{ inf.link }}" data-toggle="tooltip" title="{{ inf.titre|safe }}">{{ inf.titre|safe|truncatewords:"10" }}</a></h3>
                     <p>
                     {% if inf.photo %}
                         <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" class="img-responsive" alt="Photo De la Derniere Info" width="225" height="225"></a>
                     {% endif %}
                     </p>
-                    <p>
-                        {{ inf.desc|safe|truncatewords:"50" }}
+                    <!--<p>-->
+                        <div class="well">
+                            {{ inf.desc|safe|truncatewords:"50" }}
+                            <br />
+                            <a data-toggle="tooltip" title="{{ inf.desc|safe }}">>>Read More...</a>
+                        </div>
                         <!--<button type="button" class="btn btn-sm btn-info" id="idPopover" data-toggle="popover" data-container="body" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Read More...</button>-->
                         <!--<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>-->
-                    </p>
-                    <a data-toggle="tooltip" title="{{ inf.desc|safe }}">>>Read More...</a>
+                    <!--</p>-->
+
+
+                        <!--<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">-->
+                          <!--{{ inf.desc|safe|truncatewords:"3" }}-->
+                        <!--</button>-->
+                        <!--<div class="collapse" id="collapseInfo">-->
+                          <!--<div class="well">-->
+                            <!--{{ inf.desc|safe }}-->
+                          <!--</div>-->
+                        <!--</div>-->
                 </div>
                 {% endif %}
             {% endfor %}
@@ -29,16 +42,29 @@
         {% if list_astuce %}
             {% for art in list_astuce %}
                 {% if forloop.last %}
-                <div class="panel-body last-astuce" id="{{ art.id }}"><h3><a target="_blank" href="{{ art.link }}">{{ art.titre|safe|truncatewords:"10" }}</a></h3>
+                <div class="panel-body last-astuce" id="{{ art.id }}"><h3><a target="_blank" href="{{ art.link }}" data-toggle="tooltip" title="{{ art.titre|safe }}">{{ art.titre|safe|truncatewords:"10" }}</a></h3>
                     <p>
                     {% if art.photo %}
                         <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" class="img-responsive" alt="Photo De la Derniere Astuce" width="225" height="225"></a>
                     {% endif %}
                     </p>
-                    <p>
-                        {{ art.desc|safe|truncatewords:"50" }}
-                    </p>
-                    <a data-toggle="tooltip" title="{{ art.desc|safe }}">>>Read More...</a>
+                    <!--<p>-->
+                        <div class="well">
+                            {{ art.desc|safe|truncatewords:"50" }}
+                            <br />
+                            <a data-toggle="tooltip" title="{{ art.desc|safe }}">>>Read More...</a>
+                        </div>
+                    <!--</p>-->
+
+
+                    <!--<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseArticle" aria-expanded="false" aria-controls="collapseArticle">-->
+                      <!--{{ art.desc|safe|truncatewords:"3" }}-->
+                    <!--</button>-->
+                    <!--<div class="collapse" id="collapseArticle">-->
+                      <!--<div class="well">-->
+                        <!--{{ art.desc|safe }}-->
+                      <!--</div>-->
+                    <!--</div>-->
                 </div>
                 {% endif %}
             {% endfor %}
