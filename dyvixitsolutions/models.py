@@ -241,8 +241,7 @@ class ProduitAbstract(models.Model):
     prix            = models.IntegerField()
     photo           = models.FileField(upload_to=get_upload_file_name, blank=True)
     date            = models.DateTimeField('Date De Creation du Produit', auto_now_add=True)
-
-    slug            = models.SlugField(blank=True) # , prepopulate_from=('titre',) default=slugify(libelle),
+    slug            = models.SlugField(blank=True, max_length=LONG_MAX_SLUG) # , prepopulate_from=('titre',) default=slugify(libelle),
 
     def __unicode__(self):
         return "%s (%d)" % (self.libelle, self.prix)
@@ -263,7 +262,8 @@ class Materiel(ProduitAbstract):
 
     @permalink
     def get_absolute_url(self):
-        return reverse('details_materiel', (), {'slug': self.slug})
+        # return reverse('details_materiel', (), {'slug': self.slug})
+        return ('details_produit', (), {'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -280,9 +280,13 @@ class Service(ProduitAbstract):
 
     @permalink
     def get_absolute_url(self):
-        cat_slug = CategoryService.objects.get(pk=self.category).slug
-        print cat_slug
-        return ('details_service', (), {'service_slug': self.slug}) # reverse('details_service', (), {'category_slug': cat_slug, 'service_slug': self.slug,}) , 'category_slug': cat_slug
+        # cat_slug = CategoryService.objects.get(pk=self.category)
+        # print "inside the get absolute url."
+        # print cat_slug
+        return ('details_service', (), {'slug': self.slug})
+        # reverse('details_service', kwargs={'service_slug': self.slug})
+        #('details_service', (), {'service_slug': self.slug})
+        # reverse('details_service', (), {'category_slug': cat_slug, 'service_slug': self.slug,}) , 'category_slug': cat_slug
 
 
     def save(self, *args, **kwargs):

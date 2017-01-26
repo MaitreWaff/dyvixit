@@ -46,7 +46,9 @@
                                   <div class="well">
                                       {{ serv.desc|safe|truncatewords:"3" }}
                                       <br />
-                                      <a id="idPopover" data-toggle="popover" title="{{ serv.desc|safe }}" data-container="body" data-content="{{ serv.desc|safe }}" >>>Read More...</a>
+                                      <a href="{{ serv.get_absolute_url }}" data-toggle="tooltip" title="{{ serv.desc|safe }}">>>Read More...</a>
+                                      <br />
+                                      <!--<a id="idPopover" data-toggle="popover" title="{{ serv.desc|safe }}" data-container="body" data-content="{{ serv.desc|safe }}" >>>Read More...</a>-->
                                   </div>
 
                                 <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button" id="bouttonCommander">Commander</a>
@@ -60,7 +62,7 @@
                 {% endfor %}
             </div>
         </div>
-        <p align="center"><a href="/dyvixitsolutions/services/">Retour Aux Categories de Nos Services.</a></p>
+        <p align="center"><a href="/dyvixitsolutions/services/" class="btn btn-primary" role="button">Retour Aux Categories de Nos Services.</a></p>
     </div>
 {% endblock %}
 

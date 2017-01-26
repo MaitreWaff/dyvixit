@@ -45,7 +45,7 @@
                                   <div class="well">
                                       {{ prod.desc|safe|truncatewords:"3" }}
                                       <br />
-                                      <a data-toggle="tooltip" title="{{ prod.desc|safe }}">>>Read More...</a>
+                                      <a href="{{ prod.get_absolute_url }}" data-toggle="tooltip" title="{{ prod.desc|safe }}">>>Read More...</a>
                                   </div>
 
                                 <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button" id="bouttonCommander">Commander</a>
@@ -59,7 +59,7 @@
                 {% endfor %}
             </div>
         </div>
-        <p align="center"><a href="/dyvixitsolutions/produits/">Retour Aux Categories de Nos Produits.</a></p>
+        <p align="center"><a href="/dyvixitsolutions/produits/" class="btn btn-primary" role="button">Retour Aux Categories de Nos Produits.</a></p>
     </div>
 
 {% endblock %} <!-- block Contenu -->

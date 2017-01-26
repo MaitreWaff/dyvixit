@@ -38,7 +38,11 @@
                             <u><span><b>Service: </b></span></u><h3>{{ contact.service|title }}</h3>
                               <div class="well">
                                 <h4><span><u><b>Contact: </b></u></span>{{ contact.telephone }}</h4>
-                                <p>{{ contact.desc }}</p>
+                                <p>
+                                    {{ contact.desc|safe|truncatewords:"30" }}
+                                    <a data-toggle="tooltip" title="{{ contact.desc|safe }}">>>More...</a>
+                                </p>
+
                               </div>
                             <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                           </div>

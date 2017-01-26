@@ -443,6 +443,7 @@ def process_form(request):
 
 
 class ReferenceListView(generic.ListView):
+    model = Reference
     template_name = 'dyvixitsolutions/references_list.html'
 
     def get_context_data(self, **kwargs):
@@ -454,11 +455,14 @@ class ReferenceListView(generic.ListView):
         return context
 
 
-    def get_queryset(self):
-        return Reference.objects.all()
+    # def get_queryset(self):
+    #     return Reference.objects.all()
 
 
 class ServiceDetailView(generic.DetailView):
+    model = Service
+    slug_field = 'slug'
+    # slug_url_kwarg = 'service_slug'
     template_name = 'dyvixitsolutions/details_service.html'
 
     def get_context_data(self, **kwargs):
@@ -468,6 +472,29 @@ class ServiceDetailView(generic.DetailView):
         context['list_info'] = Info.objects.order_by('-date')[:1]
 
         return context
+
+    # def get_queryset(self):
+    #     pass
+
+
+
+
+class ProduitDetailView(generic.DetailView):
+    model = Materiel
+    slug_field = 'slug'
+    # slug_url_kwarg = 'service_slug'
+    template_name = 'dyvixitsolutions/details_produit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProduitDetailView, self).get_context_data(**kwargs)
+        context['slider'] = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
+        context['list_astuce'] = Astuce.objects.order_by('-date')[:1]
+        context['list_info'] = Info.objects.order_by('-date')[:1]
+
+        return context
+
+    # def get_queryset(self):
+    #     pass
 
 
 
