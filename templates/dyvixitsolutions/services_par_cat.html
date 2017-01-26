@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block page-title %} Home {% endblock %}
+{% block page-title %} Services De Categorie {% endblock %}
 
 
 {% block navigation %}
@@ -36,15 +36,21 @@
                           <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
                                 {% if serv.photo %}
-                                    <img src="/dyvixitsolutions/media/{{ serv.photo }}/" class="img-responsive" alt="Image Service" width="150" height="150">
+                                    <img src="/dyvixitsolutions/media/{{ serv.photo }}/" class="img-responsive" alt="{{ serv.desc|safe }}" width="150" height="150">
                                 {% else %}
                                     <img src="{% static 'assets/img/no_pix.jpeg' %}" class="img-responsive" alt="Image Service" width="150" height="150">
                                 {% endif %}
                               <div class="caption">
                                 <h3>{{ serv.libelle }}</h3>
                                 <p><b>Prix: </b>{{ serv.prix }}</p>
-                                  <p>{{ serv.desc|safe|truncatewords:"15" }}</p>
-                                <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button">Commander</a><!--<p> <a href="#" class="btn btn-default" role="button">Cancel</a></p>-->
+                                  <div class="well">
+                                      {{ serv.desc|safe|truncatewords:"3" }}
+                                      <br />
+                                      <a id="idPopover" data-toggle="popover" title="{{ serv.desc|safe }}" data-container="body" data-content="{{ serv.desc|safe }}" >>>Read More...</a>
+                                  </div>
+
+                                <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button" id="bouttonCommander">Commander</a>
+                                  <!--<p> <a href="#" class="btn btn-default" role="button">Cancel</a></p>-->
                               </div>
                             </div>
                           </div>

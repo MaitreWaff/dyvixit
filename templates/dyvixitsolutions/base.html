@@ -17,7 +17,7 @@
 
 		<link rel="stylesheet" href="{% static 'assets/css/base_custom.css' %}">
 		
-        <title>D'Yvix I.T. Solutions - {% block page-title %}{% endblock %}</title>
+        <title>D'Yvix I.T. Solutions | {% block page-title %}{% endblock %}</title>
 
     </head>
     
@@ -164,18 +164,19 @@
 		    </div><!-- container 3 -->
 		</footer>
 		<!-- Latest compiled and minified JavaScript -->
-		<script>
-        $(document).ready(function () {
-          $('#idPopover').popover()
-        });
-    	</script>
+
 		<script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
 		<script src="{% static 'assets/js/bootstrap.js' %}"></script>
 		<script type="text/javascript" language="JavaScript" src="{% static 'assets/js/jquery-3.1.1.js' %}"></script>
 		{% block javascript %}
 			<script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>
 		{% endblock %}
-
+		<script>
+			$(document).ready(function () {
+			  $('#idPopover').popover()
+			});
+		</script>
 
     </body>
+
 </html>

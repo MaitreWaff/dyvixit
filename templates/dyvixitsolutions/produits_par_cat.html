@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block page-title %} Home {% endblock %}
+{% block page-title %} Produits De Categorie {% endblock %}
 
 
 {% block navigation %}
@@ -35,15 +35,21 @@
                           <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
                                 {% if prod.photo %}
-                                    <img src="/dyvixitsolutions/media/{{ prod.photo }}/" class="img-responsive" alt="Image prodice" width="150" height="150">
+                                    <img src="/dyvixitsolutions/media/{{ prod.photo }}/" class="img-responsive" alt="{{ prod.libelle|safe }}" width="150" height="150">
                                 {% else %}
                                     <img src="{% static 'assets/img/no_pix.jpeg' %}" class="img-responsive" alt="Image Produit" width="150" height="150">
                                 {% endif %}
                               <div class="caption">
-                                <h3>{{ prod.libelle }}</h3>
+                                <h3 data-toggle="tooltip" title="{{ prod.libelle|safe }}">{{ prod.libelle|safe }}</h3>
                                 <p><b>Prix: </b>{{ prod.prix }}</p>
-                                  <p>{{ prod.desc|safe|truncatewords:"15" }}</p>
-                                <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button">Commander</a><!--<p> <a href="#" class="btn btn-default" role="button">Cancel</a></p>-->
+                                  <div class="well">
+                                      {{ prod.desc|safe|truncatewords:"3" }}
+                                      <br />
+                                      <a data-toggle="tooltip" title="{{ prod.desc|safe }}">>>Read More...</a>
+                                  </div>
+
+                                <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button" id="bouttonCommander">Commander</a>
+                                  <!--<p> <a href="#" class="btn btn-default" role="button">Cancel</a></p>-->
                               </div>
                             </div>
                           </div>

@@ -2,15 +2,21 @@ from django.db import models
 from django.db.models import permalink
 from time import time
 from django.template.defaultfilters import slugify
-#from django.utils import timezone
+from django.utils import timezone
 
 from django.core.urlresolvers import reverse
+
+from django.core.validators import RegexValidator
 
 # Variables pour l'armonisation de la taille des champs.
 CHARFIELD_LENGTH, TEXTFIELD_LENGTH = 256, 1024
 KAMER_PHONE_CODE_MAX_LENGTH = 13
 LONG_MAX_SLUG = 128
+CODE_FACTURE_MAXLENGTH = 50
 
+CODE_FACTURE_PREFIXE = "Fact/DYITS/%d/%s/%d"
+
+phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Format Telephone: '+999999999'. Jusqu'a 15 chiffres permis.")
 
 # Retourne le Nom De l'Image telechargee.
 def get_upload_file_name(instance, filename):
@@ -23,7 +29,7 @@ class Consultant(models.Model):
     """
     nom             = models.CharField(max_length=CHARFIELD_LENGTH)
     prenom          = models.CharField(max_length=CHARFIELD_LENGTH)
-    phone           = models.IntegerField(unique=True)
+    phone           = models.IntegerField(validators=[phone_regex], unique=True)
     email           = models.EmailField(unique=True)
 
     class Meta:
@@ -38,7 +44,7 @@ class Fournisseur(models.Model):
     Fournisseur : Fournisseur de Produits.
     """
     compagnie       = models.CharField(max_length=CHARFIELD_LENGTH, unique=True)
-    phone           = models.IntegerField(unique=True)
+    phone           = models.IntegerField(validators=[phone_regex], unique=True)
     email           = models.EmailField(unique=True)
     address         = models.TextField()
     
@@ -57,12 +63,12 @@ class Client(models.Model):
     prenom          = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
     nom             = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
     fonction        = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
-    phone           = models.IntegerField(unique=True)
+    phone           = models.IntegerField(validators=[phone_regex], unique=True)
     email           = models.EmailField(unique=True)
     address         = models.TextField(blank=True)
 
     class Meta:
-        ordering    = ['nom']
+        ordering    = ['societe']
 	unique_together = ['societe', 'phone', 'address']
 
     def __unicode__(self):
@@ -73,9 +79,9 @@ class RealisationAbstract(models.Model):
     RealisationSimilaire : Descriptions des Realisations effectuees par la Comapanie.
     """
     titre        = models.CharField(max_length=CHARFIELD_LENGTH)
-    description  = models.TextField(max_length=TEXTFIELD_LENGTH)
     client       = models.CharField(max_length=CHARFIELD_LENGTH)
     photo        = models.FileField(upload_to=get_upload_file_name, blank=True)
+    description  = models.TextField(max_length=TEXTFIELD_LENGTH)
     date         = models.DateTimeField('Date Creation', auto_now_add=True)
 
     class Meta:
@@ -107,8 +113,8 @@ class Contact(models.Model):
     Contact: Differents Contacts de la Compagnie.
     """
     service   = models.CharField(max_length=CHARFIELD_LENGTH)
-    telephone = models.IntegerField(max_length=KAMER_PHONE_CODE_MAX_LENGTH)
-    desc      = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
+    telephone = models.IntegerField(validators=[phone_regex], max_length=KAMER_PHONE_CODE_MAX_LENGTH)
+    desc      = models.TextField(max_length=CHARFIELD_LENGTH, blank=True)
 
     def __unicode__(self):
         return "%s" % self.service
@@ -257,7 +263,7 @@ class Materiel(ProduitAbstract):
 
     @permalink
     def get_absolute_url(self):
-        return reverse('details_materiel', (), {'slug': self.slug}) # ('details_materiel', (), {'slug': self.slug})
+        return reverse('details_materiel', (), {'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -274,7 +280,9 @@ class Service(ProduitAbstract):
 
     @permalink
     def get_absolute_url(self):
-        return reverse('details_service', (), {'slug': self.slug}) # ('details_service', (), {'slug': self.slug})
+        cat_slug = CategoryService.objects.get(pk=self.category).slug
+        print cat_slug
+        return ('details_service', (), {'service_slug': self.slug}) # reverse('details_service', (), {'category_slug': cat_slug, 'service_slug': self.slug,}) , 'category_slug': cat_slug
 
 
     def save(self, *args, **kwargs):
@@ -300,12 +308,8 @@ class Facture(models.Model):
         (ANNULER, "Annuler"),
         (LIVRER, "Livrer"),
     )
-    #
-    # cloturee       = models.BooleanField(default=False)
-    # ordonnee       = models.BooleanField(default=False)
-    # livree         = models.BooleanField(default=False)
-    # annulee        = models.BooleanField(default=False)
-    #
+
+    code_facture   = models.CharField(max_length=CODE_FACTURE_MAXLENGTH, blank=True)
     numero_facture = models.AutoField(primary_key=True)
     client         = models.ForeignKey(Client)
 
@@ -337,6 +341,13 @@ class Facture(models.Model):
 
         self.montant = montant_lcm + montant_lcs
 
+        date_actuelle = timezone.now()
+
+        if (not self.pk) or (not self.code_facture):
+            ordre_fact = Facture.objects.all().count() + 1
+            self.code_facture = CODE_FACTURE_PREFIXE % (ordre_fact, '{:02d}'.format(date_actuelle.month), date_actuelle.year)
+
+
     def save(self, *args, **kwargs):
         self.update_montant_facture()
         return super(Facture, self).save(*args, **kwargs)
@@ -345,7 +356,6 @@ class LigneCommandeAbstract(models.Model):
     """
     LigneCommande : Ligne de commande sur la Facture du client. Classe Abstraite.
     """
-    # client           = models.ForeignKey(Client)
     quantite         = models.IntegerField(default=1)
     facture          = models.ForeignKey(Facture, on_delete=models.CASCADE)
 
@@ -361,14 +371,13 @@ class LigneCommandeMateriel(LigneCommandeAbstract):
 
     @property
     def montant(self):
-        art = self.article #Materiel.objects.get(pk=self.article)
+        art = self.article
         mnt = art.prix * self.quantite
         return mnt
 
     def __unicode__(self):
         return "%s [ quantite : %d , Facture : %s ]" % (self.article, self.quantite, self.facture)
-        # return "%s (%s)" % (self.article, self.montant())
-    #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
+
 
     def save(self, *args, **kwargs):
         super(LigneCommandeMateriel, self).save(*args, **kwargs)
@@ -394,7 +403,6 @@ class LigneCommandeService(LigneCommandeAbstract):
 
     def __unicode__(self):
         return "%s [ quantite : %d , Facture : %s ]" % (self.article, self.quantite, self.facture)
-    #     return "Commande: %s , Facture: %s" % (self.article, self.facture)
 
     def save(self, *args, **kwargs):
         super(LigneCommandeService, self).save(*args, **kwargs)

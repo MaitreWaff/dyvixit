@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block page-title %} Home {% endblock %}
+{% block page-title %} Contacts {% endblock %}
 
 
 {% block navigation %}
@@ -35,9 +35,11 @@
                         <div class="thumbnail">
                           <!--<img src="..." alt="...">-->
                           <div class="caption">
-                            <h3><u><span><u><b>Service: </b></u></span></u>{{ contact.service|title }}</h3>
-                              <h2><span><u><b>Contact: </b></u></span>{{ contact.telephone }}</h2>
-                            <p>{{ contact.desc }}</p>
+                            <u><span><b>Service: </b></span></u><h3>{{ contact.service|title }}</h3>
+                              <div class="well">
+                                <h4><span><u><b>Contact: </b></u></span>{{ contact.telephone }}</h4>
+                                <p>{{ contact.desc }}</p>
+                              </div>
                             <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                           </div>
                         </div>

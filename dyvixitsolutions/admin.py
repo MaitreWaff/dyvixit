@@ -31,7 +31,7 @@ class FournisseurAdmin(admin.ModelAdmin):
     search_fields = ('compagnie', 'phone')
 
 class ClientAdmin(admin.ModelAdmin):
-    list_display  = ('societe', 'phone', 'email', 'address')
+    list_display  = ('societe','nom','prenom', 'phone', 'email', 'address')
     search_fields = ('societe', 'phone')
 
 class CategoryMaterielAdmin(admin.ModelAdmin):
@@ -90,7 +90,7 @@ class LigneCommandeServiceAdmin(admin.ModelAdmin):
 EDITER, COMMANDER, VALIDER, ANNULER, LIVRER = 1, 2, 3, 4, 5
 
 class FactureAdmin(admin.ModelAdmin):
-    list_display  = ('numero_facture', 'client', 'montant', 'status','date')
+    list_display  = ('code_facture', 'client', 'montant', 'status','date')
     list_filter   = ('status', 'date')
     search_fields = ('numero_facture', 'status', 'date', 'client')
     save_on_top = True

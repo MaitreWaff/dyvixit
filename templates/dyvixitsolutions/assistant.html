@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block page-title %} Home {% endblock %}
+{% block page-title %} Assistant Aux Besoins {% endblock %}
 
 
 
@@ -57,7 +57,7 @@
                               <label for="nombre_postes">
                                   <span>Nombre de Postes (Materiel) :</span>
                               </label>
-                              <input type="text" id="nombre_postes" name="nombre_postes" required />
+                              <input type="number" id="nombre_postes" name="nombre_postes" value="1" required />
                               <strong><abbr title="required">*</abbr></strong>
 
                               <br />
@@ -65,7 +65,7 @@
                               <label for="nombre_serveurs">
                                   <span>Nombre de Serveurs (Services) :</span>
                               </label>
-                              <input type="text" id="nombre_serveurs" name="nombre_serveurs" required />
+                              <input type="number" id="nombre_serveurs" name="nombre_serveurs" value="1" required />
                               <strong><abbr title="required">*</abbr></strong>
 
                             </fieldset>

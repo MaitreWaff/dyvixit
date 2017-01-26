@@ -458,6 +458,18 @@ class ReferenceListView(generic.ListView):
         return Reference.objects.all()
 
 
+class ServiceDetailView(generic.DetailView):
+    template_name = 'dyvixitsolutions/details_service.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ServiceDetailView, self).get_context_data(**kwargs)
+        context['slider'] = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
+        context['list_astuce'] = Astuce.objects.order_by('-date')[:1]
+        context['list_info'] = Info.objects.order_by('-date')[:1]
+
+        return context
+
+
 
 
 
