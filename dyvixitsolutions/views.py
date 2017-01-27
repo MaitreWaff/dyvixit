@@ -401,8 +401,8 @@ def process_form(request):
 
                 print "[+] Commande Facture : ", facture_client.client
 
-                # return HttpResponseRedirect('/dyvixitsolutions/')
-                raise Http404('Waff Not Found!')
+                return HttpResponseRedirect('/dyvixitsolutions/')
+                # raise Http404('Waff Not Found!')
 
 
                 # newclient = form_client.save(commit=False)
