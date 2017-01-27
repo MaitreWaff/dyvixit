@@ -1,9 +1,7 @@
 {% extends 'dyvixitsolutions/base.html' %}
 {% load static %}
 
-
 {% block page-title %} Assistant Aux Besoins {% endblock %}
-
 
 
 {% block navigation %}
@@ -18,7 +16,6 @@
 {% endblock %}
 
 
-
 {% block contenu %}
     <div class="alert alert-info" role="alert">
       <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions</h1></a> <!-- {% url 'cahier_des_charges_informatique' %} -->
@@ -26,8 +23,6 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">Assistant à la définition des besoins</h3>
-
-
 
       </div>
       <div class="panel-body">
@@ -94,16 +89,9 @@
                           </fieldset>
                           {% endif %}
 
-
-
                       <br />
 
-
-
                       <br />
-
-
-
 
                       </div>
                     </div>
@@ -126,10 +114,7 @@
                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
 
-
                   <br />
-
-
 
                       {% for cat_mat in list_categorie_materiel %}
 
@@ -157,10 +142,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
 
             </div>
 
@@ -192,9 +173,6 @@
                     <!--{% endfor %}-->
                 <!--{% endif %}-->
 
-
-
-
             <fieldset>
                 <legend>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</legend>
                 <table>
@@ -206,7 +184,6 @@
                     <!--<div class="alert alert-info" role="alert">...</div>-->
                     <!--<div class="alert alert-warning" role="alert">...</div>-->
 
-
                     {% for field in form_client.visible_fields %}
                         <!--<div class="alert alert-danger" role="alert"></div><span> </span>-->
                         {{ field.errors }}
@@ -215,14 +192,10 @@
                         {{ field }}<br />
                     {% endfor %}
 
-
                     <br />
 
-
                 </table>
-
             </fieldset>
-
 
               <br />
 
@@ -231,10 +204,7 @@
       </div>
 
     </div>
-{% endblock contenu %} <!-- Block Contenu -->
-
-
-
+{% endblock contenu %}
 
 
 {% block breadcrumb %}

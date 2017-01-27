@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse #, Http404
+from django.http import HttpResponse , HttpResponseRedirect,Http404
 from django.template import RequestContext
 # from django.core.context_processors import csrf
 from django.views import generic
@@ -401,10 +401,14 @@ def process_form(request):
 
                 print "[+] Commande Facture : ", facture_client.client
 
+                # return HttpResponseRedirect('/dyvixitsolutions/')
+                raise Http404('Waff Not Found!')
+
 
                 # newclient = form_client.save(commit=False)
             except Exception, e:
                 print e #, type(e) #, e.args[0]
+                raise Http404('Page Not Found!')
 
 
         else:

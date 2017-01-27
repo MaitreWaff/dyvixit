@@ -44,8 +44,8 @@
                           </div>
                           <div class="media-body">
                             <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
-                            <p>{{ cat_prod.desc|safe|truncatewords:150 }}</p>
-                              <a data-toggle="tooltip" title="{{ cat_prod.desc|safe }}">>>Read More...</a>
+                            <p>{{ cat_prod.desc|safe|truncatewords:"150" }}</p>
+                              <a data-toggle="tooltip" title="{{ cat_prod.desc|safe }}">&gt;&gt;Read More...</a>
                           </div>
                         </div>
                     </div>
@@ -54,8 +54,8 @@
                         <div class="media">
                           <div class="media-body">
                             <h4 class="media-heading"><a href="{{ cat_prod.get_absolute_url }}">{{ cat_prod.titre }}</a></h4>
-                            <p>{{ cat_prod.desc|safe|truncatewords:150 }}</p>
-                              <a data-toggle="tooltip" title="{{ cat_prod.desc|safe }}">>>Read More...</a>
+                            <p>{{ cat_prod.desc|safe|truncatewords:"150" }}</p>
+                              <a data-toggle="tooltip" title="{{ cat_prod.desc|safe }}">&gt;&gt;Read More...</a>
                           </div>
                           <div class="media-right media-middle">
                             <a href="/dyvixitsolutions/produits/category/{{ cat_prod.titre }}/">

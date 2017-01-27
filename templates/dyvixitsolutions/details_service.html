@@ -32,8 +32,8 @@
                 <div>
                     <div class="caption">
 
-                        <h3 align="center"><span><strong> >> {{ object.libelle }} << </strong></span></h3>
-                            <h4><u>Categorie:</u><span> <b><a href="{{ object.category.get_absolute_url }}">{{ object.category }}</a></b></span></h4>
+                        <h3 align="center"><span><strong> &gt;&gt; {{ object.libelle }} &lt;&lt; </strong></span></h3>
+                            <h4><u>Categorie:</u><span> <strong><a href="{{ object.category.get_absolute_url }}">{{ object.category }}</a></strong></span></h4>
                         <p><u>Prix:</u><strong> {{ object.prix }} </strong> Francs CFA.</p>
                           <div class="well well-lg">
                               <p><strong><u>Description du Service:</u></strong>{{ object.desc|safe }}</p>

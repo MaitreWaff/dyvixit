@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block page-title %} Home {% endblock %}
+{% block page-title %} (404) Page Not Found. {% endblock %}
 
 
 
@@ -12,97 +12,22 @@
         <li role="presentation"><a href="/dyvixitsolutions/about/"><p><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</p></a></li>
         <li role="presentation"><a href="/dyvixitsolutions/services/"><p><span class="glyphicon glyphicon-flag"></span> Services</p></a></li>
         <li role="presentation"><a href="/dyvixitsolutions/produits/"><p><span class="glyphicon glyphicon-barcode"></span> Produits</p></a></li>
-        <li role="presentation" class="active"><a href="/dyvixitsolutions/references/"><p><span class="glyphicon glyphicon-globe"></span> References</p></a></li>
+        <li role="presentation"><a href="/dyvixitsolutions/references/"><p><span class="glyphicon glyphicon-globe"></span> References</p></a></li>
         <li role="presentation"><a href="/dyvixitsolutions/contact/"><p><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</p></a></li>
     </ul>
 {% endblock %}
 
-
-
-
-{% block slider-text %}
-    <h4>References</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae explicabo autem eius excepturi saepe, velit aliquid rem earum accusamus aut sapiente, rerum harum, accusantium praesentium et quod reprehenderit consectetur vel.</p>
-{% endblock %}
-
-
-{% block header-img1 %}
-    Image 1
-{% endblock %}
-{% block header-img2 %}
-    Image 2
-{% endblock %}
-{% block header-img3 %}
-    Image 3
-{% endblock %}
-
-
-{% block caption-img1 %}
-    <p>Caption for Image 1</p>
-{% endblock %}
-{% block caption-img2 %}
-    <p>Caption for Image 2</p>
-{% endblock %}
-{% block caption-img3 %}
-    <p>Caption for Image 3</p>
-{% endblock %}
-
-
-
-
-{% block sidebar %}
-    <div class="panel panel-default" id="info-update-holder">
-        <div class="panel-heading">Infos</div>
-        {% if list_info %}
-            {% for inf in list_info %}
-                {% if forloop.last %}
-                <div class="panel-body last-info" id="{{ inf.id }}"><h1><a target="_blank" href="{{ inf.link }}">{{ inf.titre }}</a></h1>
-                    <p>
-                    {% if inf.photo %}
-                        <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" alt="Photo De la Derniere Info" width="225" height="225"></a>
-                    {% endif %}
-                    </p>
-                    <p>{{ inf.desc }}</p>
-                </div>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            <div class="panel-body last-info" id="0"><h1>Pas D'Info</h1>
-                <p>Aucune Information n'est actuellement disponible dans la BD!</p>
-            </div>
-        {% endif %}
-    </div>
-    <div class="panel panel-default" id="astuce-update-holder">
-        <div class="panel-heading">Astuces</div>
-        {% if list_astuce %}
-            {% for art in list_astuce %}
-                {% if forloop.last %}
-                <div class="panel-body last-astuce" id="{{ art.id }}"><h1><a target="_blank" href="{{ art.link }}">{{ art.titre }}</a></h1>
-                    <p>
-                    {% if art.photo %}
-                        <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" alt="Photo De la Derniere Astuce" width="225" height="225"></a>
-                    {% endif %}
-                    </p>
-                    <p>{{ art.desc }}</p>
-                </div>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            <div class="panel-body last-astuce" id="0"><h1>Pas D'Astuce</h1>
-                <p>Aucune Astuce n'est actuellement disponible dans la BD!</p>
-            </div>
-        {% endif %}
-    </div>
-{% endblock %} <!-- Block Sidebar -->
-
+{% block sidebar %}{% endblock %}
+{% block carousel %}{% endblock %}
+{% block special-content %}<h3>(PAGE NOT FOUND.)</h3>{% endblock %}
 
 {% block contenu %}
     <div class="alert alert-info" role="alert">
-      <a href="#" class="#"><h1>D'Yvix I.T. Solutions References</h1></a>
+      <a href="#" class="#"><h1>Page Not Found!</h1></a>
     </div>
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">Nos References</h3>
+        <h3 class="panel-title">Page Not Found!</h3>
       </div>
         <div class="panel-body">
             <!-- Ne sert strictement a rien -->
@@ -152,7 +77,7 @@
             <li ><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</a></li>
             <li ><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Services</a></li>
             <li ><a href="/dyvixitsolutions/produits/"><span class="glyphicon glyphicon-barcode"></span> Produits</a></li>
-            <li class="active"><span class="glyphicon glyphicon-globe"></span> References</li>
+            <li ><a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span> References</a></li>
             <li ><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</a></li>
         </ol>
     </div>
@@ -162,5 +87,7 @@
 
 
 {% block javascript %}
-    <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_reference.js' %}"></script>
+    <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>
 {% endblock %}
+
+{%block pagination %}{%endblock%}

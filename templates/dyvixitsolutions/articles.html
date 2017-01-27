@@ -1,5 +1,5 @@
     <div class="panel panel-default" id="info-update-holder">
-        <div class="panel-heading">Infos</div>
+        <div class="panel-heading"><strong>Infos</strong></div>
         {% if list_info %}
             {% for inf in list_info %}
                 {% if forloop.last %}
@@ -11,23 +11,16 @@
                     </p>
                     <!--<p>-->
                         <div class="well">
-                            {{ inf.desc|safe|truncatewords:"50" }}
-                            <br />
-                            <a data-toggle="tooltip" title="{{ inf.desc|safe }}">>>Read More...</a>
+                            <p>
+                                {{ inf.desc|safe|truncatewords:"50" }}
+                                <br />
+                                <a data-toggle="tooltip" title="{{ inf.desc|safe }}">&gt;&gt;Read More...</a>
+                            </p>
                         </div>
-                        <!--<button type="button" class="btn btn-sm btn-info" id="idPopover" data-toggle="popover" data-container="body" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Read More...</button>-->
-                        <!--<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>-->
+
                     <!--</p>-->
 
 
-                        <!--<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">-->
-                          <!--{{ inf.desc|safe|truncatewords:"3" }}-->
-                        <!--</button>-->
-                        <!--<div class="collapse" id="collapseInfo">-->
-                          <!--<div class="well">-->
-                            <!--{{ inf.desc|safe }}-->
-                          <!--</div>-->
-                        <!--</div>-->
                 </div>
                 {% endif %}
             {% endfor %}
@@ -38,7 +31,7 @@
         {% endif %}
     </div>
     <div class="panel panel-default" id="astuce-update-holder">
-        <div class="panel-heading">Astuces</div>
+        <div class="panel-heading"><strong>Astuces</strong></div>
         {% if list_astuce %}
             {% for art in list_astuce %}
                 {% if forloop.last %}
@@ -50,21 +43,14 @@
                     </p>
                     <!--<p>-->
                         <div class="well">
-                            {{ art.desc|safe|truncatewords:"50" }}
-                            <br />
-                            <a data-toggle="tooltip" title="{{ art.desc|safe }}">>>Read More...</a>
+                            <p>
+                                {{ art.desc|safe|truncatewords:"50" }}
+                                <br />
+                                <a data-toggle="tooltip" title="{{ art.desc|safe }}">&gt;&gt;Read More...</a>
+                            </p>
                         </div>
                     <!--</p>-->
 
-
-                    <!--<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseArticle" aria-expanded="false" aria-controls="collapseArticle">-->
-                      <!--{{ art.desc|safe|truncatewords:"3" }}-->
-                    <!--</button>-->
-                    <!--<div class="collapse" id="collapseArticle">-->
-                      <!--<div class="well">-->
-                        <!--{{ art.desc|safe }}-->
-                      <!--</div>-->
-                    <!--</div>-->
                 </div>
                 {% endif %}
             {% endfor %}

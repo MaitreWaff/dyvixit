@@ -27,7 +27,8 @@ SITE_ID = 1
 SECRET_KEY = 'gtuyku&28$tp8^mr_)a@heky3-ti9$a^lbu420ztc#)!1j@c^n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # False # True
+
 
 TEMPLATE_DEBUG = True
 
@@ -37,7 +38,7 @@ TEMPLATE_DIRS = (
     TEMPLATE_PATH,
 )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] # ['*']
 
 
 # Application definition

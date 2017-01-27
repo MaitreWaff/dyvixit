@@ -46,15 +46,9 @@
 			<div class="jumbotron">
 				<div class="container">
 
-				<div class="row" align="center"> <span><h3>Welcome to D'Yvix I.T. Solutions</h3></span></div>
+				<div class="row" align="center"> <span><h3>Welcome to D'Yvix I.T. Solutions</h3>{% block special-content %}{% endblock %}</span></div>
 
 				<div class="row">
-					<!--div class="col-lg-5">
-						<h3>Welcome to D'Yvix I.T. Solutions</h3>
-						<p>{% block slider-text %}{% endblock %}</p>
-						<p><a class="btn btn-info btn-lg" href="/dyvixitsolutions/about/" role="button">Learn more</a></p>
-					</div><!--col-lg-5-->
-
 
 					<div class="col-lg-12"><!--Carousel_Area-->
 
@@ -173,7 +167,7 @@
 		{% endblock %}
 		<script>
 			$(document).ready(function () {
-			  $('#idPopover').popover()
+			  $('[data-toogle="tooltip"]').tooltip()
 			});
 		</script>
 

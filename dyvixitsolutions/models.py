@@ -148,11 +148,6 @@ class CategoryMateriel(CategoryAbstract):
     def get_absolute_url(self):
         return ('get_materiel_in_cat', (), {'category_slug': self.slug})
 
-    # @permalink
-    # def get_absolute_url(self):
-    #     return reverse('get_materiel_in_cat', (), {'slug': self.slug, 'materiel_slug': self.slug})
-    #     return "/dyvixitsolutions/services/category/%s/" % self.slug
-
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.titre)
@@ -171,11 +166,6 @@ class CategoryService(CategoryAbstract):
     @permalink
     def get_absolute_url(self):
         return ('get_service_in_cat', (), {'category_slug': self.slug})
-
-    # @permalink
-    # def get_absolute_url(self):
-        # return reverse('get_service_in_cat', (), {'slug': self.slug, 'service_slug': self.slug})
-        # return "/dyvixitsolutions/%s/" % self.slug
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -262,7 +252,6 @@ class Materiel(ProduitAbstract):
 
     @permalink
     def get_absolute_url(self):
-        # return reverse('details_materiel', (), {'slug': self.slug})
         return ('details_produit', (), {'slug': self.slug})
 
     def save(self, *args, **kwargs):
@@ -280,13 +269,8 @@ class Service(ProduitAbstract):
 
     @permalink
     def get_absolute_url(self):
-        # cat_slug = CategoryService.objects.get(pk=self.category)
-        # print "inside the get absolute url."
-        # print cat_slug
         return ('details_service', (), {'slug': self.slug})
-        # reverse('details_service', kwargs={'service_slug': self.slug})
-        #('details_service', (), {'service_slug': self.slug})
-        # reverse('details_service', (), {'category_slug': cat_slug, 'service_slug': self.slug,}) , 'category_slug': cat_slug
+
 
 
     def save(self, *args, **kwargs):

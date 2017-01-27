@@ -40,12 +40,12 @@
                                     <img src="{% static 'assets/img/no_pix.jpeg' %}" class="img-responsive" alt="Image Produit" width="150" height="150">
                                 {% endif %}
                               <div class="caption">
-                                <h3 data-toggle="tooltip" title="{{ prod.libelle|safe }}">{{ prod.libelle|safe }}</h3>
-                                <p><b>Prix: </b>{{ prod.prix }}</p>
+                                <h3 data-toggle="tooltip" title="{{ prod.libelle|safe }}">{{ prod.libelle|safe|truncatewords:"2" }}</h3>
+                                <p><strong>Prix: </strong>{{ prod.prix }}</p>
                                   <div class="well">
                                       {{ prod.desc|safe|truncatewords:"3" }}
                                       <br />
-                                      <a href="{{ prod.get_absolute_url }}" data-toggle="tooltip" title="{{ prod.desc|safe }}">>>Read More...</a>
+                                      <a href="{{ prod.get_absolute_url }}" data-toggle="tooltip" title="{{ prod.desc|safe }}">&gt;&gt;Read More...</a>
                                   </div>
 
                                 <a href="/dyvixitsolutions/assistant/" class="btn btn-primary" role="button" id="bouttonCommander">Commander</a>
