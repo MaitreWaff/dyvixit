@@ -649,3 +649,49 @@
     {% endblock %}
 {% endif %}
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DB_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASSWORD',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
+}
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': '/path/to/my.cnf',
+        },
+    }
+}
+
+[client]
+database = DB_NAME
+host = localhost
+user = DB_USER
+password = DB_PASSWORD
+default-character-set = utf8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
