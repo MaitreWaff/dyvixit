@@ -2,16 +2,10 @@
 {% load static %}
 
 
-{% block navigation %}
-    <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="/dyvixitsolutions/"><p><span class="glyphicon glyphicon-home"></span> Acceuil</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/about/"><p><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</p></a></li>
-        <li role="presentation" class="active"><a href="/dyvixitsolutions/services/"><p><span class="glyphicon glyphicon-flag"></span> Services</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/produits/"><p><span class="glyphicon glyphicon-barcode"></span> Produits</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/references/"><p><span class="glyphicon glyphicon-globe"></span> References</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/contact/"><p><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</p></a></li>
-    </ul>
+{% block nav_services %}
+    class="active"
 {% endblock %}
+
 
 
 {% block contenu %}

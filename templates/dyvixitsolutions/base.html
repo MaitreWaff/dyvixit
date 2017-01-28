@@ -36,7 +36,16 @@
 				</div><!--row-->
 			</div><!--page-header-->
 
-			{% block navigation %}{% endblock %}
+			{% block navigation %}
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation" {% block nav_acceuil %} {% endblock %}><a href="/dyvixitsolutions/"><p><span class="glyphicon glyphicon-home"></span> Acceuil</p></a></li>
+					<li role="presentation" {% block nav_about %} {% endblock %} ><a href="/dyvixitsolutions/about/"><p><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</p></a></li>
+					<li role="presentation" {% block nav_services %} {% endblock %} ><a href="/dyvixitsolutions/services/"><p><span class="glyphicon glyphicon-flag"></span> Services</p></a></li>
+					<li role="presentation" {% block nav_produits %} {% endblock %} ><a href="/dyvixitsolutions/produits/"><p><span class="glyphicon glyphicon-barcode"></span> Produits</p></a></li>
+					<li role="presentation" {% block nav_references %} {% endblock %} ><a href="/dyvixitsolutions/references/"><p><span class="glyphicon glyphicon-globe"></span> References</p></a></li>
+					<li role="presentation" {% block nav_contacts %} {% endblock %} ><a href="/dyvixitsolutions/contact/"><p><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</p></a></li>
+				</ul>
+			{% endblock %}
 
 
 
@@ -141,7 +150,22 @@
 
 			</div><!-- Central container -->
 
-			{% block breadcrumb %}{% endblock %}
+
+				<div class="row"><!-- row -->
+					<div class="col-lg-4"></div>
+					<div class="col-lg-8">
+						<ol class="breadcrumb">
+							<li {% block bc_acceuil %} {% endblock %}><a href="/dyvixitsolutions/"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
+							<li {% block bc_about %} {% endblock %}><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</a></li>
+							<li {% block bc_services %} {% endblock %}><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Services</li>
+							<li {% block bc_produits %} {% endblock %}><a href="/dyvixitsolutions/produits/"><span class="glyphicon glyphicon-barcode"></span> Produits</a></li>
+							<li {% block bc_references %} {% endblock %}><a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span> References</a></li>
+							<li {% block bc_contacts %} {% endblock %}><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</a></li>
+						</ol>
+					</div>
+				</div>
+
+
 
     	</div><!-- container 2 -->
 

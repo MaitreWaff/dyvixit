@@ -6,16 +6,8 @@
 {% block page-title %} Home {% endblock %}
 
 
-
-{% block navigation %}
-    <ul class="nav nav-pills nav-justified">
-        <li role="presentation" class="active"><a href="/dyvixitsolutions/"><p><span class="glyphicon glyphicon-home"></span> Acceuil</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/about/"><p><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/services/"><p><span class="glyphicon glyphicon-flag"></span> Services</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/produits/"><p><span class="glyphicon glyphicon-barcode"></span> Produits</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/references/"><p><span class="glyphicon glyphicon-globe"></span> References</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/contact/"><p><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</p></a></li>
-    </ul>
+{% block nav_acceuil %}
+    class="active"
 {% endblock %}
 
 
@@ -36,15 +28,15 @@
                           <div class="media-left media-middle">
                             <a href="{{ cat_serv.get_absolute_url }}">
                                 {% if cat_serv.photo %}
-                                        <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image Categorie Service" width="200" height="200">
+                                        <img class="media-object" src="/dyvixitsolutions/media/{{ cat_serv.photo }}" alt="Image {{ cat_serv.titre|safe|title }}" width="200" height="200">
                                 {% else %}
-                                    <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image Categorie Service" width="200" height="200">
+                                    <img class="media-object" src="{% static 'assets/img/no_pix.jpeg' %}" alt="Image {{ cat_serv.titre|safe|title }}" width="200" height="200">
                                 {% endif %}
                             </a>
                           </div>
                           <div class="media-body">
-                            <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre|title }}</a></h4>
-                            <p>{{ cat_serv.desc|capfirst|truncatewords:150 }}</p>
+                            <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre|safe|title }}</a></h4>
+                            <p>{{ cat_serv.desc|safe|capfirst|truncatewords:150 }}</p>
                           </div>
                         </div>
                     </div>
@@ -52,8 +44,8 @@
                     <div class="well">
                         <div class="media">
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre|title }}</a></h4>
-                        <p>{{ cat_serv.desc|capfirst|truncatewords:150 }}</p>
+                        <h4 class="media-heading"><a href="{{ cat_serv.get_absolute_url }}">{{ cat_serv.titre|safe|title }}</a></h4>
+                        <p>{{ cat_serv.desc|safe|capfirst|truncatewords:150 }}</p>
                       </div>
                       <div class="media-right media-middle">
                         <a href="/dyvixitsolutions/services/category/{{ cat_serv.get_absolute_url }}">
@@ -80,24 +72,10 @@
 
 
 
-
-{% block breadcrumb %}
-    <div class="row"><!-- row -->
-        <div class="col-lg-4">
-        </div>
-        <div class="col-lg-8">
-            <ol class="breadcrumb">
-                <li class="active"><span class="glyphicon glyphicon-home"></span> Acceuil</li>
-                <li ><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</a></li>
-                <li ><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Services</a></li>
-                <li ><a href="/dyvixitsolutions/produits/"><span class="glyphicon glyphicon-barcode"></span> Produits</a></li>
-                <li ><a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span> References</a></li>
-                <li ><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</a></li>
-            </ol>
-        </div>
-    </div>
-
+{% block bc_acceuil %}
+    class="active"
 {% endblock %}
+
 
 {% block javascript %}
     <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>
