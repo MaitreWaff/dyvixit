@@ -88,7 +88,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'fr-fr' # 'en-us'
 
-TIME_ZONE = 'Afrique/Douala' # 'UTC'
+TIME_ZONE = 'Africa/Douala' # 'UTC'
 
 USE_I18N = True
 
