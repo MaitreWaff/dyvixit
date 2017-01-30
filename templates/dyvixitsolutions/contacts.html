@@ -46,7 +46,7 @@
                 {% endfor %}
               </div>
           {% else %}
-            <p>No Contacts.</p>
+            <p>Pas de Contacts pour l'instant.</p>
           {% endif %}
 
 
@@ -59,6 +59,7 @@
     class="active"
 {% endblock %}
 
+{% block bc_href_contacts %}<span class="glyphicon glyphicon-phone-alt"></span> Nous contacter{% endblock %}
 
 {% block javascript %}
     <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>

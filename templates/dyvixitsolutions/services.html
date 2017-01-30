@@ -2,16 +2,11 @@
 {% load static %}
 {% load url from future %}
 
-
 {% block page-title %} Categories Services {% endblock %}
-
-
 
 {% block nav_services %}
     class="active"
 {% endblock %}
-
-
 
 {% block contenu %}
     <div class="alert alert-info" role="alert">
@@ -80,6 +75,7 @@
     class="active"
 {% endblock %}
 
+{% block bc_href_services %}<span class="glyphicon glyphicon-flag"></span> Services{% endblock %}
 
 {% block javascript %}
     <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>

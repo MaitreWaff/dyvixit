@@ -3,22 +3,9 @@
 
 {% block page-title %} Assistant Aux Besoins {% endblock %}
 
-
-{% block navigation %}
-    <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="/dyvixitsolutions/"><p><span class="glyphicon glyphicon-home"></span> Acceuil</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/about/"><p><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/services/"><p><span class="glyphicon glyphicon-flag"></span> Services</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/produits/"><p><span class="glyphicon glyphicon-barcode"></span> Produits</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/references/"><p><span class="glyphicon glyphicon-globe"></span> References</p></a></li>
-        <li role="presentation"><a href="/dyvixitsolutions/contact/"><p><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</p></a></li>
-    </ul>
-{% endblock %}
-
-
 {% block contenu %}
     <div class="alert alert-info" role="alert">
-      <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions</h1></a> <!-- {% url 'cahier_des_charges_informatique' %} -->
+      <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions</h1></a>
     </div>
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -30,17 +17,14 @@
               {% csrf_token %}
 
           <!-- Here we'll display form -->
-
           <span>Les éléments avec un astérisque (*) sont obligatoires</span>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
               {% for cat_serv in list_categorie_service %}
-
-
                   <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="heading{{ forloop.counter }}">
                       <h4 class="panel-title">
                         <a {% if forloop.first %} {% else %} class="collapsed"{% endif %} role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}" {% if forloop.first %} aria-expanded="true" {% else %} aria-expanded="false" {% endif %} aria-controls="collapse{{ forloop.counter }}">
-                          <span class="glyphicon glyphicon-king"> </span> {{ cat_serv.titre|title }}
+                          <span class="glyphicon glyphicon-link"> </span> {{ cat_serv.titre|safe|title }}
                         </a>
                       </h4>
                     </div>
@@ -68,36 +52,26 @@
 
 
                       <br />
-                          {% if cat_serv.service_set.all %}
-                          <fieldset>
-                              <legend>Services {{ cat_serv.titre|title }} :</legend>
-                              <ul>
-                                  {% for serv in cat_serv.service_set.all %}
-                                    <li><input type="checkbox" id="cbserv{{ serv.id }}" name="checkbox service {{ serv.id }}"/><label for="cbserv{{ serv.id }}">{{ serv.libelle }}</label></li>
-                                  {% endfor %}
 
-                              </ul>
+                <fieldset>
+                    <legend>Services {{ cat_serv.titre|safe|title }} :</legend>
+                    {% if cat_serv.service_set.all %}
+                        <ul>
+                        {% for serv in cat_serv.service_set.all %}
+                        <li><input type="checkbox" id="cbserv{{ serv.id }}" name="checkbox service {{ serv.id }}"/><label for="cbserv{{ serv.id }}">{{ serv.libelle }}</label></li>
+                        {% endfor %}
 
-                          </fieldset>
-
-                          {% else %}
-
-                          <fieldset>
-                              <legend>Services {{ cat_serv.titre|title }} :</legend>
-                              <p>No Service in this Category.</p>
-
-                          </fieldset>
-                          {% endif %}
-
-                      <br />
+                        </ul>
+                    {% else %}
+                        <p>Ajout de Services en Cours...</p>
+                    {% endif %}
+                </fieldset>
 
                       <br />
 
                       </div>
                     </div>
                   </div>
-
-
               {% empty %}
                 <p>Aucun Service disponible pour le moment...</p>
               {% endfor %}
@@ -107,7 +81,7 @@
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      <span class="glyphicon glyphicon-king"> </span> Mat&eacute;riel & R&eacute;seau Informatique
+                      <span class="glyphicon glyphicon-qrcode"> </span> Mat&eacute;riel & R&eacute;seau Informatique
                     </a>
                   </h4>
                 </div>
@@ -118,33 +92,30 @@
 
                       {% for cat_mat in list_categorie_materiel %}
 
-                      <fieldset>
-                          <legend>Mat&eacute;riel {{ cat_mat.titre|title }}</legend>
-                          <ul>
-                          {% for mat in cat_mat.materiel_set.all %}
+                          <fieldset>
+                              <legend>Mat&eacute;riel {{ cat_mat.titre|title }}</legend>
+                              <ul>
+                              {% for mat in cat_mat.materiel_set.all %}
 
-                              <li><input type="checkbox" id="cbmat{{ mat.id }}" name="checkbox materiel {{ mat.id }}"/><label for="cbmat{{ mat.id }}">{{ mat.libelle }}</label></li>
-                          {% empty %}
-                          <p>Aucun Mat&eacute;riel disponible pour cette categorie pour le moment...</p>
-                          {% endfor %}
+                                  <li><input type="checkbox" id="cbmat{{ mat.id }}" name="checkbox materiel {{ mat.id }}"/><label for="cbmat{{ mat.id }}">{{ mat.libelle }}</label></li>
+                              {% empty %}
+                              <p>Ajout de Mat&eacute;riel en Cours...</p>
+                              {% endfor %}
 
-                          </ul>
+                              </ul>
 
-                      </fieldset>
-                      <br />
+                          </fieldset>
+                          <br />
                       {% empty %}
                         <p>Aucun Mat&eacute;riel disponible pour le moment...</p>
                       {% endfor %}
 
                   <br />
 
-
                   </div>
                 </div>
               </div>
-
             </div>
-
 
         <!--<h6>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</h6><br />-->
 
@@ -155,8 +126,6 @@
                     <!--{% endfor %}-->
                   <!--{% endif %}-->
               <!--</script>-->
-
-
 
               <!--{% if form.errors %}-->
                     <!--{% for field in form %}-->
@@ -174,7 +143,8 @@
                 <!--{% endif %}-->
 
             <fieldset>
-                <legend>Pour l'entête de votre cahier des charges, saisissez vos coordonnées :</legend>
+                <legend>Pour l'ent&ecirc;te de votre cahier des charges, saisissez vos coordonn&eacute;es :</legend>
+
                 <table>
                     <!--{{ form_client.as_table }}-->
 
@@ -186,10 +156,13 @@
 
                     {% for field in form_client.visible_fields %}
                         <!--<div class="alert alert-danger" role="alert"></div><span> </span>-->
-                        {{ field.errors }}
-                        {{ field.help_text }}<br />
+
+                        {{ field.help_text }}
+                    <!--<br />-->
                         {{ field.label_tag }} <br />
-                        {{ field }}<br />
+                        {{ field.errors }}
+                        {{ field }}
+                    <br />
                     {% endfor %}
 
                     <br />
@@ -205,25 +178,6 @@
 
     </div>
 {% endblock contenu %}
-
-
-{% block breadcrumb %}
-    <div class="row"><!-- row -->
-        <div class="col-lg-4">
-        </div>
-        <div class="col-lg-8">
-            <ol class="breadcrumb">
-                <li ><a href="/dyvixitsolutions/"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
-                <li ><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</a></li>
-                <li ><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Services</a></li>
-                <li ><a href="/dyvixitsolutions/produits/"><span class="glyphicon glyphicon-barcode"></span> Produits</a></li>
-                <li ><a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span> References</a></li>
-                <li ><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</a></li>
-            </ol>
-        </div>
-    </div>
-
-{% endblock breadcrumb %}
 
 {% block javascript %}
     <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>

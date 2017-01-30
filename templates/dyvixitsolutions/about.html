@@ -1,15 +1,11 @@
 {% extends 'dyvixitsolutions/base.html' %}
 {% load static %}
 
-
 {% block page-title %} About Us {% endblock %}
-
 
 {% block nav_about %}
     class="active"
 {% endblock %}
-
-
 
 {% block contenu %}
     <div class="alert alert-info" role="alert">
@@ -31,7 +27,7 @@
 
                   <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                      <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre|title }}" width=80% heigth=auto >
+                      <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre|safe|title }}" width=80% heigth=auto >
                       <div class="caption">
                         <h4><u>{{ rea.titre|title|safe|truncatewords:"3" }}</u></h4>
                           <h5><u>Client:</u> {{ rea.client }}</h5>
@@ -44,24 +40,24 @@
                     </div>
                   </div>
             {% empty %}
-              <p>No Contacts.</p>
+              <div class="well well-sm">
+                  <p>
+                      <h3>Ajout en Cours...</h3>
+                  </p>
+              </div>
             {% endfor %}
           </div>
 
-
-
-
       </div>
-        </div>
+    </div>
 
 {% endblock %}
-
 
 {% block bc_about %}
     class="active"
 {% endblock %}
 
-
+{% block bc_href_about %}<span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?{% endblock %}
 
 {% block javascript %}
     <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>

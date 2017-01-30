@@ -1,15 +1,11 @@
 {% extends 'dyvixitsolutions/base.html' %}
 {% load static %}
 
-
 {% block page-title %} Produits De Categorie {% endblock %}
-
 
 {% block nav_produits %}
     class="active"
 {% endblock %}
-
-
 
 {% block contenu %}
     <div class="alert alert-info" role="alert">
@@ -58,13 +54,11 @@
 
 {% endblock %} <!-- block Contenu -->
 
-
-
 {% block bc_produits %}
     class="active"
 {% endblock %}
 
-
+{% block bc_href_produits %}<span class="glyphicon glyphicon-barcode"></span> Produits{% endblock %}
 
 {% block javascript %}
     <script type="text/javascript" language="JavaScript" src="{% static 'assets/js/dyvixit_maj_articles.js' %}"></script>

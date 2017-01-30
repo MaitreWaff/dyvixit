@@ -1,63 +1,63 @@
     <div class="panel panel-default" id="info-update-holder">
         <div class="panel-heading"><strong>Infos</strong></div>
-        {% if list_info %}
-            {% for inf in list_info %}
-                {% if forloop.last %}
-                <div class="panel-body last-info" id="{{ inf.id }}"><h3><a target="_blank" href="{{ inf.link }}" data-toggle="tooltip" title="{{ inf.titre|safe }}">{{ inf.titre|safe|truncatewords:"10" }}</a></h3>
-                    <p>
-                    {% if inf.photo %}
-                        <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" class="img-responsive" alt="Photo De la Derniere Info" width="225" height="225"></a>
-                    {% endif %}
-                    </p>
-                    <!--<p>-->
-                        <div class="well">
-                            <p>
-                                {{ inf.desc|safe|truncatewords:"50" }}
-                                <br />
-                                <a data-toggle="tooltip" title="{{ inf.desc|safe }}">&gt;&gt;Read More...</a>
-                            </p>
-                        </div>
 
-                    <!--</p>-->
-
-
-                </div>
+        {% for inf in list_info %}
+            {% if forloop.last %}
+            <div class="panel-body last-info" id="{{ inf.id }}"><h3><a target="_blank" href="{{ inf.link }}" data-toggle="tooltip" title="{{ inf.titre|safe }}">{{ inf.titre|safe|title|truncatewords:"10" }}</a></h3>
+                <p>
+                {% if inf.photo %}
+                    <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ inf.photo }}" class="img-responsive" alt="Photo De la Derniere Info" width="225" height="225"></a>
                 {% endif %}
-            {% endfor %}
-        {% else %}
-            <div class="panel-body last-info" id="0"><h1>Pas D'Info</h1>
-                <p>Aucune Information n'est actuellement disponible dans la BD!</p>
+                </p>
+
+                <div class="well">
+                    <p>
+                        {{ inf.desc|safe|truncatewords:"50" }}
+                        <br />
+                        <a data-toggle="tooltip" title="{{ inf.desc|safe|capfirst }}">&gt;&gt;Read More...</a>
+                    </p>
+                </div>
+
             </div>
-        {% endif %}
+            {% endif %}
+
+        {% empty %}
+            <div class="panel-body last-info" id="0"><h1>Pas D'Info</h1>
+                <div class="well">
+                    <p>Aucune Information n'est actuellement disponible dans la BD!</p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
     <div class="panel panel-default" id="astuce-update-holder">
         <div class="panel-heading"><strong>Astuces</strong></div>
-        {% if list_astuce %}
-            {% for art in list_astuce %}
-                {% if forloop.last %}
-                <div class="panel-body last-astuce" id="{{ art.id }}"><h3><a target="_blank" href="{{ art.link }}" data-toggle="tooltip" title="{{ art.titre|safe }}">{{ art.titre|safe|truncatewords:"10" }}</a></h3>
-                    <p>
-                    {% if art.photo %}
-                        <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" class="img-responsive" alt="Photo De la Derniere Astuce" width="225" height="225"></a>
-                    {% endif %}
-                    </p>
-                    <!--<p>-->
-                        <div class="well">
-                            <p>
-                                {{ art.desc|safe|truncatewords:"50" }}
-                                <br />
-                                <a data-toggle="tooltip" title="{{ art.desc|safe }}">&gt;&gt;Read More...</a>
-                            </p>
-                        </div>
-                    <!--</p>-->
 
-                </div>
+        {% for art in list_astuce %}
+            {% if forloop.last %}
+            <div class="panel-body last-astuce" id="{{ art.id }}"><h3><a target="_blank" href="{{ art.link }}" data-toggle="tooltip" title="{{ art.titre|safe }}">{{ art.titre|safe|title|truncatewords:"10" }}</a></h3>
+                <p>
+                {% if art.photo %}
+                    <a target="_blank" href="{{ inf.link}}"><img src="/dyvixitsolutions/media/{{ art.photo }}" class="img-responsive" alt="Photo De la Derniere Astuce" width="225" height="225"></a>
                 {% endif %}
-            {% endfor %}
-        {% else %}
-            <div class="panel-body last-astuce" id="0"><h1>Pas D'Astuce</h1>
-                <p>Aucune Astuce n'est actuellement disponible dans la BD!</p>
+                </p>
+
+                <div class="well">
+                    <p>
+                        {{ art.desc|safe|truncatewords:"50" }}
+                        <br />
+                        <a data-toggle="tooltip" title="{{ art.desc|safe|capfirst }}">&gt;&gt;Read More...</a>
+                    </p>
+                </div>
+
             </div>
-        {% endif %}
+            {% endif %}
+
+        {% empty %}
+            <div class="panel-body last-astuce" id="0"><h1>Pas D'Astuce</h1>
+                <div class="well">
+                    <p>Aucune Astuce n'est actuellement disponible dans la BD!</p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 

@@ -151,19 +151,19 @@
 			</div><!-- Central container -->
 
 
-				<div class="row"><!-- row -->
-					<div class="col-lg-4"></div>
-					<div class="col-lg-8">
-						<ol class="breadcrumb">
-							<li {% block bc_acceuil %} {% endblock %}><a href="/dyvixitsolutions/"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
-							<li {% block bc_about %} {% endblock %}><a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</a></li>
-							<li {% block bc_services %} {% endblock %}><a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Services</li>
-							<li {% block bc_produits %} {% endblock %}><a href="/dyvixitsolutions/produits/"><span class="glyphicon glyphicon-barcode"></span> Produits</a></li>
-							<li {% block bc_references %} {% endblock %}><a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span> References</a></li>
-							<li {% block bc_contacts %} {% endblock %}><a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</a></li>
-						</ol>
-					</div>
+			<div class="row"><!-- row -->
+				<div class="col-lg-4"></div>
+				<div class="col-lg-8">
+					<ol class="breadcrumb">
+						<li {% block bc_acceuil %} {% endblock %}>{% block bc_href_acceuil %}<a href="/dyvixitsolutions/"><span class="glyphicon glyphicon-home"></span> Acceuil</a>{% endblock %}</li>
+						<li {% block bc_about %} {% endblock %}>{% block bc_href_about %}<a href="/dyvixitsolutions/about/"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous?</a>{% endblock %}</li>
+						<li {% block bc_services %} {% endblock %}>{% block bc_href_services %}<a href="/dyvixitsolutions/services/"><span class="glyphicon glyphicon-flag"></span> Services</a>{% endblock %}</li>
+						<li {% block bc_produits %} {% endblock %}>{% block bc_href_produits %}<a href="/dyvixitsolutions/produits/"><span class="glyphicon glyphicon-barcode"></span> Produits</a>{% endblock %}</li>
+						<li {% block bc_references %} {% endblock %}>{% block bc_href_references %}<a href="/dyvixitsolutions/references/"><span class="glyphicon glyphicon-globe"></span> References</a>{% endblock %}</li>
+						<li {% block bc_contacts %} {% endblock %}>{% block bc_href_contacts %}<a href="/dyvixitsolutions/contact/"><span class="glyphicon glyphicon-phone-alt"></span> Nous contacter</a>{% endblock %}</li>
+					</ol>
 				</div>
+			</div>
 
 
 

@@ -1,36 +1,6 @@
 {% extends 'dyvixitsolutions/references.html' %}
 {% load static %}
 
-    {% block content %}
-        <ul>
-            {% for ref in object_list %}
-                <li>{{ ref.titre }}</li>
-            {% endfor %}
-        </ul>
-    {% endblock %}
-
-
-
-
-{% if slider %}
-    {% block carousel %}
-        {% for rea in slider %}
-            <div class="item {% if forloop.first %}active{% endif %}">
-              <img src="/dyvixitsolutions/media/{{ rea.photo }}" alt="{{ rea.titre }}" width=80% heigth=auto />
-              <div class="carousel-caption">
-                  <h3>{{ rea.titre }}</h3>
-                  <p>{{ rea.description }}</p>
-              </div>
-            </div>
-        {% endfor %}
-
-    {% endblock %}
-{% endif %}
-
-
-
-
-
 {% block contenu %}
     <div class="alert alert-info" role="alert">
       <a href="/dyvixitsolutions/" class="#"><h1>D'Yvix I.T. Solutions</h1></a>
@@ -40,7 +10,6 @@
         <h3 class="panel-title">Nos References</h3>
       </div>
         <div class="panel-body">
-            <!-- Ne sert strictement a rien -->
 
             {% for ref in object_list %}
                 {% if forloop.counter|divisibleby:2 %}
@@ -84,9 +53,12 @@
                 {% endif %}
                 <br />
 
+            {% empty %}
+                <div class="well">
+                    <h3>Ajout de References en Cours...</h3>
+                </div>
             {% endfor %}
 
-            <!-- Ne sert strictement a rien -->
 
             </div>
         </div>

@@ -426,11 +426,11 @@ def process_form(request):
 
     rea_similaires    = RealisationSimilaire.objects.order_by('-date')[:NOMBRE_D_IMAGE_DANS_LE_SLIDER]
 
-    categories_service = CategoryService.objects.all()
-    categories_materiel = CategoryMateriel.objects.all()
+    categories_service = CategoryService.objects.order_by('titre')
+    categories_materiel = CategoryMateriel.objects.order_by('titre')
 
-    list_service = Service.objects.all()
-    list_materiel = Materiel.objects.all()
+    list_service = Service.objects.order_by('libelle')
+    list_materiel = Materiel.objects.order_by('libelle')
 
     context_dict = {'form_client' : form_client,  \
                      'list_astuce' : astuce_list, \
