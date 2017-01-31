@@ -9,10 +9,10 @@ from django.core.urlresolvers import reverse
 from django.core.validators import RegexValidator
 
 # Variables pour l'armonisation de la taille des champs.
-CHARFIELD_LENGTH, TEXTFIELD_LENGTH = 256, 1024
+CHARFIELD_LENGTH, TEXTFIELD_LENGTH = 255, 1024
 KAMER_PHONE_CODE_MAX_LENGTH = 13
 LONG_MAX_SLUG = 128
-CODE_FACTURE_MAXLENGTH = 50
+CODE_FACTURE_MAXLENGTH = 100
 
 CODE_FACTURE_PREFIXE = "Fact/DYITS/%d/%s/%d"
 
@@ -46,11 +46,11 @@ class Fournisseur(models.Model):
     compagnie       = models.CharField(max_length=CHARFIELD_LENGTH, unique=True)
     phone           = models.IntegerField(validators=[phone_regex], unique=True)
     email           = models.EmailField(unique=True)
-    address         = models.TextField()
+    address         = models.TextField(max_length=TEXTFIELD_LENGTH)
     
     class Meta:
         ordering    = ['compagnie']
-	unique_together = ['compagnie', 'phone', 'address']
+	unique_together = ['compagnie', 'phone'] # , 'address'
 
     def __unicode__(self):
         return "Ste %s (%s): %d" % (self.compagnie, self.email, self.phone)
@@ -65,11 +65,11 @@ class Client(models.Model):
     fonction        = models.CharField(max_length=CHARFIELD_LENGTH, blank=True)
     phone           = models.IntegerField(validators=[phone_regex], unique=True)
     email           = models.EmailField(unique=True)
-    address         = models.TextField(blank=True)
+    address         = models.TextField(max_length=TEXTFIELD_LENGTH, blank=True)
 
     class Meta:
         ordering    = ['societe']
-	unique_together = ['societe', 'phone', 'address']
+	unique_together = ['societe', 'phone'] # , 'address'
 
     def __unicode__(self):
         return "Client %s %s (%s a %s): %d" % (self.prenom, self.nom, self.fonction, self.societe, self.phone)
@@ -239,7 +239,7 @@ class ProduitAbstract(models.Model):
     class Meta:
         abstract = True
         ordering    = ['libelle']
-	unique_together = ['libelle', 'desc','prix']
+	unique_together = ['libelle','prix'] # , 'desc'
 
 
 class Materiel(ProduitAbstract):

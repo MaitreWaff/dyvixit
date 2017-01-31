@@ -78,8 +78,12 @@ DATABASE_PATH = os.path.join(BASE_DIR, 'db.dyvixit.sqlite3')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.dyvixit.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', # 'django.db.backends.sqlite3',
+        'NAME': 'db_dyvix', # os.path.join(BASE_DIR, 'db.dyvixit.sqlite3'),
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'MyW@lucSQL',
     }
 }
 
